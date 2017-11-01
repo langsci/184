@@ -1,0 +1,774 @@
+\documentclass[output=paper]{langsci/langscibook}
+
+\title{Revisiting the grammatical function OBJECT}
+
+\author{Stella Markantonatou\affiliation{Institute for Language and Speech Processing, Athena RIC, Greece}%
+\lastand Niki Samaridi\affiliation{Faculty of Philology, National and Kapodistrian University of Athens}}
+
+\abstract{Free subject verb MWEs of Modern Greek and English provide data that challenge the theoretical status of the syntactic notion \textsc{object}. We compare the syntactic reflexes of three types of verbal complement: objects of typical monotransitive verbs, indirect objects of ditransitive verbs and fixed accusative NPs that occur as direct complements of verbs in MWEs.  Passivisation, clitic replacement, object optionality and distribution present themselves as syntactic reflexes that draw relatively clear cut lines across these three classes of verbal complements and suggest that the Grammatical Functions OBJ(ect) and OBJ(ect)th of LFG should not be assigned to Fixed\_NP; rather a new Grammatical Function should be defined for this purpose.}
+
+\maketitle
+
+\begin{document}
+
+\section{OBJ and OBJth}\label{sec:1}
+
+\subsection{OBJ and OBJth in Modern Greek and English}
+
+It is widely claimed that the grammatical behavior of MWEs can be captured with
+the same machinery that is used for compositional structures (\citealt{Gross1988a}; \citealt{Gross1988b}; \citealt{bargmann2016}; \citealt{kaysagidioms}). We will present evidence from Modern \isi{Greek}\il{Greek} and English that possibly challenges this claim at the level of Grammatical Functions (GFs), more particularly the notion of syntactic object.  GFs are primitive concepts for Lexical Functional Grammar (LFG) that is the theoretical framework of our discussion. Other linguistic theories, such as transformational grammar \citep{baker2001} and HPSG \citep{Pollard:Sag:94} use GFs implicitly through appropriate structural interpretations.
+
+LFG distinguishes between two objects, the OBJ and the OBJth (\citealt{bresnanmoshi1990}; \citealt{dalrymple2001}). OBJ combines with prototypically transitive verbs. According to existing wisdom on syntax and semantics, the NP \textit{ton kodika ton Nazi} `the Nazi code' (\ref{ex:7:1}) is the object of the transitive verb: it is marked with the accusative case while the semantics of the eventuality of code breaking assigns it the Proto-Patient role \citep{dowty90}.
+
+\begin{exe}
+\ex \label{ex:7:1}
+\gll Turing: o kriptoγrafos pou espase ton koδika ton Nazi.\\
+     Turing: the cryptographer who broke the code the Nazi\\
+\glt `Turing: the cryptographer who broke the Nazi code.'
+\end{exe}
+
+OBJth, \citep{bresnanmoshi1990} always co-occurs with an OBJ. Its distribution is restricted to the so-called \is{ditransitive verb} ditranstive verbs. Below, the NP \textit{a book} instantiates the OBJth GF. The same NP turns up as the subject of the passivised verb (\ref{ex:7:3}).
+
+\begin{exe}
+\ex \label{ex:7:2}
+Helen gave Sue a book.
+\ex \label{ex:7:3}
+Sue was given a book.
+\end{exe}
+
+Modern Greek has a relatively small number of ditransitive verbs (\ref{ex:7:4})-(\ref{ex:7:7}) that subcategorise for OBJth  \citep{kordoni2004}. Examples (\ref{ex:7:5})-(\ref{ex:7:7}) show that Modern Greek passive ditransitive verbs pattern with standard English ones (\ref{ex:7:3}):  the NP that instantiates the OBJth does not turn up as the subject of the passive form of the verb (\ref{ex:7:6}). 
+
+\begin{exe}
+\ex \label{ex:7:4}
+\begin{xlist}
+\ex
+\gll O Petros δiδaski stin Maria tin istoria mas. \\
+          the Petros teaches to.the  Maria the history.\textsc{acc} ours\\
+\glt     `Petros teaches our history to Maria.’
+\ex
+\gll O Petros δiδaski tin Maria tin istoria mas \\
+         the Petros teaches the  Maria.\textsc{acc} the  history.\textsc{acc} ours\\
+\glt    `Petros teaches Maria our history.'
+\end{xlist}
+\end{exe}
+
+\ea
+\label{ex:7:5}
+\gll  I Maria δiδaskete tin istoria mas apo ton Petro.\\
+the Maria is.taught the history.\textsc{acc} ours by the Petros\\
+\z
+
+\ea
+\label{ex:7:6}
+\gll *I istoria mas δiδaskete tin Maria apo ton Petro.\\
+            the history ours is.taught the  Maria.\textsc{acc} by the Petros\\
+\z
+
+\ea
+\label{ex:7:7}
+\gll  I istoria mas δiδaskete stin Maria apo ton Petro.\\
+          the history ours is.taught to.the Maria by the Petros\\
+\z
+
+
+But are OBJ and OBJth that have been modeled on compositional data enough to capture MWE behavior? This is how the original question, namely whether ``compositional" syntax is appropriate for MWEs, may be couched in an LFG framework. The discussion in the remainder of this paper is structured as follows: at the second part of \sectref{sec:1} we present the diagnostics for distinguishing between the two types of object that are available in LFG, namely the OBJ and the OBJth. In \sectref{sec:2} we apply the classical constituency diagnostics on MWEs in order to identify the constituents that will instantiate the GFs. In \sectref{sec:3}, we apply the objecthood diagnostics on the constituents identified within MWEs and compare the results with the ones received from the application of the same diagnostics on compositional structures. Passives are discussed in \sectref{sec:4}. In \sectref{sec:5} we discuss the results of the application of objecthood diagnostics on MWEs, the pros and the cons of four different answers to our original question and argue in favor of the adoption of a new GF, that we call FIX. Finally, in \sectref{sec:6} we show that a large variety of MWEs can be modeled with FIX. We conclude with a set of questions open to future research.
+
+\subsection{Diagnostics for distinguishing between OBJ and OBJth }
+
+\citet{hudson1992} has discussed the following 11 diagnostics for distinguishing between English direct and indirect objects, OBJ and OBJth  respectively in LFG terms: passivisation, extraction, placement after a particle, participation in heavy-NP shift, accusative case in a true case system, lexical subcategorisation, bearing the same semantic role as the prototypical direct object, animacy, existence of idioms with the same verb head, to be the extractee of an infinitival complement, to control a depictive predicate.  Although some of these diagnostics have been shown to be disputable \citep{thomas2012},  they still provide an excellent starting point that we will adapt to the needs of Modern Greek.  Modern Greek hardly uses verb+particle constructs and has no infinitivals. Of the remaining diagnostics lexical subcategorisation, heavy NP shift, animacy and control of a depictive predicate do not apply to MWEs that have fixed structures and non-compositional semantics. The idiom-based diagnostic is left out because fixed expressions are idioms. Lastly, the extraction diagnostic will be used as a diagnostic of constituency. 
+
+We will not use semantic roles as a diagnostic because of their inherent fuzziness \citep{dowty90} and because MWEs have non-compositional semantics.  LFG assumes that OBJ can bear any or no thematic role at all since expletives can also materialize objects. It is generally accepted that Modern Greek has no overt expletives \citep{kotzoglou2001}. OBJth, on the other hand, has been restricted to ``themes'" \citep{bresnanmoshi1990}. 
+
+The NP that instantiates an OBJth never turns up as the subject in passives (\ref{ex:7:6}) while the NP that instantiates an OBJ does (\ref{ex:7:5}), (\ref{ex:7:7}).
+
+The case diagnostic yields ambiguous results in Modern Greek because direct and indirect objects and a range of adjuncts denoting time and place are instantiated with accusative NPs: of the two accusative NPs in (\ref{ex:7:8}), the NP {\normalfont \itshape ena γrama} `a letter' functions as an object while the  NP {\normalfont \itshape Paraskevi} `on Friday' is an adjunct that can be questioned with \textit{pote} `when'.  
+
+\ea%8
+    \label{ex:7:8}
+\gll Tha γrapso ena γrama ston Kosta tin Paraskevi.\\
+          will write.\textsc{1sg}   a  letter.\textsc{acc} to.the Kostas the  Friday.\textsc{acc}\\
+\glt `I will write a letter to Kostas on Friday.'
+\z
+
+Other diagnostics found in the literature seem to be language specific \citep{lam2008}. One of them is the position of the object in the sentence. In Modern Greek, normally both OBJ and OBJth follow the verb. Modern Greek is a language with relaltively free word order. Adjuncts can appear anywhere in the sentence between constituents (the exact positions depend on the type of the adjunct).
+
+We will enrich our collection of diagnostics with various types of pronominalisation \citep{radford1988} including relativisation (\ref{ex:7:9}), \textit{Who/What}-questions (\ref{ex:7:10}), (\ref{ex:7:11}) and clitic replacement (\ref{ex:7:12}). Pronominalisation has been used as a constituency diagnostic \citep{radford1988}. In certain languages relativisation has been used as a diagnostic for distinguishing between OBJ and OBJth: in Cantonese \citep{lam2008}, the OBJ of monotransitive verbs and the OBJth in ditransitive constructions are relativised with a gap while the OBJ of ditransitive constructions is relativised with a resumptive pronoun. Modern Greek does not have similar pronominalisation phenomena but we will see that  relativisation is of some interest.  We will also use \textit{Which}-questioning (\ref{ex:7:10}) that has been adopted by \citet{lam2008} in her discussion of OBJ/OBJth in Cantonese and has been briefly discussed in \citet{kaysagidioms} as well as clitic replacement (\ref{ex:7:12}). 
+
+\ea
+\label{ex:7:9}
+\gln O koδikas ton Nazi ton opio espase o Alan Turing \ldots\\
+\glt `The Nazi code that Turing broke \ldots'
+\z
+
+\ea%10
+    \label{ex:7:10}
+\gln Pion koδika espase o Alan Turing?\\
+\glt `Which code did Alan Turing break?'
+\z
+
+\ea%11
+\label{ex:7:11}
+\gln  Ti espase o Alan Turing?\\
+\glt `What did Alan Turing break?'
+\z
+
+\ea%12
+    \label{ex:7:12}
+\gll  Ton espase o Alan Turing.\\
+     him broke.\textsc{3sg} the Alan.\textsc{nom} Turing.\textsc{nom}\\
+\glt `Alan Turing broke it.'
+\z
+
+We will adopt the standard assumption that Modern Greek OBJ/OBJth  are phrasal constituents when they are not materialized by weak pronouns (clitics). Modern Greek widely uses pre-verbal clitics that have been analysed both as NPs and as affixes \citep{joseph89}. We do not think that the phrasal status of clitics bears on the issues examined here.
+
+\section{Multiwords}
+\label{sec:2}
+
+Word order permutations, adverb placement and control phenomena indicate the presence of phrasal constituents in Modern \isi{Greek}\il{Greek} MWEs. Drawing on \citet{kaysagidioms} and \cite{Samaridi:Markantonatou:14}, we assume that Modern Greek free subject verb MWEs contain an idiomatic verb predicate that selects for a free subject and a number (including zero) of (possibly) idiomatic complements. 
+
+\subsection{Constituency diagnostics}
+
+\citet{radford1988} proposes preposing, postposing and adverb interpolation as distributional diagnostics of phrasal constituents. We will use the term \textsc{word order permutations} to collectively refer to preposing and postposing. 
+
+Because we are working with MWEs that contain postverbal NPs - often of some complexity - we note that in Modern Greek, postnominal genitive NPs or weak pronouns denoting possession or some property and postnominal PPs cannot be extracted from the matrix NP (\ref{ex:7:13b}), (\ref{ex:7:14b}). The matrix NP\footnote{The matrix NP is placed in brackets `[]' in the examples (\ref{ex:7:13})-(\ref{ex:7:16}).} participates in word order permutations (\ref{ex:7:13c}), (\ref{ex:7:14c}). 
+
+\begin{exe}
+\ex \label{ex:7:13}
+\begin{xlist}
+\ex \label{ex:7:13a}
+\gll O Γianis forai [ta papoutsia tou Γiorγou].\\
+                               the Yianis wears the shoes the.\textsc{gen} Yiorgos.\textsc{gen}\\
+\glt                `Yianis wears Yiorgo’s shoes.'
+\ex \label{ex:7:13b}
+*Tou Γiorγou forai o Γianis  ta papoutsia.\\
+\ex \label{ex:7:13c}
+{[}Ta papoutsia tou Γiorγou{]} forai o Γianis.\\
+\end{xlist}
+\end{exe}
+
+\begin{exe}
+\ex \label{ex:7:14}
+\begin{xlist}
+\ex \label{ex:7:14a}
+\gll  I Eleni aγorase [ena tapsi γia γlika].\\
+                       the Eleni bought a tin for cakes\\
+\glt         `Eleni bought a tin for cakes.'
+\ex \label{ex:7:14b}
+*Γia γlika aγorase i Eleni ena tapsi.\\
+\ex \label{ex:7:14c}
+{[}Ena tapsi γia γlika{]} agorase i Eleni.\\
+\end{xlist}
+\end{exe}
+
+Furthermore, a temporal adverb may occur between the verb and its NP complement (\ref{ex:7:15a}), (\ref{ex:7:16a}) but it cannot occur within the NP (\ref{ex:7:15b}), (\ref{ex:7:16b}):
+
+
+\begin{exe}
+\ex \label{ex:7:15}
+\begin{xlist}
+\ex \label{ex:7:15a}
+\gll  O Γianis forese chthes [ta papoutsia tou Γiorγou].\\
+     the Yianis wore yesterday the shoes the Yiorgos.\textsc{gen}\\
+\glt `Yianis wore Yiorgos’ shoes yesterday.'
+\ex \label{ex:7:15b}
+*O Γianis forese ta papoutsia chthes tou Γiorγou.\\
+\end{xlist}
+\end{exe}
+
+\begin{exe}
+\ex \label{ex:7:16}
+\begin{xlist}
+\ex \label{ex:7:16a}
+\gll  I Eleni aγorase chthes [ena tapsi γia γlika].\\
+     the Eleni bought yesterday a tin for cakes\\
+\glt `Eleni bought a tin for cakes yesterday.'
+\ex \label{ex:7:16b}
+* I Eleni aγorase ena tapsi chthes γia γlika.\\
+\end{xlist}
+\end{exe}
+
+\citet{radford1988} shows that pronominals such as \textit{what} can be used to question NP constituents irrespectively of their syntactic function, namely whether they are subjects (\ref{ex:7:17}), objects (\ref{ex:7:18}) or complements of prepositions (\ref{ex:7:19}),  as well as a range of sentential complements. 
+
+
+\ea%17
+    \label{ex:7:17}
+\gll  Ti irthe to proi? To treno.\\
+             what.\textsc{nom} came the morning the train\\
+\glt        `What came in the morning? The train did.'
+\z
+
+\ea%18
+    \label{ex:7:18}
+\gll  Ti  forai  o Γianis? Ta papoutsia tou.\\
+            what.\textsc{acc}  wears the Yianis.\textsc{nom} the shoes his\\
+\glt       `What does Yianis wear? His shoes.'
+\z
+
+\ea%19
+    \label{ex:7:19}
+\gll Apo ti kriose i Eleni? Apo ton aera.\\
+           from what caught-cold the Eleni.\textsc{nom} from the wind\\
+\glt       `What gave a cold to Eleni? The wind.'
+\z
+
+We will use these diagnostics to identify phrasal constituents in MWEs. 
+
+
+\subsection{MWE constituents}
+
+Below we will use two types of free subject verb MWE:
+
+\begin{enumerate}
+\item The first type is represented with the verb MWE  (\ref{ex:7:20})  and  contains an accusative NP that is an independent nominal MWE. We know that it is independent because it can combine with several verbs and it is synonymous with the noun \textit{permission}.  We will use the label NP\_MWE to refer to this type of nominal MWEs.
+
+\ea%20
+    \label{ex:7:20}
+\gll Eδose to prasino fos γia to Erasmus+.\\
+             gave  the green.\textsc{acc} light.\textsc{acc} for the Erasmus+       \\
+\glt        `S/He gave the green light for Erasmus+.'
+\z
+
+\item  The second type contains fixed accusative NPs that do not form independent NP\_MWEs. We will use the label Fixed\_NP to denote this type of NP that here is represented with three free subject MWEs. Two of them involve the Fixed\_NP  {\normalfont \itshape ta moutra} POSS where the obligatory \textsc{POSS} anaphor is bound by the subject (\ref{ex:7:22}), (\ref{ex:7:23}).  The noun \textit {\normalfont \itshape moutra} is a colloquial word for \textit{face} (\ref{ex:7:21}). Within the MWEs, the Fixed\_NP \textit {\normalfont \itshape ta moutra} POSS does not have the meaning `POSS face'.  
+
+\ea
+\label{ex:7:21}
+\gll     Pline ta moutra sou pou ine mes ti vroma.\\
+            wash.\textsc{imp} the face.\textsc{acc} yours.\textsc{gen} that is in the dirt\\
+\glt        `Wash your face that is very dirty.'
+\z
+
+\ea
+\label{ex:7:22}
+\gll       Richno ta moutra mou.\\
+             drop.1sg  the face.\textsc{acc} mine.\textsc{gen}\\
+\glt      `I suppress my dignity.'
+\z
+
+\ea
+\label{ex:7:23}
+\gll    Kito ta moutra mou.\\
+            look.1sg the face.\textsc{acc} mine.\textsc{gen}\\
+\glt       `I look at myself.'
+\z
+\end{enumerate}
+
+Word order permutations (\ref{ex:7:24a}), (\ref{ex:7:24b}) adverb interpolation (\ref{ex:7:25a}), (\ref{ex:7:25b}) and \textit{What}-questioning (\ref{ex:7:26a}), (\ref{ex:7:26b}) establish that the NP {\normalfont \itshape ta moutra} POSS is a constituent of the respective MWEs:
+
+\ea%24
+    \label{ex:7:24}
+\ea  \label{ex:7:24a}
+\gll   Ta moutra sou na riksis.\\
+                the face.\textsc{acc} yours.\textsc{gen} to drop.\textsc{2sg}\\
+\glt             `It is your dignity that you should suppress.'
+\ex  \label{ex:7:24b}
+\gll  Ta moutra sou kita.\\
+                the face.\textsc{acc} yours.\textsc{gen} look.\textsc{2sg.imp}\\
+\glt            `Look at yourself.'
+\z
+\z
+
+\ea%25
+    \label{ex:7:25}
+\ea     \label{ex:7:25a}
+
+\gll O Γianis erikse tote ta moutra tou.\\
+                 the Yianis dropped then the face his \\
+\glt             `Then Yianis suppressed his dignity.'
+\ex     \label{ex:7:25b}
+\gll   i Eleni kitakse tote ta moutra tis.\\
+                 the Eleni looked then the face hers\\
+\glt             `Eleni looked at herself for once.'
+\z
+\z
+
+\ea%26
+    \label{ex:7:26}
+\ea   \label{ex:7:26a}
+
+\gll Erikse ta moutra tou. Ti erikse?\\
+                 dropped the face his what dropped\\
+\glt                `He suppressed his dignity. What did he do?'
+\ex   \label{ex:7:26b}
+\gll I Eleni kitakse ta moutra tis. Ti  kitakse?\\
+                 the Eleni looked the face hers what looked \\
+ \glt               `Eleni looked at her self. What did she do?'
+\z
+\z
+
+\section{OBJ, OBJth: syntactic reflexes}
+\label{sec:3}
+
+\subsection{Objecthood diagnostics and the Fixed\_NP}
+
+Constituency diagnostics seem to set apart structures with an NP\_MWE from structures with a Fixed\_NP.
+
+The passivisation diagnostic returns a range of results: (\ref{ex:7:20}) has a passive counterpart (\ref{ex:7:27a}) but (\ref{ex:7:23}) and (\ref{ex:7:24}) do not (examples (\ref{ex:7:27b}) and (\ref{ex:7:27c}) respectively):
+
+\ea%27
+    \label{ex:7:27}
+\ea  \label{ex:7:27a}
+\gll        Δothike to prasino fos γia ti δosi. \\
+            was.given the green.\textsc{nom} light.\textsc{nom} for the instalment \\
+\glt       `Permission for the instalment was given.'
+\ex  \label{ex:7:27b}
+\gll *Ta moutra mou kitachthikan (apo emena).\\
+         the face mine was.looked.at by me\\
+\glt        `I looked at myself.'
+\ex  \label{ex:7:27c}
+\gll *Na richtoun ta moutra sou (apo esena).\\
+        to be.dropped the face yours by you\\
+\glt `It is your dignity that you should suppress.'
+\z
+\z
+
+The relativisation diagnostic yields similar results: \ref{ex:7:20} does not block relative clauses targeting the NP\_MWE (\ref{ex:7:28}) while (\ref{ex:7:22}) and (\ref{ex:7:23}) block relative clauses with the Fixed\_NP as a target (\ref{ex:7:29}).
+
+\ea%28
+    \label{ex:7:28}
+\gll   to prasino fos to opio eδose i EE stous aγrotes \\
+             the green light the that gave the EU to.the farmers\\
+\glt  `the green light that EU gave to the farmers'
+\z
+
+ 
+
+\ea%29
+\label{ex:7:29}
+\gll *Ta moutra sou, pou erikses tote, na ta ksanariksis.\\
+      the face yours that dropped.\textsc{2sg} then to them re.drop.\textsc{2sg} \\
+\glt `You suppressed your dignity then and you should suppress it again.'
+\z
+
+The which-questions diagnostic returns similar results : NP\_MWEs  (\ref{ex:7:20}a) allow for which-questions (\ref{ex:7:30}) but  Fixed\_NP  (\ref{ex:7:22}),(\ref{ex:7:23}) do not (\ref{ex:7:31}).
+
+\ea%30
+\label{ex:7:30}
+\gll ?Pio prasino fos eδose i Evropaiki Enosi?\\
+             which green light gave the European Union\\
+\glt        `Which permission did the EU give?'
+\z
+
+
+(\ref{ex:7:31}) is a piece of dialogue that was evaluated by  6 native speakers who were instructed to choose one of the following three labels: ``joke", ``description of an event", ``other". All speakers chose the label ``joke". The joke, irony or pun effects seem to be due to the fact that the question \textit{which hand} is unexpected in the context of the MWE. The MWE does not imply that someone actually put his/her hand in the fire while the question \textit{which hand} shifts discourse to the literal meaning of \textit{hand}. \citet{raskin1985} argues that jokes arise from the violation of the Gricean conversational maxims that require information-bearing and serious and sincere communication. 
+
+\begin{exe}%31
+\ex \label{ex:7:31}
+\gll     Vazo to cheri mou sti fotia oti o Kostas ine athoos. Pio cheri? \\
+          put the hand my in.the fire that the Kostas is innocent which hand\\\nolinebreak
+\glt{`I am absolutely sure that Kostas is innocent. Which hand?’}
+\end{exe}
+
+
+The replacement with a clitic in discourse with the same MWE produces an interesting effect: as expected, (\ref{ex:7:20}) allows for cliticisation of the NP MWE within the same expression (\ref{ex:7:32}), however, definite Fixed\_NPs also allow for cliticisation with the same MWE (\ref{ex:7:33}):
+
+
+
+\ea%32
+\label{ex:7:32}
+\gll Eδose to prasino fos γia to Erasmus+? Ne, to eδose.\\
+ gave  the  green light for the Erasmus+? yes, it gave\\
+\glt `Did s/he give the green light for Erasmus+? Yes, s/he did.’
+\z
+
+(\ref{ex:7:33}) was also evaluated by 6  speakers who were instructed to choose one of the following three labels: ``joke", ``description of an event", ``other". They all chose the label ``description of an event". Therefore, the clitic {\normalfont \itshape ta} can be used to replace objects in the context of the same MWE.
+
+\ea%33
+    \label{ex:7:33}
+\gll Tha rikso ta moutra mou. Eγo δen ta richno. \\
+     will drop the face.\textsc{pl}$_j$ mine I not them$_j$ drop\\
+\glt `I will suppress my dignity. I will not.’
+\z
+
+\citet{tsimpli2007} following work by \citet{cardinaletti1999} and \citet{stavrakaki1999} argue that Modern \isi{Greek} third person clitics are ``clusters of agreement and case features" and that they lack a referential index - a fact that explains their need of an  antecedent.  We can safely assume that cross reference across same MWEs satisfies agreement and case features and makes sure that semantics is identical across structures.  
+
+Indefinite Fixed\_NP cannot be replaced by a clitic even in the context of the same MWE (\ref{ex:7:35}). Compositional structures (\ref{ex:7:34}) allow for clitic replacement of indefinite objects, even across different predications.
+
+\ea%34
+\label{ex:7:34}
+\gll O Γiorγos etakse stin Eleni δiakopes. Tis schediazi kero. \\
+ the Yiorgos promised to.the Eleni holidays them plans time \\
+\glt `Yiorgos has promised a holiday to Eleni. He has been planning it for some time.’
+\z
+
+\ea%35
+\label{ex:7:35}
+to promise hares with stoles~~`to make unrealistic promises'\\
+\gll 
+ Etaze laγous me petrachilia. *Tous etaze pantou.\\
+  promised  hares$_j$ with stoles them$_j$ promised everywhere\\
+\glt `He made unrealistic promises. He made these promises to everyone.’
+\z
+
+\citet{ariel2001}, in the context of \isi{Accessibility theory}, argues that ``referring expressions code a specific and (different) degree of mental accessibility" where ``mental accessibility" is meant as a shorthand of ``accessibility of mental representations that are available to the addressee in the discourse". Referential expressions are accessibility markers guiding the addressee how to retrieve appropriate mental representations. Drawing on distributional findings, Ariel suggests an ordering of referential expressions from low to high accessibility markers. On this ordering definite expressions are situated on the edge of low accessibility marking and 3\textsuperscript{rd} person clitics on the edge of high accessibility marking. This means that the addressee perceives definiteness as a signal that an entity has just been introduced to the discourse and the existence of a clitic as a signal that she has to look for an entity that has been introduced to the discourse sometime ago. Therefore, definiteness should ``attract", so to say, \is{clitic} clitics. Perhaps, definiteness is the reason why (only) definite Fixed\_NP can be replaced with a clitic. The reader should keep in mind that replacement of a Fixed\_NP with a clitic is allowed only in the strict context of the same MWE and  that  indefinite Fixed\_NP cannot be replaced (\ref{ex:7:35}).
+
+Lastly, discourse collapses if cross-reference is required across different MWEs (\ref{ex:7:36}) and across MWEs and compositional structures (\ref{ex:7:37}) (compositional structures allow for cross-reference across different predications). (\ref{ex:7:36}) and (\ref{ex:7:37}) below sound absurd. At best, (\ref{ex:7:37}) produces a joke/irony effect - an effect that was observed with \textit{Which}-questions as well. 
+
+\ea%36
+    \label{ex:7:36}
+\gll *O Petros erikse ta moutra tou ke meta ta kitakse.\\
+     the Petros dropped the face.\textsc{pl}$_j$ his and then them$_j$ looked \\
+\glt `Petros suppressed his dignity and then he looked at himself.'
+\z
+
+\ea%37
+    \label{ex:7:37}
+\gll  *Eriksa ta moutra mou. Ta icha kalipsi prin.\\
+              dropped the face.\textsc{pl}$_j$ mine. them$_j$ had covered before\\
+\glt `I suppressed my dignity. I had covered my face in advance.'
+\z
+
+\ili{English} MWEs present a picture similar to the Modern Greek one. \citet{kaysagidioms} discuss the case of the English verb MWE \textit{to kick the bucket} and apply similar diagnostics. \textit{to kick the bucket} does not passivise and relativisation, \textit{Which}-questioning and replacement of \textit{the bucket} with \textit{it}\footnote{\textit{It} is the nearest English equivalent of Modern Greek clitics.} are not possible  (\ref{ex:7:38a})-(\ref{ex:7:38c}).
+
+\begin{exe}
+\label{ex:7:38}
+\ex \begin{xlist}
+\ex \label{ex:7:38a}
+*the bucket that the peasant kicked \dots
+\ex \label{ex:7:38b}
+*Which bucket did the peasant kick?
+\ex \label{ex:7:38c}
+The peasant kicked the bucket. *Also, his wife kicked it.\\
+\end{xlist}
+\end{exe}
+
+
+\subsection{Application of objecthood diagnostics on OBJth}
+
+
+The accusative NP  {\normalfont \itshape  tin eliniki istoria} in (\ref{ex:7:39}) instantiates an OBJ and responds positively to all constituency diagnostics.\footnote{However,  it must be noted that 5 out of the 7 speakers who commented on (\ref{ex:7:39}) and especially (\ref{ex:7:40}) thought them acceptable but somewhat clumsy.} In (\ref{ex:7:40}) the definite NP {\normalfont \itshape tin eliniki istoria} instantiates an OBJth. 
+
+\ea%39
+    \label{ex:7:39}
+\gll O Petros δiδaski stin kopela tin eliniki istoria. \\
+     the Petros  teaches to.the girl the Greek.\textsc{acc} history.\textsc{acc}\\
+\glt `Petros teaches the Greek history  to the girl.'
+\z
+
+\ea%40
+    \label{ex:7:40}
+\gll O Petros δiδaski tin kopela tin eliniki istoria.\\
+     the Peter  teaches the girl.\textsc{acc} the Greek.\textsc{acc} history.\textsc{acc}\\
+\glt `Peter teaches the girl the Greek history.'
+\z
+
+We have already illustrated with examples (\ref{ex:7:5})-(\ref{ex:7:7}) that the Modern Greek OBJth patterns with the English  OBJth as regards passivisation. 
+
+Relativisation is somehow unwelcome with an OBJth: (\ref{ex:7:41a}), (\ref{ex:7:41b}) were accepted as grammatical by a 50\% of the speakers.
+
+\ea%41
+\label{ex:7:41}
+\ea \label{ex:7:41a}
+\gll i kopela pou δiδaski o Petros tin eliniki istoria\\
+     the girl.\textsc{nom}  who teaches the Petros the Greek history.\textsc{acc}\\
+\glt `the girl to whom Petros teaches the Greek history'
+\ex \label{ex:7:41b}
+\gll i eliniki istoria pou δiδaski o Petros ti kopela\\
+     the Greek history.\textsc{nom} that teaches the Petros the  girl.\textsc{acc}\\
+\glt `the Greek history that Petros teaches to the girl'
+\z
+\z
+
+The \textit{Which}-questions diagnostic returns a variety of results: (\ref{ex:7:42a}) was rejected by all the speakers while (\ref{ex:7:42b}) was accepted as grammatical by a 50\% of the speakers.
+
+\ea%42
+\label{ex:7:42}
+\ea \label{ex:7:42a}
+\gll           *Pia kopela δiδaski o Petros tin eliniki istoria?\\
+                which girl teaches the Petros the Greek history.\textsc{acc}\\
+%\glt           `Which girl does Petros teach the Greek history?'
+\ex \label{ex:7:42b}
+\gll Pia istoria  δiδaski o Petros ti kopela?\\
+               which history teaches the Petros the girl?\\
+\z
+\z
+
+While OBJ can be replaced with a clitic (\ref{ex:7:43a}), replacement of OBJth with a clitic is not possible in discourse with the same predication (\ref{ex:7:43b}).
+
+\ea%43
+\label{ex:7:43}
+\ea \label{ex:7:43a}
+\gll O Petros tin δiδaski tin eliniki istoria.\\
+                the Petros her teaches the Greek history\\
+\glt            `Petros teaches her the Greek history'.
+\ex \label{ex:7:43b}
+\gll *O Petros tin(=history) δiδaski tin kopela.\\
+                  the Petros it teaches the girl\\
+\z
+\z
+
+Replacement of an OBJth with a clitic is possible in a discourse with a different predication. In (\ref{ex:7:44}), the clitic {\normalfont \itshape tin} may refer to either an NP instantiating an OBJ ({\normalfont \itshape tin Maria} `Maria') or to the complement of a P ({\normalfont \itshape stin Maria} `to Maria'). Furthermore, the  clitic {\normalfont \itshape tin} in the second clause refers to the NP {\normalfont \itshape tin eliniki istoria} `the Greek history' that instantiates the OBJth.
+%The referential nature of the NPs allows the clitics to be anchored to them in contrast with examples  (\ref{ex:7:36}) and (\ref{ex:7:37}).
+
+\ea%44
+    \label{ex:7:44}
+\gll O Petros δiδaski  s/tin Maria tin eliniki istoria.\\
+            the Petros teaches to.the Maria/Maria the Greek history \\
+\gll Tin echi kani na tin aγapisi.\\
+     her has made to it like\\
+\glt `Petros teaches Maria the Greek history. He has made her love it.'
+\z
+
+Similar results are received if the same diagnostics are applied on English OBJth  \citep{dalrymple2012double}:   the English OBJth cannot be replaced by \textit{it} (\ref{ex:7:45}).
+
+\begin{exe}%45
+\ex \label{ex:7:45}
+*John gave Mary it.\\
+\end{exe}
+
+\subsection{The overall syntactic behavior of OBJ, OBJth and of the (yet unknown) GF assigned to Fixed\_NP}
+
+The results of the application of the diagnostics on the GF assigned to Fixed\_NP, OBJ, OBJth and ADJ instantiated with accusative NPs  including optionality, case marking and position in the sentence are summarized in \tabref{tab:1}. We have not provided detailed data for the application of the diagnostics on ADJ.
+
+Direct objects can be optional in Modern Greek (\citealt{anastasopoulos2013}). \citet{kordoni2004} presents Modern Greek data where OBJth is omitted. MWEs, on the other hand, hardly allow for constituent skipping.  
+
+
+\begin{table}[h!]
+\begin{tabular}{lllllll}
+\lsptoprule
+Phenomenon & Fix\_NP  & Fix\_NP  & OBJ  &  OBJth  &  OBJth  & NP adj \\
+Language & EL & EN & EL & EL & EN & EL \\
+\midrule
+Optionality & N & N & Y & Y & N & Y\\
+Relativisation & N & N & Y & ?Y & Y & Y\\
+\textit{Which}-questions & N & N & Y & ?Y & Y & Y\\
+Clitic—same MWE & Y & N* & Y & N &  N* & N\\
+Clitic-different MWE & N & N* & Y & Y & N*  & N\\
+Clitic-compositional  & N & N* & Y & Y & N* & N\\
+Accusative Postverbal &  Y  & Y &  Y  &  Y  & Y &  Y/N\\
+Passivisation & N & N & Y\# & N & N & N\\
+\lspbottomrule
+\end{tabular}
+
+\caption[The overall syntactic behavior of OBJ, OBJth, ADJ, and the GF assigned to Fixed\_NP according to the objecthood diagnostics]{The overall syntactic behavior of OBJ, OBJth, ADJ, and the GF assigned to F(ixed)\_NP according to the objecthood diagnostics.\footnote{Clarifications on \tabref{tab:1}:
+\begin{enumerate}
+\item Fix\_NP: it stands for Fixed\_NP.
+\item N*: English has no clitics. We refer to the usage of the pronoun \textit{it} - see (\ref{ex:7:38c}) and (\ref{ex:7:45}).
+\item Y\#: Not all transitive verbs have passive counterparts in Modern Greek.
+\item ?Y: Speakers responses were not unanimous.
+\item Y/N: Modern Greek accusative NP adjuncts can appear in both pre- and post- verbal positions.
+\end{enumerate}}}
+\label{tab:1}
+\end{table}
+
+The feature ``accusative postverbal" takes the same value for all   the examined categories and has no discriminating role, therefore it will not be taken into account in the remainder of this discussion. Furthermore,  ADJ, OBJ and OBJth respond positively to relativisation and \textit{Which}-questions indicating that the two diagnostics are sensitive to the semantics of the NPs rather than their syntactic function \citep{kaysagidioms}. These diagnostics will not be used as objecthood diagnostics for Modern Greek or English. 
+
+A more detailed picture of the situation with passivisation in our collection of Modern Greek verb MWEs is given in the next section.
+
+\section{A more detailed picture of passivisation in Modern Greek MWEs}
+\label{sec:4}
+
+Out of a collection of 1120 verb MWEs\footnote{\url{http://users.sch.gr/samaridi/attachments/article/
+3/LexicalResources.pdf}} a percentage of   57,5\%  are formed with verbs that have a passive counterpart. The remaining 42,5\%  are formed with verbs that have no \is{passivisation} passive counterpart. Of the MWEs that are formed with verbs that have a passive counterpart in the general language, only 53 have a passive MWE counterpart. Among the passivisable MWEs, 24 contain a free accusative NP that becomes the subject of the passive form (\ref{ex:7:46}), 6 contain an NP\_MWE (\ref{ex:7:27}) and 23 contain a Fixed\_NP. Of the MWEs that are formed with passivisable verbs but do not have a passive MWE counterpart, 76 contain a free accusative NP, 24 contain an accusative NP\_MWE and 221 contain a Fixed\_NP. Percentages in \tabref{tab:2} are calculated over the whole data set (1120 MWEs).
+
+\begin{exe}
+\ex \label{ex:7:46}
+\gll O oros Kinotita \ldots afethike stin istoriki isichia tou\\
+     the term Community \ldots  was-left to.the historical calmness its\\
+\glt `The term Community was left alone in its historical peace.'\\
+\url{http://commonsfest.info/2015/i-istoria-ton-kinon-ston-elliniko-choro/} 
+\end{exe}
+
+
+\begin{table}
+\begin{tabular}{lllllll}
+\lsptoprule
+\textbf{Verbs} & \textbf{Total} & \textbf{MWE} & \textbf{Total} & \textbf{Complement} & \textbf{Total} \\
+passive & 644  & passive & 53  & Free NP & 24 (2,1\%) \\
+& (57,5\% ) &  & (4,7\%) & NP\_MWE & 6 (0,54\%) \\
+&  &  &  & Fixed\_NP & 23 (2\%) &\\
+&  & { no passive} &  591  & Free NP & 76 (6,8\%) \\
+&  &  & (52,7\%) & NP\_MWE & 24 (2,1\%) & \\
+&  &  &  & Fixed\_NP & 221 (19,7\%) \\
+ no passive & 426  &  &  &  &   \\
+ & (42,5\%) & &  &  &  &   \\ \hline
+\textbf{Total}   & 1120 &  &  &  &  \\
+\lspbottomrule
+\end{tabular}
+\caption{Passives in the dataset of Modern Greek free subject verb MWEs}
+\label{tab:2}
+\end{table}
+
+
+
+Several of the passivisable MWEs contain  Fixed\_NP whose head nouns seem to instantiate senses different from the nouns' literal ones. For instance, the noun {\normalfont \itshape  metra} whose literal sense is `meters',  is used with the sense `measures' in  (\ref{ex:7:47}).  Such senses are used widely in compositional structures. Along with  idioms, the collection used also includes collocations. 
+
+\ea\label{ex:7:47}
+\gll  Afta ine ta metra pou katethese i elliniki kivernisi. \\
+          these are the measures that submitted the Greek government \\
+\glt `These are the measures that the Greek government submitted.'
+\z
+
+If these collocations are put aside, only a percentage of 1\% corresponds to passivisable MWEs with a Fixed\_NP. In (\ref{ex:7:48}) the Fixed\_NP {\normalfont \itshape meγala loγia} is the subject of the passive form of the MWE {\normalfont \itshape leo meγala loγia} `to make big promises'.
+
+\ea\label{ex:7:48}
+\gll  Ine sinithes na leγonte meγala loγia apo mikrus politikus. \\
+        is common to say.\textsc{pass} big words by small politicians  \\
+\glt `Often unimportant politicians make big promises.'\\
+\z
+
+The collection we have used is of relatively medium size  but clearly shows that Modern Greek MWEs do not prefer passivisation: passivisable MWEs (both fixed ones and collocations) account only for the 4,7\% of the total number of MWEs.
+
+\section{OBJ, OBJth or some NEW GF?}
+\label{sec:5}
+Turning now to our main question, namely whether OBJ or OBJth can be assigned to Fixed\_NP or whether a new GF \is{Lexical Functional Grammar (LFG)} should be defined.  In what follows we will use the collective name ``meaning preserving NPs" for Fixed\_NP with heads with independent, non literal senses, accusative NP\_MWE and, of course, for free accusative NPs. The picture that has emerged so far reveals three groups of verb MWE:
+
+
+Croup 1: The group of passivisable verb MWEs that contain meaning preserving NPs and satisfy objecthood diagnostics; it comprises the majority of passivisable Modern Greek MWEs.  
+
+
+
+Group 2: The group of non passivisable verb MWEs  containing both meaning preserving NPs and Fixed\_NP.
+
+
+
+Group 3: The rather small group (1\%) of passivisable verb MWEs that contain Fixed\_NP.
+
+
+%We can safely say that Group 1 contains verb MWEs whose verbal head selects for an OBJ because all obejcthood diagnostics are satisfied; the lexical rule for passivisation\footnote{Our analysis is cast within the LFG theoretical framework where passivisation is modelled with lexical rules. Lexical rules change various properties of the predicates and in the case of passivisation they change both the morphology and the valency of an active predicate. More particularly, the LFG lexical rule for passivisation takes as input an active transitive predicate and maps the active OBJ on the SUBJ of the output passive  predicate and the active SUBJ on an adjunct of the passive predicate.} that requires an OBJ applies normally on these MWEs.
+We can safely say that Group 1 contains verb MWEs whose verbal head selects
+for an OBJ because all obejcthood diagnostics are satisfied. In  LFG, passivisation
+ is modelled with a  lexical rule that takes as input an active transitive predicate
+and maps the active OBJ on the SUBJ of the output passive predicate and the active SUBJ on
+an adjunct of the passive predicate. We  assume that the LFG lexical rule
+for passivisation that requires an OBJ applies normally on these MWEs.
+Furthermore, an OBJ function can be assigned to passivisable verb MWEs with a Fixed\_NP that constitute Group 3; the set of such verb MWEs is very small and it will be harmless to consider them idiosyncratic (further research might reveal interesting aspects of these Fixed\_NP). 
+
+Group 2 comprises verb MWEs that do not passivise but contain both meaning preserving NPs that satisfy objecthood diagnostics except for passivisation, and Fixed\_NP that satisfy only clitic replacement in the same MWE context provided they are definite.  
+
+\citet{kaysagidioms} discuss a similar distribution of English MWEs. In order to model the dichotomy introduced by passivisable versus non-passivisable MWEs, they split verbs into real transitive and pseudo transitive ones.\footnote{In the revised version of the manuscript http://www1.icsi.berkeley.edu/~kay/idiom-pdflatex.11-13-15.pdf the transitive/pseudo-transivite dichotomy has been replaced with the distinction between meaningful and meaningless idiomatic complements of idiomatic verb predicates, the assumption being that passivisation applies on meaningful objects. Of course, in compositional language there are several verbs that accept meaningful objects and still do not passivise while expletives do turn up as subjects of passive verbs.} Real transitive verbs correspond to Group 1 above. The class of pseudo transitive verbs of Kay and Sag includes verbs of measurement such as \textit{cost}, \textit{weigh}, \textit{measure} and MWEs with Fixed\_NP such as \textit{to kick the bucket}, therefore pseudo transitive verbs can be considered a superset of Group 2. By definition then, pseudo transitive verbs do not select real objects therefore they do not passivise.  Furthermore, Kay and Sag observe that (like Modern Greek MWEs) several English MWEs with fixed NPs fail the relativisation and \textit{Which}-question objecthood diagnostics; however, they note that the failure can be explained on semantic or pragmatic constraints on the diagnostics. Passivisation cannot be considered a semantics sensitive diagnostic because expletives and Fixed\_NP turn up as subjects of passivised MWEs. Therefore, the proposed splitting of verbs into transitive and pseudo-transitive ones draws on passivisation ability solely and membership in each of the two groups is a lexical property of the verb. 
+
+The \cite{kaysagidioms} approach, that we have discussed so far,  relies on the verb predicate in order to explain the non-uniform behavior of ``objects". Doug Arnold\ia{Arnold, Doug} (University of Essex, personal communication) has suggested an alternative approach, namely that the Fixed\_NP could be blamed for the scarcity of MWE passives. The two approaches, the verb predicate oriented and the Fixed\_NP oriented one, can be transcribed in LFG in one of the four ways below:
+
+\begin{enumerate}
+\item  (verb predicate oriented): Some feature of the type \textsc{+/-passivises} is defined in the lexical entry of the verb and the OBJ GF is assigned to Fixed\_NP
+\item (verb predicate oriented): The verb does not select an OBJ; rather it selects some other GF therefore the passivisation lexical rule that requires an OBJ cannot be applied
+\item (Fixed\_NP oriented): The head of the Fixed\_NP is associated with the inside-out constraint (OBJ\^{}) in the lexicon (Doug Arnold's proposal); the result of the constraint is that the Fixed\_NP is able to realise only the OBJ GF and no other GF. 
+\item (Fixed\_NP oriented): The case of the Fixed\_NP  is fixed to \textsc{acc}-usative.
+\end{enumerate}
+
+Hypotheses 3 and 4 seem to be equivalent in the case of Modern Greek and English where subjects of main clauses are marked with the nominative case. As a result, an NP inherently marked as \textsc{acc}  cannot instantiate a SUBJ GF therefore this NP cannot participate to alternations that result to a change of case, such as the passivisation and the causative-inchoative alternation. The inside-out constraint (OBJ\^{}) of hypothesis 3 has the same effect. However, there are Modern Greek passivisable verbs that head non-passivisable MWEs with a non-causative counterpart where the Fixed\_NP  is the subject. For instance, the MWE  {\normalfont \itshape anavo ta labakia kapiu} `I make somebody angry' does not have a passive counterpart (\ref{ex:7:49a}) although it is headed by a causative verb that has a passive counterpart in compositional language. However, the expression has a non-causative counterpart (\ref{ex:7:49b}) where the Fixed\_NP \textit{ta labakia} turns up as a subject in the nominative case. 
+
+\ea%49
+\label{ex:7:49}
+\ea \label{ex:7:49a}
+\gll  *Anaftikan ta labakia tou Petrou apo emena.  \\
+       turn-on.\textsc{pass} the lights.\textsc{acc} the.\textsc{gen} Petros.\textsc{gen} by me \\
+\glt `I made Petros angry.'
+\ex \label{ex:7:49b}
+\gll Anapsan ta labakia tou Petrou \\
+     turn-on.\textsc{act} the lights.\textsc{nom} the.\textsc{gen} Petros.\textsc{gen} \\
+\glt    `Petros got angry.'
+\z
+\z
+
+In addition, there are causative/non-causative MWE pairs that are headed by different verbs such as the causative MWE (\ref{ex:7:50a}) and its non-causative counterpart (\ref{ex:7:50b}). Such examples suggest that the hypothetical constraint (OBJ\^{})  originates from  the causative form of the verb and not from the Fixed\_NP. Furthermore, the use of Fixed\_NP in titles as illustrated with example (\ref{ex:7:51b})\footnote{The conjunction in (\ref{ex:7:51b}) ensures the nom case of  the Fixed\_NP.}, in particular, the use of Fixed\_NP that feature in verb MWEs that have no non-causative counterpart (\ref{ex:7:51a}), suggests that the Fixed\_NP oriented approach should be abandoned.   
+
+
+\ea%50
+\label{ex:7:50}
+\ea \label{ex:7:50a}
+\gll Richno ta moutra mou.\\
+        drop.\textsc{1sg} the face.\textsc{acc} mine\\
+\glt `I suppress my dignity. '
+\ex \label{ex:7:50b}
+\gll Peftoun ta moutra mou.\\
+         fall.\textsc{3sg} the.face.\textsc{nom} mine\\
+\glt   `My dignity is suppressed .'
+\z
+\z
+
+
+\ea%51
+\label{ex:7:51}
+\ea \label{ex:7:51a}
+\gll  Pino to pikro potiri.\\
+            drink the bitter.\textsc{acc} glass.\textsc{acc}\\
+\glt   `I have a difficult time.'
+\ex \label{ex:7:51b}
+\gll to pikro potiri, o Alexis ke o Kiriakos\\
+     the bitter glass, the Alexis.\textsc{nom} and the Kiriakos.\textsc{nom}\\
+\glt   `the difficult time, Alexis and Kiriakos'\\
+\url{http://www.logiastarata.gr/2016/01/blog-post_194.html} 
+\z
+\z
+
+We now turn to the verb predicate oriented hypotheses. Hypothesis 2 suggests that the verb assigns to the Fixed\_NP some GF other than the OBJ GF.  It would make sense to assume that Fixed\_NP instantiates OBJth if Fixed\_NP occurred in ditransitive constructions exclusively, but it occurs with a large variety of verbs. In addition, OBJth is restricted to themes; it would be risky to apply semantic roles on the idiomatic meanings of Fixed\_NP and of verbs in MWEs.  Furthermore, OBJth cannot be replaced with a clitic  but can be omitted \citep{kordoni2004}.  For all these reasons, the OBJth GF is an unattractive hypothesis for Fixed\_NP.
+
+
+Hypothesis 1 suggests that OBJ is assigned to Fixed\_NP and some feature of the type \textsc{+/-passivises} is defined on the lexical entry of the verb. This is not a semantic feature because a robust theory that attributes passivisation to verbal semantics is not available yet. On the other hand, such a feature is needed anyway in LFG, otherwise the passivisation lexical rule will apply on verbs like {\normalfont \itshape spao} `break' (\ref{ex:7:1}) that select a SUBJ and an OBJ. 
+
+However, hypothesis 1 is less principled than a GF-based approach. Features are dedicated to specific phenomena while GFs avail themselves to wider generalisations, for instance OBJth has been used to encode the behavior of ditransitives and applicatives cross-linguistically \citep{bresnanmoshi1990}.  In the case of Fixed\_NP, apart from passivisation there is a need to encode two more facts that do not characterise OBJ and cannot be stated as a property of non-passivisable verbs: only Fixed\_NP introduced with a definite article can be replaced with a clitic in Modern Greek while the English Fixed\_NP cannot be replaced with \textit{it}, and that Fixed\_NP are obligatory in both languages.
+
+In the light of the discussion above, one could be tempted to define a new GF that would be instantiated by Fixed\_NP. Let us call this GF FIX. The facts we have seen so far that favor the new GF approach, and would be the defining features of FIX, are the following: 
+
+\begin{itemize}
+\item Distributional/semantic: Fixed\_NP can be found only with MWEs 
+\item No passivisation: Fixed\_NP do not appear as subjects of passive MWEs (very strong tendency)
+\item Replacement with a clitic: it is restricted to definite Fixed\_NP only
+\item Optionality: Fixed\_NP is hardly optional
+\item Cross-linguistic evidence: Similar behavior is observed in at least two languages, English and Modern Greek.
+\end{itemize}
+
+
+We have already alluded to the fact that the combined effect of the OBJth and the proposed FIX is not enough to model the range of non-passivisable verbs. FIX could be assigned to Fixed\_NP and, probably, to the objects of measurement verbs and, generally, to verbs whose object cannot be assigned some clear semantic role. However, it would seem awkward to lump the Modern Greek typically transitive but non-passivisable change\_of\_state verbs like {\normalfont \itshape spao} `break' (\ref{ex:7:1}) together with MWEs and measurement verbs; change\_of\_state verbs clearly assign the Proto-Patient semantic role to their objects while it is hard to pin down the role that is assigned by measurement verbs and MWEs to the accusative NPs that we discuss here.  A clearly unwelcome feature of the GF approach is that it leaves room for more object-like GFs that block passivisation and are selected by rather specific types of predicate, given that OBJth is selected by ditransitives and applicatives and FIX by MWE verbal heads only. Certainly, it would be preferable to keep the GF population small in size because GFs are primitive concepts of LFG \citep{dalrymple2001}. 
+
+Despite the problems discussed above, we would opt for FIX, because it is more principled since it generalises over properties of English and Modern Greek MWEs. Below, we will attempt to endorse our preference with more facts drawn from Modern Greek MWEs.
+
+\section{Words\_With\_Spaces and the FIX}
+\label{sec:6}
+Fixed\_NP comprise more complex phrasal structures than the ones we have seen so far. These may  be of the type \textsc{determiner+adjective+noun}  (\ref{ex:7:51}), \textsc{NP.gen+} \textsc{noun}\footnote{\textsc{NP.gen+noun} can be free or fixed; (\ref{ex:7:50}) exemplifies a free genitive NP.}, or \textsc{noun+NP.gen} 
+or \textsc{noun+PP} (\ref{ex:7:35}).  These MWEs do not passivise. (\ref{ex:7:51}), (\ref{ex:7:52}) can be replaced with a clitic within the same predication because the \linebreak Fixed\_NP are introduced with the definite article while the NP in (\ref{ex:7:35}) is not. 
+
+\ea
+\label{ex:7:52}      
+\gll        Efaγan tin skoni tou Δiamantiδi\\
+             ate.\textsc{3pl} the dust.\textsc{acc} the diamantidis.\textsc{gen}\\
+\glt         `They were overtaken by Diamantidis.'
+\z
+
+
+In fact, a wider range of fixed strings behave as single complements of the MWE verb \citep{Samaridi:Markantonatou:14}. Here we will exemplify the idea with a predication structure. 
+
+The compositional equivalent of the fixed string in (\ref{ex:7:53a}) is that of an object that controls a predicative complement. The string  {\normalfont \itshape to psomi psomaki} (\ref{ex:7:53a}) is fixed because its parts cannot be separated (\ref{ex:7:53b}) and no free XP can intervene (\ref{ex:7:53c}). At the same time, constituency diagnostics show that it is a constituent ((\ref{ex:7:53a})-word order permutations, (\ref{ex:7:53d})-temporal adverb interpolation) and can be questioned (\ref{ex:7:53e}).  The fixed string is introduced with a definite article and can be replaced with a clitic in the context of the same MWE (\ref{ex:7:53}f). Therefore, {\normalfont \itshape to psomi psomaki} behaves like a Fixed\_NP. 
+
+\ea\label{ex:7:53}
+\ea \label{ex:7:53a}
+\gll  Leme [to psomi psomaki]. / [To psomi psomaki] leme. \\
+               call.\textsc{1pl} the bread little-bread\\
+\glt           `We are starving.'
+
+\ex \label{ex:7:53b}
+*To psomi leme psomaki. / *Psomaki leme to psomi.\\
+\ex \label{ex:7:53c}
+\gll *Leme to γliko psomi kaimeno psomaki \\
+                  say the sweat bread poor little-bread\\
+\ex \label{ex:7:53d}
+\gll  Leme tora to psomi psomaki.\\
+               call now the bread little-bread\\
+\glt           `We are starving now.'
+\ex \label{ex:7:53e}
+\gll  Ti leme tora? To psomi psomaki.\\
+                 what  call now? the bread little-bread\\
+\ex \label{ex:7:53f}
+\gll   Leme to psomi psomaki. -Ne, to leme.\\
+         say the bread little-bread. yes,  it say\\
+\glt       ‘We are starving. – Yes, we are.’
+\z
+\z
+
+  The fixed string {\normalfont \itshape to psomi psomaki} is a \isi{Word\_With\_Spaces} (WWS) \citep{Sag:2002} that satisfies constituency diagnostics.  If  {\normalfont \itshape to psomi psomaki}  is not treated as a WWS, additional constraints to block (\ref{ex:7:53b}) would  be needed. Similar ideas have been discussed in \citet{green2013} where the fixed parts of MWEs are represented as flat structures. In the examples above, the idiomatic predicate {\normalfont \itshape leo} `call'  assigns the FIX GF. Lack of a passive counterpart and clitic replacement follow from FIX normally. 
+  
+  To represent structures like \ref{ex:7:52}, where a free genitive NP occurs as part of the fixed structure of the MWE, the WWS {\normalfont \itshape tin\_skoni} selects for a POSS Grammatical Function. The POSS function will allow for the representation of binding phenomena that are often found with MWEs. For instance, (\ref{ex:7:50a}) is an example of a MWE where the possessive pronoun that complements the WWS  {\normalfont \itshape ta\_moutra} is necessarily bound by the free subject of the idiomatic verb. 
+
+In a nutshell, the FIX GF seems to be instantiated exclusively by phrases headed by fixed strings, such as (\ref{ex:7:53a}), that may or may not be generated   with the phrase structure rules devised for compositional structures. Along with other work on MWEs within the LFG framework \citet{attia2006} we list fixed strings in the lexicon.  Treating WWSs as lexical entries deals with the problem of generating  non-compositional fixed strings while FIX captures passivisation and replacement with a clitic. 
+
+\section{Conclusion}
+\label{conclusion}
+
+We have argued that verbal MWEs that contain direct complements of verbs headed by fixed strings cannot be captured with exactly the same syntactic machinery that has been developed for compositional structures. Despite appearances, fixed complements do not behave as direct or indirect objects with respect to a number of classical objecthood diagnostics. We argued that this special syntactic behavior is identifiable at a syntactic functional level. If we are right, the syntactic apparatus that has been developed in LFG to represent the notion of ``objecthood" in compositional structures has to be expanded  to accommodate a new GF that we called FIX and is necessary for the modeling of MWEs.
+
+The FIX GF is intended to represent constituents that do not function as predicative complements, therefore they cannot be controlled. Certainly, several issues are left for future research:  the range of syntactic phenomena involving the strings that instantiate FIX (modification, alternations as they are illustrated in (\ref{ex:7:49}b), (\ref{ex:7:50}b) and (\ref{ex:7:51}b) and pose questions concerning the treatment of  MWEs with a fixed subject), control phenomena and, why not, the modeling of the switch from  MWE to compositional contexts that gives rise to joke/irony/pun effects - a phenomenon that might be modelled easier in terms of WWSs and FIX. 
+
+\printbibliography[heading=subbibliography,notkeyword=this]
+
+\end{document}
