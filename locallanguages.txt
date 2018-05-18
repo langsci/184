@@ -1,2 +1,12 @@
-languages to index
-oneperline
+ Bulgarian
+ Cantonese
+ Greek
+ Italian
+ Kapodistrian
+ Korean
+ Maori
+ Oceanic
+ Polish
+ Serbian
+ Slavic
+ Turkish

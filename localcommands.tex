@@ -1,11 +1,5 @@
-%add all your local new commands to this file
-
-\makeatletter
-\def\blx@maxline{77}
-\makeatother
-
 %pminos do not split footnotes
-\interfootnotelinepenalty=10000
+% \interfootnotelinepenalty=10000 %Footnote in Laporte chapters has to be split SN
 
 
 %\DeclareIndexNameFormat{default}{%
@@ -51,12 +45,32 @@
 \renewcommand{\P}[1]{\tobi{#1}{\textsc{\%}}}
 \renewcommand{\S}[1]{\tobi{#1}{\textsc{*}}}
 
+% this volume references
+% puts: [this volume]
+% already defined: \citetv
+%\newcommand{\citepv}[1]{(\citeauthor{#1} \citeyear*{#1} [this volume])}
+\newcommand{\citealtv}[1]{\citeauthor{#1} \citeyear*{#1} [this volume]}
 
 %parentheses around example number
 \newcommand{\pref}[1]{(\ref{#1})}
 
+% in-text examples
+
+\newcommand{\lnex}[1]{\textit{#1}} %target lang word
+\newcommand{\lnlit}[1]{(lit.: `#1')} %literal reading
+\newcommand{\lnlat}[1]{(#1)} % latinization
+\newcommand{\lntrans}[1]{`#1'} %translation
+\newcommand{\lnexl}[2]%
+{\lnex{#1}{} \lnlat{#2}} % ex with latinization
+\newcommand{\lnexlat}[3]{\lnex{#1}{} \lnlat{#2}{} \lntrans{#3}} % ex with latinization and tranl.
+
 %ch01
 \newcommand{\co}[1]{\mbox{\textbf{#1}}}
+
+%ch09
+
+\newcommand{\cyrbulg}[1]{\begin{otherlanguage*}{bulgarian}#1\end{otherlanguage*}}
+
 
 %ch10
 \newcommand{\nlp}{{\small NLP}}
@@ -68,3 +82,7 @@
 
 %\renewcommand{\labelenumi}{\theenumi}
 %\ainamefmt{{vv}{ll}{, ff}{, jj}} % fullname
+
+\newcommand{\biberror}[1]{{\color{red}#1}}
+
+\newcommand{\osenovaitem}{--~}

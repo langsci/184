@@ -1,11 +1,12 @@
 \documentclass[output=paper]{langsci/langscibook}
+\ChapterDOI{10.5281/zenodo.1182593}
 \author{Patrick Hanks\affiliation{RIILP, University of Wolverhampton, England}%
-\and Ismail El Maarouf\affiliation{RIILP, Adarga Ltd., England}%
+\and Ismail El Maarouf\affiliation{Adarga Ltd., England}%
 \lastand Michael Oakes\affiliation{RIILP, University of Wolverhampton, England}}
-\title{Flexibility of Multi-Word Expressions and Corpus Pattern Analysis}
+\title{Flexibility of multiword expressions and Corpus Pattern Analysis}
 
-\abstract{This chapter is set in the context of \isi{Corpus Pattern Analysis (CPA)}, a technique developed by Patrick Hanks to map meaning onto word patterns found in corpora. The main output of CPA is the Pattern Dictionary of \ili{English} Verbs (PDEV), currently describing patterns for over 1,600 verbs, many of which are acknowledged to be multiword expressions (MWEs) such as phrasal verbs or idioms. PDEV entries are manually produced by lexicographers, based on the analysis of a substantial sample of concordance lines from the corpus, so the construction of the resource is very time-consuming. The motivation for the work presented in this chapter is to speed up the discovery of these word patterns, using methods which can be transferred to other languages. 
-This chapter explores the benefits of a detailed contrastive analysis of MWEs found in English and \ili{French} corpora with a view on English-French translation. The comparative analysis is conducted through a case study of the pair (bite, mordre), to illustrate both CPA and the application of statistical measures for the automatic extraction of MWEs. The approach taken in this chapter takes its point of departure from the use of statistics developed initially by \cite{church1989}. Here we look at statistical measures which have not yet been tested for their ability to discover new collocates, but are useful for characterizing verbal MWEs already found. In particular we propose measures to characterize the mean span, rigidity, diversity, and idiomaticity of a given MWE.}
+\abstract{This chapter is set in the context of \isi{Corpus Pattern Analysis} (CPA), a technique developed by Patrick Hanks to map meaning onto word patterns found in corpora. The main output of CPA is the Pattern Dictionary of \ili{English} Verbs (PDEV), currently describing patterns for over 1,600 verbs, many of which are acknowledged to be multiword expressions (MWEs) such as phrasal verbs or idioms. PDEV entries are manually produced by lexicographers, based on the analysis of a substantial sample of concordance lines from the corpus, so the construction of the resource is very time-consuming. The motivation for the work presented in this chapter is to speed up the discovery of these word patterns, using methods which can be transferred to other languages. 
+This chapter explores the benefits of a detailed contrastive analysis of MWEs found in English and \ili{French} corpora with a view on English-French translation. The comparative analysis is conducted through a case study of the pair (\textit{bite}, \textit{mordre}), to illustrate both CPA and the application of statistical measures for the automatic extraction of MWEs. The approach taken in this chapter takes its point of departure from the use of statistics developed initially by \cite{church1989}. Here we look at statistical measures which have not yet been tested for their ability to discover new collocates, but are useful for characterizing verbal MWEs already found. In particular we propose measures to characterize the mean span, rigidity, diversity, and idiomaticity of a given MWE.}
 
 \maketitle
 
@@ -13,6 +14,7 @@ This chapter explores the benefits of a detailed contrastive analysis of MWEs fo
 
 \section{Introduction: phraseology and Multi-Word Expressions}
 
+\is{meaning|(}
 Traditionally, people have long believed that each word has one or more
 meanings and that these meanings can be selected and put together, as
 if in a child’s Lego set, to construct propositions, questions, etc.
@@ -28,13 +30,13 @@ understood. If the “Lego set” theory of meaning in language were
 tenable, it would not have been necessary for NLP and AI (Artificial
 Intelligence) researchers such as \cite{ide2006}, after many
 years of intensive (and expensive) effort, to declare that projects in
-\isi{Word Sense Disambiguation (WSD)} have failed to achieve even their most
+\isi{Word Sense Disambiguation } (WSD) have failed to achieve even their most
 basic goals.
 
 
 \begin{quotation}
 At present, WSD work is at a crossroads: systems have hit a reported
-ceiling of 70\%+ accuracy \citep{kilgarriff2004}, the source and
+ceiling of 70\%+ accuracy \citep{article}, the source and
 kinds of sense inventories that should be used in WSD work is an issue
 of continued debate, and the usefulness of stand-alone WSD systems for
 current NLP applications is questionable. (\citealt[15]{ide2006}).
@@ -42,17 +44,17 @@ current NLP applications is questionable. (\citealt[15]{ide2006}).
 
 
 The alternative view mentioned here is supported by lexicographers such
-as Atkins and Kilgarriff  and \cite{hanks2000}.
+as \cite{Atkins:2001}, \cite{article},  and \cite{hanks2000}.
 These lexicographers argue that much of the meaning of an utterance is
 carried by underlying patterns of co-selection of the words actually
 used, rather than by simple concatenations. These conclusions overlap
-to some extent with the tenets of construction grammar, though the
+to some extent with the tenets of \is{Construction Grammar} Construction Grammar, though the
 methodologies are very different. In corpus linguistics, Sinclair
 declared, after a lifetime’s empirical research into texts, corpora,
 and meaning, “Many if not most meanings require the presence of more
 than one word for their normal realisation” \citep[4]{sinclair1998}.
 
-
+\is{meaning|)}
 
 If these lexicographers and corpus linguists are right, it might appear
 that MWEs play a central role in the meaningful use of language. They
@@ -70,7 +72,7 @@ meaning intended by a speaker who uses these expressions. However,
 extended analysis of large volumes of data leads to the somewhat
 unwelcome conclusion that the concept of a MWE may also be flawed,
 being nothing more than an attempt to extend the ``Lego-set’' theory to
-  cover some so-called \textit{fixed expressions} such as \textit{spill the beans} and
+  cover some so-called \textit{fixed expressions} \is{multiword expression!fixed expression} such as \textit{spill the beans} and
 \textit{kick the bucket}. Here, the choice of lexical items is fixed: one
 cannot talk meaningfully, except perhaps in jest, about \textit{*tipping over
 the haricots} or \textit{*booting the pail}. However, even in these very fixed
@@ -102,7 +104,7 @@ might uncontroversially be classified as compositional, such as (\ref{ex0}),
 
 \ea
 \label{ex0}
-the wind was blowing from the north
+\textit{the wind was blowing from the north}
 \z
 
 
@@ -123,13 +125,13 @@ a spider’s web}, and so on.
 
 
 These very conventional expressions are best classified as realizations
-of non-compositional patterns rather than as compositional
+of non-compositional patterns \is{pattern} rather than as compositional
 concatenations for a variety of reasons. A prominent one is that the
 pattern so identified is contrastive: it is a set of stereotypical
 phrases that contrast with other uses of the words. For example, this
-pattern (see example \ref{ex1}) contrast with other patterns having different
-meanings formed with the same verb, such as to blow a whistle and to
-blow up a bridge. 
+pattern (see example \ref{ex1}) contrasts with other patterns having different
+meanings formed with the same verb, such as \textit{to blow a whistle} and \textit{to
+blow up a bridge}. 
 
 
 
@@ -143,18 +145,18 @@ British National Corpus, \mbox{are shown in examples (\ref{ex1})-(\ref{ex5})}.
 
 \ea
 \label{ex1}
- Dennis Healey $[$a politician$]$ wobbles about according to which way
-the wind is blowing. 
+ \textit{Dennis Healey $[$a politician$]$ wobbles about according to which way
+the wind is blowing.} 
 \ex \label{ex2}
-The winds of neo-liberalism are blowing a gale through Prague.
+\textit{The winds of neo-liberalism are blowing a gale through Prague.}
 \ex \label{ex3} 
-Faint liberal breezes had been blowing through the Vatican since the
-second Vatican Council.
+\textit{Faint liberal breezes had been blowing through the Vatican since the
+  second Vatican Council.}
 \ex \label{ex4}  
-\ldots the winds of change that have blown through the energy business.
+\textit{\ldots the winds of change that have blown through the energy business.}
 \ex \label{ex5} 
-The winds of fate blew for Jean Morris, winner of Middlesbrough
-Council's Captain Cook Birthday Balloon Race.
+\textit{The winds of fate blew for Jean Morris, winner of Middlesbrough
+Council's Captain Cook Birthday Balloon Race.}
 \z
 
 
@@ -182,7 +184,7 @@ Corpus Pattern Analysis, a method for deriving patterns from corpora.
 \section{The Corpus Pattern Analysis framework}
 
 
-\isi{Corpus Pattern Analysis (CPA)} is a research procedure designed to create
+\isi{Corpus Pattern Analysis}  (CPA) is a research procedure designed to create
 empirically well-founded resources for NLP applications by combining
 interactively human data analysis and machine learning. It is based on
 the Theory of Norms and Exploitations (TNE, \citealt{hankspustejovsky2004}; \citealt{hanks2005}; \citealt{hanks2013}). 
@@ -191,10 +193,10 @@ the Theory of Norms and Exploitations (TNE, \citealt{hankspustejovsky2004}; \cit
 TNE in turn is a theory that owes much to the
 work of Pustejovsky on the Generative Lexicon \citep{pustejovsky1995},
 %(~\href{http://pdev.org.uk/#biblio?id=pustejovsky_1995}{Pustejovsky1995})
- to \cite{wilks1975}'s theory of preference semantics
+ to \cite{wilks1975}'s theory of preference semantics,
 %(~\href{http://pdev.org.uk/#biblio?id=wilks}{Wilks 1975})
  to
-Sinclair's work on corpus analysis and collocations (\citealt{Sinclair:66, sinclair1987, Sinclair:1991, sinclair2004})
+Sinclair's work on corpus analysis and collocations (\citealt{Sinclair:66, sinclair1987, Sinclair:1991, sinclair2004}),
 %Sinclair~\href{http://pdev.org.uk/#biblio?id=sinclair_1966}{1966},
 %\href{http://pdev.org.uk/#biblio?id=sinclair_1987}{1987},~\href{http://pdev.org.uk/#biblio?id=sinclair_1991}{1991},~\href{http://pdev.org.uk/#biblio?id=sinclair_2004}{2004}),
 to the Cobuild project in lexical computing \citep{sinclair1987}, 
@@ -202,7 +204,7 @@ to the Cobuild project in lexical computing \citep{sinclair1987},
 and to the Hector project (\citealt{atkins1992}; \citealt{hanks1994}).
 %(\href{http://pdev.org.uk/#biblio?id=atkins_1993}{Atkins
 %1993};~\href{http://pdev.org.uk/#biblio?id=hanks_1994}{Hanks 1994}).
-CPA is also influenced by frame semantics \citep{fillmore1992}. 
+CPA is also influenced by frame semantics \citep{Fillmore1992risk}. 
 %(\href{http://pdev.org.uk/#biblio?id=fillmore_1992}{Fillmore \&
 %Atkins 1992}). 
 It is complementary
@@ -212,7 +214,7 @@ Where FrameNet
 offers an in-depth analysis of semantic frames, CPA offers a systematic
 analysis of the patterns of meaning and use of each verb. Each CPA
 pattern can in principle be plugged into a FrameNet semantic frame. Some
-recent work in American linguistics \citep{jackendoff2002foundation}  has complained
+work in American linguistics \citep{jackendoff2002foundation}  has complained
 about the excessive ``syntactocentrism" of American linguistics in the
 20th century. TNE offers a lexicocentric approach, with opportunities
 for synthesis, which will go some way towards redressing the balance.
@@ -233,13 +235,13 @@ the expression  \textit{blow your nose} is unambiguous and contrasts with 60 or
 
 
 
-In the Pattern Dictionary of English Verbs (PDEV;
+In the \is{Pattern Dictionary of English Verbs} Pattern Dictionary of English Verbs (PDEV;
 \url{http://pdev.org.uk}), the main output of CPA, the sense of  \textit{blow
   your nose} is stored in the pattern “[[Human]] blow \{nose\}” while in
 the sense of “the wind blows” is represented by the pattern “$[$$[$Wind |
-Vapour | Dust$]$$]$ blow $[$No object$]$ $[$Adverbial of direction$]$”. Patterns
+Vapour | Dust$]$$]$ blow $[$No object$]$ $[$Adverbial of direction$]$”. Patterns \is{pattern}
 may combine various kinds of categories such as semantic types (Human,
-Wind, Vapour, Dust), Grammatical categories (Adverbial of direction)
+Wind, Vapour, Dust), grammatical categories (Adverbial of direction)
 and lexical items (\textit{nose}). Semantic types are taken from the
 corpus-driven CPA Semantic Ontology available at
 \url{http://pdev.org.uk/#onto}. These categories may fill slots in the
@@ -251,7 +253,7 @@ characterized if the pattern requires it, by filling information on the
 ``subargumental cues" such as the nature of determiners, modifiers,
 quantifiers, prepositional phrases, and adverbs or particles.
 
-\begin{figure}[h]
+\begin{figure}
 %\includegraphics[width=\textwidth]{figures/img_04_01.png}
 \begin{tikzpicture}[xscale=1.0]
 \begin{axis}[
@@ -280,13 +282,13 @@ width=\textwidth,
 \label{fig:04:01}
 \end{figure}
 
-
+\newpage 
 At the time of writing, PDEV covered 1,614 verbs for a total of 6,163
 patterns, out of an estimated 5,500 total number of verbs in English
 (PDEV is therefore about 30\% complete). PDEV is linked to a portion of
-the BNC, BNC50, from which some of the statistics presented in this
+the British National Corpus (BNC), BNC50, from which some of the statistics presented in this
 chapter are computed. BNC50 contains about 54 million tokens, and BNC,
-about 100 million. Figure 1 shows that the frequency distribution of
+about 100 million. \figref{fig:04:01} shows that the frequency distribution of
 complete verbs is very similar to that of NYS (Not Yet Started) verbs,
 e.g. that 40 to 45\% of English verbs have a frequency lower than 50 in
 BNC50. For this reason, although PDEV is incomplete, it contains a
@@ -303,18 +305,18 @@ patterns or less. Verbs can also be contrasted in terms of qualitative
 characteristics. Particularly, some of them are used in idioms, others
 as phrasal verbs, and others combine with other lexical items in set
 phrases, that we propose to call lexically grounded patterns. Table \ref{PDEVcat}
-indicates the number of entries and patterns for these ``MWE"-related
+indicates the number of entries and patterns for these MWE-related
 categories of verbs.
 
 \begin{table}
 %\centering
-\begin{tabular}{llll}
+\begin{tabular}{lrrr}
 \lsptoprule
 \textbf{MWE type} & \textbf{\# verbs} & \# \textbf{patterns} & \textbf{\% patterns}\\
 \midrule
 Lexically grounded patterns & 458 & 1,126 & 18.3 \\
 Phrasal verb patterns & 198 & 512 & 8.3 \\
-idiom patterns & 200 & 453 & 7.3 \\
+Idiom patterns & 200 & 453 & 7.3 \\
 \textbf{MWE total} & \textbf{548} & \textbf{1,649} & \textbf{26.7} \\
 \lspbottomrule
 \end{tabular}
@@ -364,14 +366,15 @@ idioms. Verbs with idioms on average have, for 64\% of them, one idiom,
 for 19\% of them, two idioms, and for 17\%, three or more idioms. 
 
 \section{A CPA study for English-French translation}
+
 The case study presented in this section focuses on  \textit{bite}, because it
 was found to encapsulate a large number of facts about English verbs,
 and particularly idiomatic structures. This verb is compared to the
 French  \textit{mordre}, which translates to `bite' in its primary literal
-meaning: ``using teeth to cut'. We will observe how these verbs are used
+meaning: `using teeth to cut'. We will observe how these verbs are used
 in each language, identify their common features and divergences by
-applying CPA to corpora. \textit{bite} was analysed using a sample of 500
-lines from the British National Corpus, and the same sample size was
+applying CPA to corpora. \textit{Bite} was analysed using a sample of 500
+lines from the BNC, and the same sample size was
 extracted from the Frtenten corpus (11 billion words; \citealt{jakubicek2013}) for \textit{mordre}.
 
 
@@ -388,12 +391,12 @@ complement position, with \textit{into} (\textit{dans} in French) as preposition
 
 \ea
 \label{ex7}
-Those dogs~bit~the neighbours, the dustbin men, visiting aunts and
-each other.
+\textit{Those dogs~bit~the neighbours, the dustbin men, visiting aunts and
+each other.}
 \ex \label{ex8}
-Le propriétaire ou le détenteur d'un chien qui a~mordu~une personne
+\textit{Le propriétaire ou le détenteur d'un chien qui a~mordu~une personne
 ou un autre animal a l'obligation de le déclarer au commissariat de son
-arrondissement.
+arrondissement}.
 \glt `The owner or the holder of the dog which has bitten a
 person or another animal is under the obligation of declaring it to the
 district police.'
@@ -401,8 +404,8 @@ district police.'
 I'll wager that your salivary glands started pumping out liquid as
 you imagined yourself~biting~into the lemon.
 \ex \label{ex10}
-Je~mords~dans une pêche : un goût d'eau sucrée accompagné d'un
-sentiment de vide.
+\textit{Je~mords~dans une pêche : un goût d'eau sucrée accompagné d'un
+sentiment de vide}.
 \glt `I bite in a peach: a taste of sweet water together with a
 feeling of emptiness.'
 \z
@@ -429,7 +432,7 @@ $[$$[$Institution$]$$]$ as objects, as in example (\ref{ex11}).
 
 \begin{exe}
 \ex  \label{ex11} 
-Provincial had been bitten by its own success.
+\textit{Provincial had been bitten by its own success.}
 \end{exe}
 
 
@@ -448,8 +451,12 @@ is because French typically uses \textit{ronger} ‘gnaw’, as in example (\ref
 
 \begin{exe}
 \ex \label{ex12}
-The recession is biting deeply into industry
-\glt `La recession ronge durement l'industrie'
+\begin{xlist}
+\ex
+\textit{The recession is biting deeply into industry.}
+\ex
+\textit{La recession ronge durement l'industrie.}
+\end{xlist}
 \end{exe}
 
 
@@ -464,8 +471,8 @@ When English speakers use \textit{bite} with direct objects such as \textit{nail
 French speakers use \textit{ronger} for \textit{ongles} and \textit{doigts} respectively. In
 this case, it is also considered as a distinct pattern in French. Other
 patterns were found, such as “$[$$[$Physical Object 1$]$$]$ bite in|into
-$[$$[$Physical Object 2$]$$]$”\footnote{ English also uses patterns with the
-phrasal verb \textit{eat away} for this meaning.}, where the subject is
+$[$$[$Physical Object 2$]$$]$”,\footnote{English also uses patterns with the
+phrasal verb \textit{eat away} for this meaning.} where the subject is
 neither $[$$[$Human$]$$]$ nor $[$$[$Animal$]$$]$. This pattern can only be translated
 to French with \textit{mordre} to cover uses where “$[$$[$Blade$]$$]$ makes small cuts
 into $[$$[$Physical object$]$$]$”. When the subject is \textit{acid}, signalling the
@@ -474,29 +481,34 @@ types of object nouns, such as \textit{ploughs}, French would use the phrasal
 expression \textit{se planter} + \textit{dans}.
 
 
-
+\largerpage[2]
 Semantic types can also help to contrast existing patterns from uses
 which combine with specific animals, e.g. $[$$[$Snake$]$$]$, which was found
 both in French and English, and which refer to a different situation,
 defined as \mbox{“$[$$[$Snake$]$$]$~stabs} \linebreak \mbox{$[$$[$Human$]$$]$~or~$[$$[$Animal$]$$]$~with fangs},
 typically injecting poison under the skin”. However, when considering
 $[$$[$Insect$]$$]$ (e.g. \textit{mosquitoes}) in subject position, the normal French
-verb is \textit{piquer} (see example (\ref{ex13}) below)\footnote{Although \textit{mordu par
-les moustiques} is acceptable.}.
+verb is \textit{piquer} (see example (\ref{ex13}) below).\footnote{Although \textit{mordu par
+les moustiques} is acceptable.}
 
 
 
-\ea
- \label{ex13}  The mosquitos came up and bit me in the dark.
-\glt `Les moustiques sont venus et m'ont piqué dans le noir.'
-\z
+\begin{exe}
+ \ex \label{ex13}
+ \begin{xlist}
+ \ex 
+ \textit{The mosquitos came up and bit me in the dark}.
+ \ex
+\textit{Les moustiques sont venus et m'ont piqué dans le noir.}
+\end{xlist}
+\end{exe}
 
 
 
 
 
 However, \textit{bite} does not collocate with nouns of other flying bugs such
-as \textit{wasps}, \textit{bees}, or \textit{hornets}\footnote{ English uses the verb \textit{sting}.},
+as \textit{wasps}, \textit{bees}, or \textit{hornets},\footnote{English uses the verb \textit{sting}.}
 whereas these nouns can be used indifferently with \textit{piquer}. This
 language-specific feature can be explained by the extra-linguistic fact
 that insects bite to feed, but bees, wasps, and hornets possess a
@@ -522,61 +534,66 @@ found in metaphorical patterns which could not be translated with
 
 %Table 2a - Idiom CPA patterns for the verb ‘\textit{mordre’}
 
-\begin{table}[H]
-\small
-%\centering
-\begin{tabular}{p{8mm}p{7.5cm} c p{1cm}}
-\lsptoprule
-No & Pattern / \textit{Implicature} & Frequency & \%\\
-\midrule
-4 & \{$[$$[$Human$]$$]$ | le poisson\} mord (\{à l'hamecon | à l'appat\}) & 10 & 2\\
-%%\hline
- & \textit{$[$$[$Human$]$$]$ takes the bait (= is lured to do something that has bad consequences)} & & \\
-%%\hline
-7 & $[$$[$Human$]$$]$ mord \{la vie à pleines dents\} & 6 & 1.2\\
-%%\hline
- & \textit{$[$$[$Human$]$$]$ enjoys life to the full $[$literally, *bites life with full teeth$]$} & & \\
- %%\hline
-9 & $[$$[$Human$]$$]$ se mord \{les doigts\} & 21 & 4.2\\
-%%\hline
- & \textit{$[$$[$Human$]$$]$ experiences a bitter time $[$literally, *bites his/her fingers$]$} &  & \\
-%%\hline
-11 & $[$$[$Human 1$]$$]$ fait mordre \{la poussière \} \{à $[$$[$Human$]$$]$\} & 6 & 1.2\\
-%%\hline
- & \textit{$[$$[$Human 1$]$$]$ causes $[$$[$Human 2$]$$]$ to bite the dust (= to die) or to lose a challenge $[$the latter sense only in French$]$} &  & \\
-%%\hline
-12 & \{le serpent\} se mord \{la queue\} & 16 & 3.2\\
-%%\hline
- & \textit{$[$$[$Human$]$$]$ is stuck in a $[$$[$State of affairs$]$$]$ and cannot find a way out $[$literally, *the snake bites his own tail$]$} &  & \\
-%%\hline
-16 & $[$$[$Human$]$$]$ ne mord pas $[$NO OBJ$]$\} &
-6 & 1.2\\
-%%\hline
- &
-\textit{$[$$[$Human$]$$]$ does not bite (= is harmless)} &
- &
-\\
-\lspbottomrule
-\end{tabular}
-\caption{Idiom CPA patterns for the verb \textit{mordre}.}
-\label{idiom cpa mordre}
-\end{table}
 
 
 
 \ea
 \label{ex14}
-Certaines des constructions mordaient sur des terres privées.
+\textit{Certaines des constructions mordaient sur des terres privées}.
 \glt `Some of the buildings \textbf{encroached} on private lands.'
 \ex \label{ex15}
-Quand vient le temps d'effectuer un dépassement, le véhicule mord
-la route.
+\textit{Quand vient le temps d'effectuer un dépassement, le véhicule mord
+la route}.
 \glt `When the time comes to pass the car in front, the vehicle \textbf{grips} the road.'
 \z
 
+
+
+
+\begin{table}[b]
+\small
+%\centering
+\begin{tabularx}{\textwidth}{rQrr}
+\lsptoprule
+No & Pattern / \textit{Implicature} & \parbox{4mm}{\hspace*{-10mm}\mbox{Frequency}} & \%\\
+\midrule
+4 & $[[[$Human$]]$ | le poisson$]$ mord ($[$à l'hamecon | à l'appat$]$) & 10 & 2\\
+%%\midrule
+ & \textit{$[$$[$Human$]$$]$ takes the bait (= is lured to do something that has bad consequences)} & & \\
+%%\hline
+7 & $[[$Human$]]$ mord \{la vie à pleines dents\} & 6 & 1.2\\
+%%\midrule
+ & \textit{$[[$Human$]]$ enjoys life to the full $[$literally, *bites life with full teeth$]$} & & \\
+ %%\midrule
+9 & $[[$Human$]]$ se mord \{les doigts\} & 21 & 4.2\\
+%%\midrule
+ & \textit{$[[$Human$]]$ experiences a bitter time $[$literally, *bites his/her fingers$]$} &  & \\
+%%\midrule
+11 & $[[$Human 1 $]]$ fait mordre $[$la poussière $]$ $[$à $[[$Human$]]]$ & 6 & 1.2\\
+%%\hline
+ & \textit{$[[$Human 1 $]]$ causes $[[$Human 2 $]]$ to bite the dust (= to die) or to lose a challenge $[$the latter sense only in French$]$} &  & \\
+%%\midrule
+12 & $[$le serpent$]$ se mord $[$la queue$]$ & 16 & 3.2\\
+%%\midrule
+ & \textit{$[[$Human$]]$ is stuck in a $[[$State of affairs$]]$ and cannot find a way out $[$literally, *the snake bites his own tail$]$} &  & \\
+%%\midrule
+16 & $[[$Human$]]$ ne mord pas $[$NO OBJ$]]$ &
+6 & 1.2\\
+%%\midrule
+ &
+\textit{$[[$Human$]]$ does not bite (= is harmless)} &
+ &
+\\
+\lspbottomrule
+\end{tabularx}
+\caption{Idiom CPA patterns for the verb \textit{mordre}.}
+\label{idiom cpa mordre}
+\end{table}
+
+
+\largerpage
 In addition to these patterns, 6 idioms were found for \textit{mordre} (see
 Table \ref{idiom cpa mordre}), and 10 idioms for \textit{bite} (see Table \ref{idiom cpa bite}).
-
 
 
 
@@ -588,41 +605,41 @@ Table \ref{idiom cpa mordre}), and 10 idioms for \textit{bite} (see Table \ref{i
 %\begin{tabular}{llll}
 %%\hline
 
-\begin{table}[H]
+\begin{table}[t]
 \small
 %\centering
-\begin{tabular}{p{8mm}p{7.5cm} c p{1cm}}
+\begin{tabularx}{\textwidth}{rQrr}
 \lsptoprule
-No & Pattern / \textit{Implicature} & Frequency & \%\\
+No & Pattern / \textit{Implicature} & \parbox{4mm}{\hspace*{-10mm}\mbox{Frequency}} & \%\\
 \midrule
 13 &
 Human 1 bites Human 2's head off &
 5 &
 1.22\\
-%%\hline
+%%\midrule
  &
 \textit{Human 1 speaks sharply and unkindly to Human 2} &
  &
 \\
-%%\hline
+%%\midrule
 14 &
 Human bites REFLDET lip &
 8 &
 1.96\\
-%%\hline
+%%\midrule
  &
 \textit{Human grips his or her lip firmly with the teeth} &
  &
 \\
-%%\hline
+%%\midrule
 15 &
 Human bites off more than $[$$[$Human$]$$]$ can chew &
 4 &
 0.98\\
-%%\hline
+%%\midrule
  &
-\textit{Human undertakes a task that is too difficult for him
-or her to accomplish successfully} &
+{\textit{Human undertakes a task that is too difficult for him
+or her to accomplish successfully}} &
  &
 \\
 %%\hline
@@ -642,8 +659,8 @@ Human or Institution bites the bullet &
 5.13\\
 %%\hline
  &
-\textit{Human or Institution decides to do something
-necessary but unpleasant} &
+  \mbox{\textit{Human or Institution decides to do something
+necessary but unpleasant}} &
  &
 \\
 %%\hline
@@ -684,8 +701,8 @@ Human bites REFLDET tongue &
 1.96\\
 %%\hline
  &
-\textit{Human makes a desperate effort not to say what is on
-his or her mind} &
+ \mbox{\textit{Human makes a desperate effort not to say what is on
+his or her mind}} &
  &
 \\
 %%\hline
@@ -695,20 +712,22 @@ Once bitten twice shy &
 0.73\\
 %%\hline
  &
-\textit{An unpleasant experience causes someone to be more
-cautious in future} &
+\mbox{\textit{An unpleasant experience causes someone to be more
+cautious in future}} &
  &
 \\
 %%\hline
 \lspbottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Idiom CPA patterns for the verb \textit{bite}.}
 \label{idiom cpa bite}
 \end{table}
 
+  
+
 These idioms share little in common (apart from the correspondence
 between patterns 11 in French and 19 in English) and do not involve the
-notion of `teeth cutting'. Thus correct French to English translation
+notion of `teeth cutting'. Thus the correct French to English translation
 (and vice versa) required knowledge that is encoded in CPA patterns.
 Pattern 12, for instance, \textit{le serpent se mord la queue}, is used to
 refer to situations where \textit{serpents} ‘snakes’ are not involved, a
@@ -723,7 +742,7 @@ will be applied to idioms which will be the focus of  §4.
 \section{Statistical measures for the characterisation of MWEs}
 
 In this section, we will describe the use of statistical measures to
-automatically characterise the flexibility of MWEs. We feel that this
+automatically characterise the flexibility \is{multiword expression!flexibility} of MWEs. We feel that this
 is an important research topic, as it can contribute to describing in
 which respects MWEs are flexible and help to speed up their extraction
 from corpora.
@@ -736,15 +755,13 @@ think of a term such as \textit{nurse} more quickly after the stimulus of a
 related term such as \textit{doctor}. \cite{church1989}  redefined \textit{word
 association} in terms of objective statistical measures designed to
 show whether a pair of words are found together in text more frequently
-than one would expect by chance. \is{Point-wise Mutual Information (PMI)} PMI (Point-wise Mutual Information)
+than one would expect by chance. \is{Point-wise Mutual Information} PMI (Point-wise Mutual Information)
 between word x and word y is given by the formula
-
-
-\begin{equation*}
-I(x,y)=\mathit{log2}P(x,y)/P(x).P(y)
-\end{equation*}
-
-
+ 
+\eabox{\begin{equation*}
+I(x,y)=\mathit{log_{2}}P(x,y)/P(x).P(y)
+\end{equation*}} 
+ 
 \noindent  where P(x,y) is the probability of the two words occurring in a common
 context (such as a window of 5 consecutive words), while $P(x)$ and $P(y)$
 are the probabilities of finding words x and y respectively anywhere in
@@ -762,21 +779,19 @@ $[$$[$Physical Object$]$$]$, giving at least two senses of the verb \citep{hanks
 \cite{smadja1993} recommends that collocations should not only be measured
 by their \textit{strength}, such as by using the z-score,
 but also by their \textit{flexibility}. We propose to
-characterise the flexibility of a multi-word expression using four
+characterise the flexibility of a multiword expression using four
 statistical measures, each focusing on a dimension of variation.
 
 
-A MWE can be characterised by its \is{mean span} \textsc{mean span}, that is,
+A MWE can be characterised by its mean span \textsc{mean span}, that is,
 the stretch of text it is found to cover on average. This can be
 measured using the mean  $\mu$ of the relative distances between two
 words making up the MWE, and computed as follows:
-
-
-\begin{equation*}
+ 
+\eabox{\begin{equation*}
 %µ
 \mu \left(X,Y\right)=\frac 1 n\sum _{i=1}^n\mathit{dist}(X_i,Y_i)
-\end{equation*}
-
+\end{equation*}} 
 
 
 
@@ -786,10 +801,10 @@ A MWE can also be further characterised by its
 deviation  $\sigma$ of the relative distances between the two words: 
 
 
-\begin{equation*}
+\eabox{\begin{equation*}
 \sigma\left(X,Y\right)=\sqrt{\frac 1 n\sum
 _{i=1}^n\left(\mathit{dist}\left(X_i,Y_i\right)-\mu\left(X,Y\right)\right)^2}
-\end{equation*}
+\end{equation*}}
 
 
 For standard deviation, the minimum value when all the examples have
@@ -800,7 +815,7 @@ lexical collocation.
 
 
 In a study of David Wyllie’s English translation of Kafka’s
-Metamorphosis, \cite{oakes2012} found that \textit{stuck fast} and \textit{office
+\textit{Metamorphosis}, \cite{oakes2012} found that \textit{stuck fast} and \textit{office
 assistant} had mean inter-word distances of 1 with a standard deviation
 of 0. This showed that in this particular text, they were completely
 fixed collocations where the first word was always immediately followed
@@ -820,13 +835,13 @@ that collocation. A rigid collocation, where all found examples are
 identical in form and span, has very low diversity, while a collocation
 which has many surface forms has much higher diversity. One measure of
 diversity, popular in ecological studies, is Shannon’s diversity index,
-which is equivalent to entropy in information theory, and given by the
+which is equivalent to entropy \is{entropy} in information theory, and given by the
 formula:
 
 
-\begin{equation*}
+\eabox{\begin{equation*}
 E=-\sum _{i=1}^Np_{i\log _2}p_i
-\end{equation*}
+\end{equation*}}
 
 
 
@@ -835,7 +850,7 @@ E=-\sum _{i=1}^Np_{i\log _2}p_i
 \textit{E} is entropy, \textit{N} is
 the number of different surface forms found for the collocation,
 \textit{i} refers to each surface form in turn,
-and\textit{ } $P_i$ is the proportion of all surface
+and $P_i$ is the proportion of all surface
 forms made up of the surface form currently under consideration. The
 choice of logarithms to the base 2 ensures that the units of diversity
 are bits. The minimum value of diversity (when all the examples of a
@@ -851,9 +866,9 @@ context, by taking the ratio of the number of idiomatic occurrences of
 the expression divided by its total number of occurrences:
 
 
-\begin{equation*}
+\eabox{\begin{equation*}
 \mathit{Idiomaticity}\left(x,y\right)=\frac{\mathit{number}\;\mathit{of}\; \mathit{idiomatic}\; \mathit{occurrences}}{\mathit{total}\; \mathit{number}\; \mathit{of}\; \mathit{occurrences}}
-\end{equation*}
+\end{equation*}}
 
 
 A value of 1 would indicate that the MWE is always idiomatic, while a
@@ -872,12 +887,12 @@ transparent) it is, the more idiomatic it is.
 
 To illustrate how the values of each measure are computed, we propose a
 worked out example based on a pair of words used as boundaries, \textit{bite}
-and \textit{dog}, in a sample of 10 examples taken from pattern 1 of \textit{bite}: 
+and \textit{dog}, in a sample of 10 examples taken from pattern 1 of \textit{bite}:
 
 
-
-``$[$Human 1 | Animal 1$]$ bites ($[$Animal 2 | Physical Object | Human 2$]$"
-
+\ea
+"$[$Human 1 | Animal 1$]$ bites $[$Animal 2 | Physical Object | Human 2$]$"
+\z
 
 
 We chose this pair because it is a strong collocation (PMI = 7.7 in
@@ -888,7 +903,7 @@ boundary word, so we consider both \textit{dogs} and \textit{dog} as one word.
 Different decisions at this stage may lead to different results.
 
 
-\begin{figure}[h]
+\begin{figure}[b]
 %\includegraphics[width=\textwidth]{figures/hankselmaaroufoakesfourth-img002.png}
 \begin{tabular}{rlcl}
 `A \textcolor{red}{dog}\textsuperscript{-4} that\textsuperscript{-3} barks\textsuperscript{-2} doesn't\textsuperscript{-1} & \textcolor{red}{bite}\textsuperscript{0} & \textcolor{blue}{1} & ,' replied Antonio Navarro, \\
@@ -910,10 +925,10 @@ concordance for \textit{bite}.}
 
 
 
-Figure 2 provides an example using signed distance (left or right): in
+\figref{fig:04:02} provides an example using signed distance (left or right): in
 the first example, \textit{bite} is four words away to the left of \textit{bite}, the
 distance is therefore -4. To compute the mean span, however, we
-recommend to use the unsigned distance (i.e., 4 for the first example),
+recommend using the unsigned distance (i.e., 4 for the first example),
 but it is important to use the signed distance to compute the standard
 deviation, in order to capture word order variation. The unsigned text
 distances are therefore, in order of appearance of the examples,
@@ -925,9 +940,9 @@ The mean  $\mu$ characterises the mean span of an expression: \textit{bite} and
 \textit{dog} are 2.6 words apart.
 
 
-\begin{equation*}
+\eabox{\begin{equation*}
 \mu_{\left\{\mathit{bite},\mathit{dog}\right\}}=\frac{4+4+3+2+4+1+3+2+1+2}{10}=2.6
-\end{equation*}
+\end{equation*}}
 
 
 The standard deviation characterises the rigidity of an expression and
@@ -935,18 +950,20 @@ makes use of the mean of the signed distances  $\mu'$ computed as
 follows:
 
 
-\begin{equation*}
+\eabox{\begin{equation*}
+\resizebox{11cm}{!}{$
 \mu'_{\left\{\mathit{bite},\mathit{dog}\right\}}=\frac{(-4)+(-4)+3+(-2)+4+(-1)+3+(-2)+(-1)+(-2)}{10}=-0.6
-\end{equation*}
+$}
+\end{equation*}}
 
 
 The standard deviation can therefore be computed as:
 
 
-\begin{equation*}
-\resizebox{.85\hsize}{!}{$\mu^{'}_{\left\{\mathit{bite},\mathit{dog}\right\}}=\sqrt{\frac{\left(-4-\left(-0.6\right)\right)^2+\left(-4-\left(-0.6\right)\right)^2+%\left(3-\left(-0.6\right)\right)^2+%\left(-2-\left(-0.6\right)\right)^2+
+\eabox{\begin{equation*}
+\resizebox{11cm}{!}{$\mu^{'}_{\left\{\mathit{bite},\mathit{dog}\right\}}=\sqrt{\frac{\left(-4-\left(-0.6\right)\right)^2+\left(-4-\left(-0.6\right)\right)^2+%\left(3-\left(-0.6\right)\right)^2+%\left(-2-\left(-0.6\right)\right)^2+
 …+\left(-2-\left(-0.6\right)\right)^2}{10}}=\sqrt{\frac{76.4}{10}}=2.76$}
-\end{equation*}
+\end{equation*}}
 
 
 
@@ -969,11 +986,12 @@ times the string is observed in the sample, divided by the total number
 of examples (in our case, 10). The entropy is computed as follows:
 
 
-\begin{equation*}
+\eabox{
+\resizebox{11cm}{!}{$
 E_{\left\{\mathit{bite},\mathit{dog}\right\}}=-\left(\left(\frac
 1{10}\log _2\frac 1{10}\right)+\left(\frac 1{10}\log _2\frac
 1{10}\right)+…+\left(\frac 1{10}\log _2\frac 1{10}\right)\right)=3.12
-\end{equation*}
+$}}
 
 
 The entropy is quite high as there is no particular pattern that
@@ -1009,26 +1027,27 @@ The results for \textit{bite} were borne out when the experiment was repeated
 on a larger corpus, the entire BNC. Table \ref{score idiom bite} shows the results obtained
 for English idioms. Idioms are represented by their boundary words and
 the table provides the scores using standard measures of collocational
-strength (PMI, T-score, and Log-Dice), along with the absolute
+strength (PMI, t-score, and Log-Dice), along with the absolute
 frequency and our new measures: \isi{idiomaticity}, \isi{entropy}, \isi{mean span}, and
 \isi{standard deviation}.
 
 
 
 
-\begin{table}[H]
+\begin{table}
 \small
-\begin{tabular}{p{1.9cm} p{0.7cm}p{0.7cm}p{0.8cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.9cm}}
+%\begin{tabular}{p{1.7cm} p{0.7cm}p{0.7cm}p{0.8cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.9cm}}
+\begin{tabularx}{\textwidth}{l@{~}S r@{~~}rQ Q lQ@{~}l}
 \lsptoprule
-Idiom &
-Freq (total) &
-PMI &
-T-score &
-Log-Dice &
-Idiom-aticity &
-En-tropy &
-Mean span &
-Stand-ard deviation\\
+ {Idiom} &
+{Freq \mbox{(total)}}  &
+ {PMI} &
+ {t-score} &
+ {Log-Dice} &
+{Idioma\-ticity} &
+ {Entropy} &
+ {Mean\newline  span}  &
+ {SD} \\
 \midrule
 $[$back$]$ $[$bite$]$ &
 87 &
@@ -1081,8 +1100,9 @@ $[$bug$]$ $[$bite$]$ &
 2.578\\
 %%\hline
 \lspbottomrule
-\end{tabular}
-\caption{Summary of scores for some idioms of \textit{bite}.}
+\end{tabularx}
+\caption[Summary of scores for some idioms of \textit{bite}.]{Summary of scores for some idioms of \textit{bite}.
+SD: Standard Deviation}
 \label{score idiom bite}
 \end{table}
 
@@ -1103,7 +1123,7 @@ between \textit{bitten} and \textit{bug}, which were simply connected as \textit
 the bug}. The Shannon diversity, resulting from pattern classes of 4, 3
 and 3 members and 9 unique occurrences, had a very high value of 3.326.
 In terms of rigidity, the mean distance between \textit{bite} and \textit{bug} was
-3.125, with a high standard deviation of 2.578. This was because  cases such as \textit{the acting bug really bit me}, used the
+3.125, with a high standard deviation of 2.578. This was because  cases such as \textit{the acting bug really bit me} used the
 inchoative alternation, so \textit{bug} appeared before \textit{bit}. Also, influencing rigidity was the fact that even in the active voice, the
 number of intervening  words\footnote{Its French adjectival
 counterpart, \textit{mordu de} is also  diverse: 
@@ -1135,23 +1155,23 @@ given in Table \ref{score idiom mordre}, using the same headers as Table \ref{sc
 
 
 
-\begin{table}[H]
+\begin{table}
 \small
-\begin{tabular}{p{1.7cm} p{0.7cm}p{0.7cm}p{0.8cm}p{0.85cm}p{1cm}p{0.85cm}p{0.85cm}p{0.9cm}}
+\begin{tabularx}{\textwidth}{l@{~}S r@{~~}QS Q l@{~}Q@{~}l}
 \lsptoprule
-Idiom &
-Freq (total) &
-PMI &
-T-score &
-Log-Dice &
-Idiom-aticity &
-En-tropy &
-Mean span &
-Stand-ard deviation\\
+ {Idiom} &
+{Freq \mbox{(total)}}  &
+ {PMI} &
+ {t-score} &
+ {Log-Dice} &
+{Idioma\-ticity} &
+ {Entropy} &
+ {Mean\newline  span}  &
+ {SD} \\ 
 \midrule
 $[$poisson$]$ $[$mordre$]$ &
 4 &
-7.34 &
+7.340 &
 1.988 &
 \mbox{-2.222} &
 0.75 &
@@ -1201,7 +1221,7 @@ $[$doigt$]$ $[$mordre$]$ &
 %%\hline
 $[$poussière$]$ $[$mordre$]$ &
 6 &
-9.36 &
+9.360 &
 2.446 &
 \mbox{-0.204} &
 1 &
@@ -1211,7 +1231,7 @@ $[$poussière$]$ $[$mordre$]$ &
 %%\hline
 $[$queue$]$ $[$mordre$]$ &
 16 &
-9.67 &
+9.670 &
 4.118 &
 0.109 &
 1 &
@@ -1230,26 +1250,28 @@ $[$serpent$]$ $[$mordre$]$ &
 0.591\\
 %%\hline
 \lspbottomrule
-\end{tabular}
-\caption{Summary of scores for some idioms of \textit{mordre} (500 lines sample).}
+\end{tabularx}
+\caption[Summary of scores for some idioms of \textit{mordre} (500 lines sample).]{Summary of scores for some idioms of \textit{mordre} (500 lines sample).
+SD: Standard Deviation}
 \label{score idiom mordre}
 \end{table}
 
 
 
-
+ 
 The idiom \textit{le poisson mord à l' hameçon} is a popular expression in
-French which means `to take the bait' (see Table \ref{idiom cpa mordre}). As illustrated in
+French which means `to take the bait' (see Table \ref{idiom cpa mordre}).
+As illustrated in
 Table \ref{score idiom mordre}, it was found in 3 different forms, which, despite varying mean
 span and frequency, were each found to be maximally fixed (standard
-deviation = 0) and minimally diverse (entropy = 0).
+deviation = 0) and minimally diverse (entropy~=~0).
 
 
 
 The pattern “$[$$[$Human$]$$]$ se mord \{les doigts\}” rarely took its literal
 meaning in French, standing for `a person experiencing a bitter time
 for his past actions' in 20 cases out of 21. It usually occurred in the
-corpus as \textit{mordre les doigts}, but sometimes as \textit{mord encore les
+corpus as \textit{mordre les doigts}, but sometimes as \textit{se mord encore les
 doigts} `bites his fingers again', \textit{mordrait un peu souvent les
 doigts} `bit his fingers a bit often' and other variants. This gave a
 mean of 1.19, a standard deviation of 0.15, and an entropy of 1.08.
@@ -1257,9 +1279,9 @@ mean of 1.19, a standard deviation of 0.15, and an entropy of 1.08.
 
 
 The idiom \textit{mordre dans la vie à pleine dents} was also found as \textit{mordre
-la vie à pleines dents}. Table \ref{score idiom mordre} list the scores when both variants are
+la vie à pleines dents}. Table \ref{score idiom mordre} lists the scores when both variants are
 combined. If we consider \textit{vie} as the boundary word (\textit{à pleines dents}
-was only found once in a mention to a song), \textit{mordre dans la vie}
+was only found once in a mention of a song), \textit{mordre dans la vie}
 occurred 4 times with mean span of 3, while \textit{mordre la vie} was found
 twice with mean span of 2.5. Since 5 out of 6 examples had a distance
 of 3 words, the standard deviation was quite low (0.372); however the
@@ -1306,7 +1328,7 @@ are cognitively salient (roughly equivalent to “easily called to mind”)
 and socially salient (roughly equivalent to “frequently used”). He
 suggests that cognitive salience and social salience are independent
 variables, or may even be in an inverse relationship: that is,
-frequently used expression are buried deep in the language user’s
+frequently used expressions are buried deep in the language user’s
 subconscious mind and are not necessarily easily called to mind. The
 idioms \textit{kick the bucket} and \textit{spill the beans} are probably the most
 cognitively salient and most frequent idioms cited by linguists. Other
@@ -1354,12 +1376,21 @@ flexible than the relatively well behaved \textit{kick the bucket}. Although
 opaque, it occurs more often in the text in its literal meaning because
 its literal meaning is more frequent in everyday language. 
 
-\begin{table}[H]
+
+
+\begin{table}
 \small
-\begin{tabular}{p{1.7cm} p{0.8cm}p{0.7cm}p{0.8cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.9cm}}
+\begin{tabularx}{\textwidth}{l@{}S r@{~~}SQ Q l@{~~}Q@{~~}r}
 \lsptoprule
-Idiom & Freq (idio-matic) & PMI & T-score & Log-Dice & Idiom-aticity & En-tropy &
-Mean span & Stand-ard deviation\\%%\hline
+ {Idiom} &
+{Freq \mbox{(total)}}  &
+ {PMI} &
+ {t-score} &
+ {Log-Dice} &
+{Idioma\-ticity} &
+ {Entropy} &
+ {Mean\newline  span}  &
+ {SD} \\ 
 \midrule
 $[$back$]$$[$bite$]$ &
 87 &
@@ -1453,14 +1484,14 @@ $[$bucket$]$$[$kick$]$ &
 3.500 &
 1.870\\%\hline
 \lspbottomrule
-\end{tabular}
-\caption{10 English idioms retained for generalization experiments.}
+\end{tabularx}
+\caption[10 English idioms retained for generalization experiments.]{10 English idioms retained for generalization experiments.\\SD: Standard Deviation}
 \label{10 English idioms}
 \end{table}
 
 
 An idiom which stands out in Table \ref{10 English idioms} is \textit{way the wind blows}, which was
-by far the strongest collocation according to the t-score and log Dice
+by far the strongest collocation according to the t-score and LogDice
 measures, and the lowest idiomaticity score (or having the greatest
 proportion of literally-intended examples). \textit{bite \ldots bug} had highest
 entropy, as one can metaphorically be bitten by many kinds of bug.
@@ -1471,7 +1502,7 @@ standard deviation of span.
 \subsection{Inter-annotator agreement}
 
 Another way of demonstrating the validity of a statistical measure, such
-as MWE idiomaticity or mean span, is to determine the \is{inter annotator agreement} Inter-Annotator
+as MWE idiomaticity or mean span, is to determine the \is{inter-annotator agreement} Inter-Annotator
 Agreement (or Inter-Rater Reliability, IRR). This is the degree to
 which two or more observers might concur on a classification or
 annotation task. A measure is only valid to the extent that humans can
@@ -1480,7 +1511,7 @@ contribute to the measure. For example, do they agree on whether a MWE
 is being used in its idiomatic sense or not, and where it starts and
 ends? IRR falls in the range 0 for only random agreement to 1 for
 perfect agreement. As an illustration, we estimated the IRR, using
-Krippendorff’s $\alpha$ measure\footnote{Krippendorff’s $\alpha$ may be
+Krippendorff’s $\alpha$ measure,\footnote{Krippendorff’s $\alpha$ may be
 calculated using the ‘irr’ package in the R statistical programming
 language. The package ‘irr’ can be installed by the following
 command: \texttt{install.packages("irr", repos = "http://cran.r-project.org")}
@@ -1489,7 +1520,8 @@ The annotators’
 responses should be stored in a matrix, where each row corresponds to
 annotators' response values. The R command to create a matrix for three
 examples and 2 annotators is, for example: \texttt{m = matrix(c(1,1,3,3,1,2), nrow=2)}.
-}, between two native speakers of English
+}
+between two native speakers of English
 as regards the span and idiomaticity of the phrase \textit{kick the bucket}.
 There were 26 sentences in the British National Corpus containing both
 \textit{kick} and \textit{bucket}. An $\alpha$ value of 1 denotes perfect agreement
@@ -1524,17 +1556,16 @@ young to $[$kick the bucket$]$”.
 
 In our experiment to find the agreement of the native speakers as to
 whether the phrase \textit{kick the bucket} was absent, literal or idiomatic,
-Krippendorff’s $\alpha$ was .\footnote{ Krippendorff’s $\alpha$ is found
-by the following command: 
-irr:kripp.alpha(m,``nominal")}  A value
+Krippendorff’s $\alpha$ was 0.745.\footnote{Krippendorff’s $\alpha$ is found
+by the following command: \texttt{irr:kripp.alpha(m,``nominal").}}  A value
 between 0.6 and 0.8 is said to be “good” agreement \citep[404]{altmann1991}.
 
 
 
 This experiment was modified to consider only those cases where the
 annotators considered the phrase \textit{kick the bucket} to be
-present\footnote{The matrix was modified so that all the 1s (denoting
-absence of the phrase) were replaced by “NA” (not applicable).}: we were
+present:\footnote{The matrix was modified so that all the 1s (denoting
+absence of the phrase) were replaced by “NA” (not applicable).} we were
 looking at the agreement between the annotators in distinguishing
 literal and idiomatic uses, and Krippendorff’s $\alpha$ was 0.635, still
 “good”.
@@ -1544,7 +1575,7 @@ literal and idiomatic uses, and Krippendorff’s $\alpha$ was 0.635, still
 To look at the agreement with respect to the span of the idiom, the
 values in the matrix were replaced with the number of words between the
 square brackets marked by the annotators, or NA if they did not find
-the idiom in the sentence.\footnote{ This type of numeric data is called
+the idiom in the sentence.\footnote{This type of numeric data is called
 “ratio” data, so the appropriate command to calculate Krippendorff’s
 $\alpha$ is: irr:kripp.alpha(m,``ratio”).} The annotators agreed in every
 case where they both marked off the start and end of the idiom ($\alpha$ =
@@ -1563,8 +1594,8 @@ focusing on the relatedness of different measures. To do this, we
 compared the values of our set of 10 idioms (see Table \ref{10 English idioms}) according to
 10 measures. These included the measures of mean and standard deviation
 of idiom span, Shannon Diversity and idiomaticity, compared with four
-standard measures for collocation strength: \isi{frequency of collocation},
-PMI, \isi{t-score} and \isi{LogDice}. Both the t-score and LogDice are used by the
+standard measures for collocation strength: \is{frequency!of collocation} frequency of collocation,
+PMI, t-score and LogDice. Both the t-score and LogDice are used by the
 Sketch Engine lexicographers’ tool \citep{rychly2008}. 
 
 
@@ -1589,9 +1620,28 @@ of the measures of collocational strength, frequency and PMI.
 
 \begin{table}[ht]
 \small
-\begin{tabular}{p{1.8cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.8cm}p{0.85cm}p{0.85cm}}
+%\begin{tabular}{p{1.8cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.85cm}p{0.8cm}p{0.85cm}p{0.85cm}}
+\begin{tabular}{p{1.8cm} r r r r r r r r} 
 \lsptoprule
-~ & Freq & PMI & t-score & Log-Dice & Idiom-aticity & En-tropy & Mean span & Stand-ard deviation\\
+Idiom &
+Freq  &
+PMI &
+t- &
+Log- &
+Idiom- &
+En- &
+Mean  &
+SD \\
+ &
+ (total) &
+ &
+score
+ &
+Dice &
+aticity &
+tropy &
+span &
+ \\
 \midrule
 Freq &
 1 &
@@ -1704,7 +1754,8 @@ deviation & & & & & & & & \\
 %\hline
 \lspbottomrule
 \end{tabular}
-\caption{Correlations between scores in the 10 idiom study.}
+\caption[Correlations between scores in the 10 idiom study.]{Correlations between scores in the 10 idiom study.\\
+SD: Standard Deviation}
 \label{correlations}
 \end{table}
 
@@ -1754,14 +1805,13 @@ diversity, and their idiomaticity ratio. The results obtained by the
 application of these measures to \textit{bite} and \textit{mordre} revealed that each
 captured useful features of MWEs which compared favourably with
 intuitive notions of flexibility and compositionality. It is worth
-noting that the implementation of these measures required to make a
-number of decisions that were made explicit, particularly deciding on a
+noting that the implementation of these measures required us to make a number of decisions explicitly, particularly deciding on a
 basic unit such as the word or character. Perspectives include testing
 these measures on other languages, particularly those with so-called
 free word order, and application to Machine Translation.
 
 
-
+\largerpage
 In his analysis of extended units of meaning, \cite{Sinclair:1991}  noted, as
 we have done in our discussion of \textit{bite} and \textit{mordre}, that idioms can
 carry across to other languages. In his example, the Italian equivalent
@@ -1779,27 +1829,22 @@ eye tend to be difficult (“small”, “weak” or “faint”) to see.
 %\newpage
 
 \section*{Abbreviations}
-
-
-\begin{table}[H]
+ 
 \begin{tabular}{ll}
-\lsptoprule
-Full form  & Abbreviation \\
-\midrule
-Artificial Intelligence & AI  \\
-Corpus Pattern Analysis & CPA  \\
-Inter-Rater Reliability & IRR \\
- Pattern Dictionary of English Verbs  & PDEV \\
- Point-wise Mutual Information & PMI \\
-Word Sense Disambiguation & WSD  \\
-\lspbottomrule
+\textsc{ai} & Artificial Intelligence  \\
+\textsc{cpa} & Corpus Pattern Analysis  \\
+\textsc{irr} & inter-rater reliability \\
 \end{tabular}
-\caption{Abbreviations.}
-\end{table}
+\begin{tabular}{ll}
+\textsc{pdev} &  Pattern Dictionary of English Verbs  \\
+\textsc{pmi} &  Point-wise Mutual Information \\
+\textsc{wsd} & Word Sense Disambiguation  \\
+\end{tabular} 
 
 
 %\section*{References}
 
+\sloppy
 \printbibliography[heading=subbibliography,notkeyword=this]
 %\nocite{*}
 

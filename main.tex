@@ -1,14 +1,7 @@
 \errorcontextlines=5000
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                                              %%%
 %%%     Language Science Press Master File       %%%
-%%%         follow the instructions below        %%%
-%%%                                              %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-% Everything following a % is ignored
-% Some lines start with %. Remove the % to include them
-
 \PassOptionsToPackage{bulgarian,english}{babel}
 \PassOptionsToPackage{table}{xcolor}
 
@@ -16,16 +9,24 @@
 		,modfonts
 		,nonflat
 	        ,collection
-	        ,collectionchapter
-	        ,collectiontoclongg
- 	        ,biblatex  
-% 	        ,coverus
+	        ,collectionchapter  
+% 		,colorlinks,citecolor=brown
+		,multiauthors
+%                ,draft,draftmode
+%             ,showindex
 		  ]{langsci/langscibook}                              
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% put all additional commands you need in the 
-% following files. If you do not know what this might 
-% mean, you can safely ignore this section
+% WARNINGS FOR HYPERREF AND TOCSTYLE DISABLED IN langscibook.cls!
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{hyperref}{XeTeX driver}
+\WarningFilter{tocstyle}{THIS IS AN ALPHA}
+\WarningFilter{hyperref}{Option `colorlinks'}
+\WarningFilter{hyperref}{Token not allowed in a PDF string (Unicode):}
+\WarningFilter{biblatex}{'babel/polyglossia' detected but 'csquotes' missing}
+\WarningFilter{biblatex}{package incompatibility}
+\WarningFilter{./langsci/styles/langsci-gb4e}{You have requested} 
+
 
 \input{localmetadata.tex}
 \input{localpackages.tex}
@@ -34,61 +35,47 @@
 \bibliography{localbibliography}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                                              %%%
 %%%             Frontmatter                      %%%
-%%%                                              %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}         
 \maketitle                
 \frontmatter
-% %% uncomment if you have preface and/or acknowledgements
-
 \currentpdfbookmark{Contents}{name} % adds a PDF bookmark
 \tableofcontents
-% \include{chapters/preface}
-% \include{chapters/acknowledgments}
-
-%% Additional prefaces and/or introductions that also have authors
-\lsCollectionPaperFrontmatterMode % Enter the Frontmatter Mode. 
-%\includepaper{chapters/prefaceEd}
-\includepaper{chapters/main-introduction}
-% \includepaper{chapters/prefaceEd2}
+%moved index entries to localseealso.tex
+ 
+\lsCollectionPaperFrontmatterMode % Enter the Frontmatter Mode.  
+\includepaper{chapters/main-introduction} 
 \lsCollectionPaperMainmatterMode % Leave the Frontmatter Mode 
-\setcounter{chapter}{0} % Reset the chapter counter so that preceeding prefaces are not counted
-%%
-\mainmatter          
+\setcounter{chapter}{0} % Reset the chapter counter so that preceeding prefaces are not counted 
 
+\mainmatter          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                                              %%%
 %%%             Chapters                         %%%
-%%%                                              %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
-  
-%\includepaper{chapters/01} %add a percentage sign in front of the line to exclude this chapter from book
-%\includepaper{chapters/02} 
-% \includepaper{chapters/03} 
-% copy the lines above and adapt as necessary
-
 \includepaper{chapters/01.bargman}
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
 \includepaper{chapters/02.cvetana}
 \includepaper{chapters/03.fotopolou}
 \includepaper{chapters/04.hanks}
-\includepaper{chapters/kuiper}
+\includepaper{chapters/05.kuiper}
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
 \includepaper{chapters/06.laporte}
 \includepaper{chapters/07.markantonatou}
+% \todo[inline]{check italics for transliterations}
 \includepaper{chapters/08.mititelu}
 \includepaper{chapters/09.osevona}
-\includepaper{chapters/10.para}
-
+\includepaper{chapters/10.para}%check for tabulars
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                              %%%
-%%%             Backmatter                       %%%
+%%%             Backmatter                        %%%
 %%%                                              %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% There is normally no need to change the backmatter section
+ 
+\input{localseealso.tex} 
+\sloppy
 \input{backmatter.tex}
 
 \end{document} 
@@ -98,10 +85,4 @@
 %%%                  END                         %%%
 %%%                                              %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% you can create your book by running
-% xelatex main.tex
-%
-% you can also try a simple 
-% make
-% on the commandline
+ 

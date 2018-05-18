@@ -1,16 +1,18 @@
 \documentclass[output=paper]{langsci/langscibook}
+\ChapterDOI{10.5281/zenodo.1182589}
 \author{Svetla Koeva\affiliation{Institute for Bulgarian Language, Bulgarian Academy of Sciences}%
 \and Cvetana Krstev\affiliation{Faculty of Philology, University of Belgrade}%
 \and Duško Vitas\affiliation{Faculty of Mathematics, University of Belgrade}%
 \and Tita Kyriacopoulou\affiliation{Université Paris-Est Marne-la-Vallée}%
 \and Claude Martineau\affiliation{LIGM, Universite Paris-Est Marne-la-Vallée}%
 \lastand Tsvetana Dimitrova\affiliation{Institute for Bulgarian Language, Bulgarian Academy of Sciences}}
-\title{Semantic and syntactic patterns of multiword names: a cross-language study}\shorttitlerunninghead{Semantic and syntactic patterns of multiword names: a cross-language study}
+\title{Semantic and syntactic patterns of multiword names: A cross-language study}
+\shorttitlerunninghead{Semantic and syntactic patterns of multiword names}
 
-\abstract{ Named entities (NEs) constitute a great challenge for computational linguistics and one of the major research topics during the last decade. They can be divided in categories describing people, location, time, organization and others. In this paper we will restrict our discussion to proper names that belong to three main classes: personal, location and organization names, and that can be either single-word nouns or multiword expressions. First, we are going to define common (language-independent) semantic patterns for proper names and then we will present the corresponding syntactic patterns in English, Bulgarian, French, Greek, and Serbian. We will compare these patterns regarding grammatical categories of dependent constituents, definiteness, distribution of clitics, word order and various alternations. Our ultimate goal is to build a universal framework for Named Entity Recognition (NER).}
+\abstract{Named entities (NEs) constitute a great challenge for computational linguistics and one of the major research topics during the last decade. They can be divided in categories describing people, location, time, organization and others. In this paper we will restrict our discussion to proper names that belong to three main classes: personal, location and organization names, and that can be either single-word nouns or multiword expressions. First, we are going to define common (language-independent) semantic patterns for proper names and then we will present the corresponding syntactic patterns in English, Bulgarian, French, Greek, and Serbian. We will compare these patterns regarding grammatical categories of dependent constituents, definiteness, distribution of clitics, word order and various alternations. Our ultimate goal is to build a universal framework for Named Entity Recognition (NER).}
 
 \newcommand{\trigger}[1]{\textsc{#1}}
-
+\lehead{S. Koeva, C. Krstev, D. Vitas, T. Kyriacopoulou, C. Martineau \& T. Dimitrova}
 \maketitle
 
 \begin{document}
@@ -20,16 +22,16 @@
 \section{Introduction}
 
 Proper names are usually defined as belonging to the following main
-classes: \isi{personal names}, \isi{location names}, and \isi{organization names}, called
-also \isi{named entities} (NEs). They can be single-word nouns or particular
+classes:  \is{name!personal name} personal names, \is{name!location name} location names, and \is{name!organization name} organization names, called
+also \is{name} named entities (NEs). They can be single-word nouns or particular
 types of multiword expression (MWE).
 
 The aim of this paper is to offer a common template for description and
 classification of proper names in different languages. Our objectives
 are: i) to formulate semantic patterns for personal, location and
-\isi{organization names} that capture the general semantics and should be, to
+organization names that capture the general semantics and should be, to
 a great extent, language-neutral; ii) to describe language-specific
-\isi{syntactic patterns} corresponding to a common semantic pattern. The
+syntactic patterns corresponding to a common semantic pattern. The
 syntactic patterns provide information about the grammatical class of
 the head and constituents; dependencies among the constituents; word
 order and contiguity; cliticisation (if applicable – for possessive
@@ -37,7 +39,7 @@ pronoun and interrogative clitics).
 
 This study is based on evidence gathered from five languages – \ili{English}, \ili{Bulgarian}, \ili{French}, \ili{Greek}, and \ili{Serbian} –
 belonging to four different language groups (Germanic, Hellenic,
-Romance, and Slavic). The utility of language-neutral \isi{semantic patterns}
+Romance, and Slavic). The utility of language-neutral semantic patterns
 lies in the fact that they can be applied to new languages, thus paving
 the way towards more universal solutions for (rule-based) named entity
 recognition (NER). The set of language-specific syntactic patterns
@@ -48,6 +50,8 @@ extraction and summarization.
 
 
 \section{Names: a general overview}
+
+\is{name|(}
 
 In \ili{English} \citep[96]{huddleston1988}, two different terms are often used:
 \textit{proper noun} – referring to the part-of-speech of the word and
@@ -77,7 +81,7 @@ Petersburg College}. A particular common noun (i.e., \textit{city,
 street, president, actor}) specifies the object whose instances may be
 represented by a set of proper names; and such an object is always
 presupposed for a given proper name even if the common noun is not
-mentioned explicitly in the text. Furthermore, \isi{multiword names} may
+mentioned explicitly in the text. Furthermore, multiword names \is{name!multiword name} may
 comprise a category word (\textit{square} in \textit{Trafalgar Square};
 \textit{ocean} in \textit{the Indian Ocean}), and in these cases, the
 category of the particular name is always explicitly shown \citep[144]{carroll1985}.
@@ -104,7 +108,7 @@ designators, category words \citep{carroll1985}, external evidence \citep{mcdona
 confusion with the theory of reference, we will use the term \textit{trigger}.
 
 
-
+\is{trigger}
 Triggers depend semantically on the referent of the personal name, and
 different names select different classes of triggers. In turn, triggers
 determine the characteristics of the object to which the name refers.
@@ -119,15 +123,16 @@ affiliation as complements (\textit{the President of the USA, the actor
 at the Muppet Theatre}). However, not all words that are compatible
 with the first noun are compatible with the second (\textit{stage
 actor} vs. *\textit{stage president}). Therefore, the notion of
-triggers is central for the classification of the \isi{semantic patterns} of
+triggers is central for the classification of the semantic patterns of
 proper names and accordingly – for the description of the respective
-\isi{syntactic patterns}.
+syntactic patterns.
 
+\is{name|)}
 
-\section{Grammatical features of names in \ili{Bulgarian}, \ili{English}, \ili{French}, \ili{Greek} and \ili{Serbian}: a brief overview}
+\section{Grammatical features of names in {Bulgarian}, {English}, {French}, {Greek} and {Serbian}: a brief overview}
 
-\isi{personal names} are singular and inherently definite (the same applies to
-location and \isi{organization names} that cannot express definiteness). Some
+Personal names are singular and inherently definite (the same applies to
+location and organization names that cannot express definiteness). Some
 \ili{Bulgarian}, \ili{English}, \ili{French}, \ili{Greek}, and \ili{Serbian} location and
 organization names are in singularia tantum or pluralia tantum, or
 marked for definiteness: with a definite article (\ili{English}, \ili{French},
@@ -163,17 +168,19 @@ adjectives and possessive pronouns agree in case with the head noun.
 
 
 
-Compared to \isi{personal names}, \isi{location names} have a more diverse
-structure, while \isi{organization names} show the highest complexity. Both
-location and \isi{organization names} can be proper nouns or proper names,
+Compared to personal names, location names have a more diverse
+structure, while organization names show the highest complexity. Both
+location and organization names can be proper nouns or proper names,
 comprising proper and common nouns or noun phrases, which begin to
 function as names of geographical locations and organizations,
 respectively.
 
 \section{Names and multiword expressions}
 
+\is{name!multiword name|(}
+
 Many names are composed of more than one word and are classified as
-\isi{multiword names}. They can comprise two or more proper nouns
+multiword names. They can comprise two or more proper nouns
 (\textit{Ray Jackendoff, Merill Lynch}); common and proper nouns (\ili{Bulgarian}:
 \textit{Republika Bălgariya} ‘Republic Bulgaria’); adjectives and a
 proper or a common noun (\textit{International Monetary Fund},
@@ -196,7 +203,7 @@ may include another name (\textit{the University of Queensland}) or not
 sentences (as with titles of movies).
 
 An important feature that systematically distinguishes location and
-\isi{organization names} from \isi{personal names} is that the \trigger{triggers} may
+organization names from personal names is that the \trigger{triggers} may
 be their integral part, constituting a MWE (\ili{Bulgarian}:
 \textit{Černo \trigger{more}} `Black \trigger{Sea}’,\footnote{The translations in the paper are closer to literal translations than to proper ones, e.g., \ili{Bulgarian}: \textit{Republika Bălgariya} ‘Republic Bulgaria’ instead of `\ili{Bulgarian} Republic' or `The Republic of Bulgaria', but \ili{Greek}: ο Έλληνας \trigger{Πρωθυπουργός}  `the \ili{Greek} \trigger{Prime Minister'} (instead of `premier',
 for example).}
@@ -211,14 +218,14 @@ for example).}
 \cite{carroll1985} describes the non-classifying part of the location name
 as a name-stem (e. g., \textit{Trafalgar} in \textit{Trafalgar Square})
 and explores rules according to which the name-stem can be used to
-stand for the whole name. Not only for some \isi{location names}, but also
-for some \isi{organization names} with internal triggers, the name-stem can
+stand for the whole name. Not only for some location names, but also
+for some organization names with internal triggers, the name-stem can
 replace the whole name, e.g., \ili{French}: \textit{\trigger{la maison d’édition}}
 \textit{Hachette} ‘the Hachette \trigger{publishing company}’ or just
 \textit{Hachette, }\ili{Greek}: η Ολυμπιακή ‘the Olympic’ for Olympic
 \trigger{Airways}.
 
-Further, a \is{location names} location name may feature a \textbf{personal name} specified
+Further, a  location name may feature a \textbf{personal name} specified
 by a \trigger{personal} \trigger{trigger} (\textit{\trigger{San}}
 \textbf{\textit{Jorge}} \textit{River}) that cannot be omitted without
 loss of the name function; similarly, an organization name may feature
@@ -280,21 +287,21 @@ trigger (\textit{the }\textit{\trigger{company}} \textit{Business Models
 }\textit{\trigger{Inc.}})
 \end{itemize}
 
+\is{name!multiword name|)}
 
 \section{Semantic patterns for persons, locations and organizations}
-
 
 Names can be grouped into different semantic classes and subclasses with
 respect to the properties of their referents (explicated by triggers).
 A name from a given class (personal, location or organization) selects
 triggers from a particular set of semantic subclasses. For example,
-complex \isi{personal names} are combined with triggers that define a
+complex personal names are combined with triggers that define a
 legislative job title, executive job title, judicial position, academic
 position, academic title, military rank, and profession. The
 permissible combinations between types of names (proper nouns, MWEs),
-and semantic subclasses of triggers determine the \isi{semantic patterns}
-applicable to the personal, location and \isi{organization names}. The
-semantic patterns we propose show semantic compatibility valid for a
+and semantic subclasses of triggers determine the semantic patterns
+applicable to the personal, location and organization names. The
+semantic patterns \is{pattern} we propose show semantic compatibility valid for a
 particular semantic class and describe the permissible combinatory
 options. For example, a personal name can be extended with a kinship
 term (i.e., \textit{the beautiful
@@ -307,9 +314,9 @@ phrase) – trigger: kinship term – (complement: possessor phrase) –
 
 As triggers refer to concepts, the semantic relations in which they are
 involved should be universal and must hold among the relevant concepts
-in any language. Thus, the \isi{semantic patterns} describe language-neutral
+in any language. Thus, the semantic patterns describe language-neutral
 relations and can be regarded as universal structures with correlating
-language-specific \isi{syntactic patterns}.
+language-specific syntactic patterns.
 
 
 
@@ -321,19 +328,19 @@ trigger, i.e., words such as \textit{chess-player}, \textit{singer},
 for identification of large sets of triggers – hyponyms of high-level
 synsets such as \{person\}, \{location\}, \{organization\}. Some
 authors suggest verb triggers appearing in the local context of NEs
-\citep{zhang2004}, e.g., for water bodies (like rivers) the verb may
-indicate that \textit{Sava} is a river and not a person (\textit{The
-Sava flooded the village}). \ There are detailed classifications of NEs
+\citep{zhang2004}, e.g., for water bodies (like rivers) the verb \textit{flooded} in \textit{The
+Sava flooded the village}
+indicates that \textit{Sava} is a river and not a person . \ There are detailed classifications of NEs
 (of more than 200 categories; cf. \citealt{sekine2004}), while other
 classifications build shallow hierarchies with the major classes on the
 top and sets of subtypes with different granularity at the low levels
 (\citealt{ace2008}; \citealt{fleischman2002}).
 
 In our study, we distinguish the following semantic subclasses for
-person, location and \isi{organization names} and their triggers:
+person, location and organization names and their triggers:
 
 \begin{itemize}
-\item Persons and personal triggers: legislative job title: \textit{prime
+\item Persons and personal triggers \textendash legislative job title: \textit{prime
 minister}; executive job title: \textit{executive officer}; judicial
 position: \textit{judge}; academic position: \textit{associate
 professor}; military rank: \textit{major general}; profession:
@@ -341,10 +348,10 @@ professor}; military rank: \textit{major general}; profession:
 \textit{Mister / Mr.}; aristocratic title: \textit{Prince}; religious
 title: \textit{Bishop}; kinship term: \textit{sister}; holy title:
 \textit{Saint}.
-\item Locations and location triggers: natural: \textit{river}; public:
+\item Locations and location triggers \textendash natural: \textit{river}; public:
 \textit{monument}; commercial: \textit{restaurant}; infrastructure:
 \textit{boulevard}.
-\item Organizations and organization triggers: business: \textit{company};
+\item Organizations and organization triggers \textendash business: \textit{company};
 political: \textit{political party}; government: \textit{ministry};
 media: \textit{publishing house}; human / non-government:
 \textit{association}.
@@ -357,8 +364,6 @@ semantic subclass of the trigger; (b) the type of the proper name that
 selects triggers; (c) obligatoriness / optionality of the trigger
 manifested by an internal or external trigger with respect to the name;
 (d) the semantic pattern that the proper name evokes.
-
-
 
 
 
@@ -375,6 +380,7 @@ Semantic pattern: (referent specification phrase) – trigger – (domain
 specification phrase) – (possessor phrase) – (affiliation phrase) –
 (location phrase).
 
+\medskip 
 
 Example: \ili{English}: (\textit{his} | \textit{Stefan's}) (\textit{new})
 \textit{\trigger{professor}} (\textit{of law}) (\textit{at the
@@ -395,6 +401,7 @@ name (for distinguished persons) but no separate pattern is defined for this typ
 (referent specification phrase) – \trigger{trigger} – (affiliation
 phrase) – (location phrase).
 
+\medskip 
 
 
 Example: \ili{English}: \textit{the }(\textit{new})\textit{
@@ -402,13 +409,14 @@ Example: \ili{English}: \textit{the }(\textit{new})\textit{
 Francisco})\textit{ }\textbf{\textit{Iona}}\textit{.}
 
 \subsection{Pattern C}
-
+\largerpage
 (a) Semantic class of the trigger: kinship term. (b) Type of the proper
 name: personal name (rarely modified by family name(s)). (c) External
 trigger. (d) Semantic pattern: (referent specification phrase) –
 \trigger{trigger} – (possessor phrase) – (location phrase).
 
 
+\smallskip 
 
 Example: \ili{English}: (\textit{his} | \textit{Ivan's}) (\textit{blond})\textit{
 }\textit{\trigger{step-brother}} (\textit{from Sofia})\textit{
@@ -421,6 +429,7 @@ Example: \ili{English}: (\textit{his} | \textit{Ivan's}) (\textit{blond})\textit
 substituted by a nickname). (c) External trigger. (d) Semantic pattern:
 (referent specification phrase) – \trigger{trigger} – (location phrase).
 
+\medskip 
 
 
 Example: \ili{English}: (\textit{miraculous}) \textit{\trigger{saint}}\textit{
@@ -433,6 +442,7 @@ Example: \ili{English}: (\textit{miraculous}) \textit{\trigger{saint}}\textit{
 proper name: personal name extended or substituted by a family name.
 (c) External trigger. (d) Semantic pattern: – trigger 
 
+\medskip 
 
 Example: \ili{English}:
 \textit{\trigger{Monsieur}}\textit{ }\textbf{\textit{Ivan Ivanov}}.
@@ -444,6 +454,7 @@ name: location name. (c) External trigger. (d) Semantic pattern:
 (referent specification phrase) – \trigger{trigger} – (specification
 phrase) – (possessor phrase) – (location phrase)
 
+\medskip 
 
 
 Example: \ili{English}: \textit{the }(\textit{beautiful})\textit{
@@ -459,6 +470,7 @@ name: location name. (c) Internal trigger. (d) Semantic pattern:
 phrase)
 
 
+\medskip 
 
 Example: \ili{English}: \textit{the }(\textit{beautiful})
 \textbf{\textit{\trigger{Mount}}}\textbf{\textit{ Fuji}}
@@ -474,11 +486,12 @@ specification phrase) – (possessor phrase) – (affiliation phrase) –
 (location phrase).
 
 
+\medskip 
 
 Example: \ili{English}:\textit{ the }(\textit{new})\textit{
 }\textit{\trigger{company}}\textit{ }(\textit{of his friends})
 (\textit{in Athens})\textit{,} \textbf{\textit{Tetracom}}.
-
+ 
 \subsection{Pattern I}
 
 (a) Semantic class of the trigger: organization. (b) Type of the proper
@@ -487,6 +500,7 @@ name: organization name. (c) Internal trigger. (d) Semantic pattern:
 phrase).
 
 
+\medskip 
 
 Example: \ili{English}: \textit{the }(\textit{new}) \textbf{\textit{Hebros}}
 \textbf{\textit{\trigger{Bank}}} (\textit{in Athens}).
@@ -498,14 +512,14 @@ Example: \ili{English}: \textit{the }(\textit{new}) \textbf{\textit{Hebros}}
 
 
 
-We define the \isi{semantic patterns} evoked by different types of proper
-names when combined with triggers, and the \isi{syntactic patterns} that
+We define the semantic patterns evoked by different types of proper
+names when combined with triggers, and the syntactic patterns that
 involve combinations of: modifiers, one or several, semantically
 restricted by the head proper noun and the trigger, and complements,
 semantically restricted by the trigger.
 
-The syntactic patterns are language-specific and differ for personal,
-location and \isi{organization names}. The syntactic patterns may involve
+The syntactic patterns \is{pattern} are language-specific and differ for personal,
+location and organization names. The syntactic patterns may involve
 combinations of adjectival modifiers in pre- or post-nominal position,
 one or several; pronoun modifiers in pre-nominal position (possessive
 and demonstrative); complements in post-nominal position, one or
@@ -520,14 +534,14 @@ may be prepositional or case complements, depending on the language
 structure.
 
 
-\isi{multiword names} have the structure of a noun phrase and exhibit specific
+Multiword names have the structure of a noun phrase and exhibit specific
 properties with respect to constituency of the head noun and the
 components, including various constraints on modifiers, complements,
-clitics (in \ili{Bulgarian} and \ili{Greek}), etc.
+\is{clitic} clitics (in \ili{Bulgarian} and \ili{Greek}), etc.
 
 
 
-The \isi{syntactic patterns} represent language-specific grammatical features
+The syntactic patterns represent language-specific grammatical features
 and dependencies and how these features and dependencies are manifested
 in a particular language. One or more syntactic patterns from one or
 different languages may correspond to the same semantic pattern. The
@@ -544,13 +558,13 @@ Syntactic patterns corresponding to the largely universal semantic
 patterns, described in §5, are formulated for \ili{English},
 \ili{Bulgarian}, \ili{French}, \ili{Greek}, and \ili{Serbian}.
 The generalizations for semantic
-patterns and respective \isi{syntactic patterns} were constructed on the
+patterns and respective syntactic patterns were constructed on the
 basis of observations and classifications made on dictionaries of NEs,
 annotated corpora of NEs and grammars for NE recognition developed so
 far (\citealt{krstev2013}; \citealt{koeva2015}).
 
 
-
+\largerpage
 \subsection{Syntactic pattern A (single family name or multiword personal name)}
 Characteristics shared by the five
 languages\footnote{
@@ -589,40 +603,38 @@ the article is obligatory); otherwise, it is definite. Examples: \ili{Bulgarian}
 government-the \textbf{Ivan Dimitrov}’; \ili{English}: \textit{\trigger{professor}}
 \textbf{\textit{Chomsky}} versus \textit{the
 }\textit{\trigger{professor}} \textit{of linguistics
-}\textbf{\textit{Noam Chomsky}}; iii) \isi{personal names} can be extended
+}\textbf{\textit{Noam Chomsky}}; iii) personal names can be extended
 with one or more (rarely more than two) proper names: a nickname, a
 patronym and/or a family name, constituting a MWE. Example: \ili{Serbian}:
 \textit{\trigger{Dr}} \textbf{\textit{Slavica Đukić-Dejanović}}\textit{,
 }\textit{\trigger{predsednik}} \textit{Narodne skupštine} ‘\trigger{Dr.}
 \textbf{Slavica Đukić-Dejanović}, \trigger{president} of National
-Assembly’.
-
-
-
-\ili{English}:\footnote{The vertical
+Assembly’.\footnote{The vertical
 bar – |, separates alternatives. The question mark indicates zero or
 one occurrences of the preceding element. The asterisk  ``*'', indicates
 zero or more occurrences of the preceding element. Parentheses ``()'',
 are used to define the scope and precedence of the operators. The
 equality sign \ =, indicates the semantics of the prepositions and case
 phrases.}
-(((DefArt|GenDet|GPossPron) Adj*
+  
+
+\begin{description}
+\item[\ili{English}:] 
+
+ (((DefArt|GenDet|GPossPron) Adj*
 \trigger{Trigger} (PP \textit{in}|\textit{of}|\textit{for = DomSpec})? (PP
 \textit{at = Aff})* (PP \textit{in = Loc})?) | (DefArt \trigger{Trigger} (PP \textit{in}|\textit{of}|\textit{for = DomSpec})?
 (PP \textit{at}|\textit{of = Aff})* (PP \textit{in = Loc})?) | \trigger{IndefTrigger)}  \textbf{PerN}
 
-
-
-\ili{Bulgarian}: (((DefAdj (PossCL)?) | \textbf{DefPossPron}) Adj* \trigger{Trigger}
+ 
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)?) | \textbf{DefPossPron}) Adj* \trigger{Trigger}
 (PP \textit{po}|\textit{na}|\textit{za = DomSpec})? (PP \textit{na}|\textit{pri}|\textit{v}|\textit{kăm}|\textit{ot = Aff})*)
-(PP \textit{ot = Loc})?) | (\trigger{DefTrigger} (PossCL)? (PP
-\textit{po}|\textit{na}|\textit{za = DomSpec})? (PP \textit{na}|\textit{pri}|\textit{v}|\textit{kăm}|\textit{ot = Aff})* (PP
+(PP \textit{ot = Loc})?) | (\trigger{DefTrigger} (PossCL)? (PP 
+\textit{po}|\textit{na}|\textit{za = DomSpec})? ~~~(PP \textit{na}|\textit{pri}|\textit{v}|\textit{kăm}|\textit{ot = Aff})* ~~~~(PP
 \textit{ot = Loc})?) | \trigger{IndefTrigger}) \textbf{PerN}
 
 
-
-
-\ili{French}: (((DefArt|PossPron) Adj* \trigger{Trigger} (PP
+\item[\ili{French}:] (((DefArt|PossPron) Adj* \trigger{Trigger} (PP 
 \textit{en}|\textit{de = DomSpec})? (PP
 \textit{à =Aff})* (PP à
 \textit{= Loc})?) | (DefArt
@@ -631,40 +643,39 @@ phrases.}
 \trigger{IndefTrigger})  \textbf{PerN}
 
 
-
-\ili{Greek}: ((DefArt Adj* (PossPron)? \trigger{Trigger} (GenP \textit{= DomSpec})?
+\item[\ili{Greek}:] ((DefArt Adj* (PossPron)? \trigger{Trigger} (GenP \textit{= DomSpec})?
 (PP σε \textit{= Aff})* (PP σε \textit{= Loc})?) | (DefArt
 \trigger{Trigger} (GenP \textit{= DomSpec})? (GenP \textit{= Aff})* (PP
 σε \textit{= Loc})?) | \trigger{DefTrigger)}  \textbf{PerN}
 
 
-
-\ili{Serbian}: ((Adv | PossPron)? DefAdj* \trigger{Trigger} (PP \textit{za}| GenP =
+\item[\ili{Serbian}:] ((Adv | PossPron)? DefAdj* \trigger{Trigger} (PP \textit{za}| GenP =
 \textit{DomSpec})? (PP \textit{u|pri} | GenP = \textit{Aff})* (PP
 \textit{u}|\textit{za}|\textit{iz} GenP = \textit{Loc})?)  \textbf{PerN}
+\end{description}
 
 
 
-\begin{table}[H]
+\begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
-\mdseries\itshape \ili{English} & \mdseries\itshape Spain’s \trigger{Secretary} of State for Foreign
+\ili{English} & Spain’s \trigger{Secretary} of State for Foreign
 Affairs, \textbf{Gonzalo de Benito Secades}\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape Dăržavniyat \trigger{sekretar} na vănšnite
+\ili{Bulgarian} & Dăržavniyat \trigger{sekretar} na vănšnite
 raboti na Ispaniya, \textbf{Gonzalo de Benito Sekades}\\
-\mdseries\itshape \ili{French} & \mdseries\itshape le \trigger{ministre} espagnol des Affaires Etrangères,
+\ili{French} & le \trigger{ministre} espagnol des Affaires Etrangères,
 \textbf{Gonzalo} \textbf{de Benito Secades}\\
-\mdseries\itshape \ili{Greek} & \mdseries ο Ισπανός \trigger{Υπουργός} Εξωτερικών,
+\ili{Greek} & \mdseries ο Ισπανός \trigger{Υπουργός} Εξωτερικών,
 \itshape \textbf{Gonzalo de Benito Secades}\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape Državni \trigger{sekretar} za spoljne poslove Španije, \itshape \textbf{Gonzalo de Benito
+\ili{Serbian} & Državni \trigger{sekretar} za spoljne poslove Španije, \itshape \textbf{Gonzalo de Benito
 Sekades}\\
 \lspbottomrule
 \end{tabularx}
-\caption[Syntactic pattern A – an example translated in the five languages.]{Syntactic pattern A – an example translated in the five languages.\footnote{The examples do not illustrate all variants.}}
+\caption[Syntactic pattern A – an example translated in the five languages.]{Syntactic pattern A – an example translated in the five languages. The examples do not illustrate all variants.}
 \end{table}
+\vspace*{-3mm}
 
-
-
+\largerpage
 \subsection{Syntactic pattern B (single- or multiword personal name)}
 
 Characteristics shared by the five languages: i) The trigger phrase is
@@ -682,47 +693,30 @@ Monseigneur }\textbf{\textit{André Vingt-Trois}} ‘the
 \trigger{Archbishop} of Paris, Monsignor \textbf{André Vingt-Trois}’;
 \textit{Le bienheureux }\textit{\trigger{père}}
 \textbf{\textit{Brottier}} ‘the blessed \trigger{father}
-\textbf{Brottier}’; iii) \isi{personal names} can be extended with one or
+\textbf{Brottier}’; iii) personal names can be extended with one or
 more (rarely more than two) proper names: a nickname, a patronym and/or
 a family name. These constituents form a complex name (MWE). Example: \ili{Greek}: ο
 πρόσφατα χειροτονηθείς \trigger{Σεβασμιότατος Μητροπολίτης}
 Κεφαλληνίας, \trigger{πατέρας} \textbf{Γεώργιος
 Σαπουνάς} ‘the newly appointed Most Reverend \trigger{Bishop} \linebreak \trigger{ Metropolitan} of Kefalonia, \trigger{Father} \textbf{Georgios Sapounas}’.
 
+ 
+\largerpage
 
-
-
-\ili{English}: ((DefArt Adj* \trigger{Trigger} (PP \textit{of = Aff})* (PP
+\begin{description}
+\item[\ili{English}:] ((DefArt Adj* \trigger{Trigger} (PP \textit{of = Aff})* (PP
 \textit{in = Loc})?) | (DefArt \trigger{Trigger} (PP
 \textit{at}/\textit{of = Aff})* (PP \textit{in = Loc})?) | \trigger{IndefTrigger})
 \textbf{PerN}
 
+ 
 
-
-\ili{Bulgarian}: (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP
-\textit{na}|\textit{pri}|\textit{v}|\textit{kăm}|\textit{ot} \textit{= Aff})? (PP \textit{ot = Loc})?) |
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP
+\textit{na}|\textit{pri}|\textit{v}|\textit{kăm}| \textit{ot} \textit{= Aff})? (PP \textit{ot = Loc})?) |
 (\trigger{DefTrigger} (PP \textit{na}|\textit{pri}|\textit{v}|\textit{kăm}|\textit{ot} \textit{= Aff})? (PP \textit{ot
 = Loc})?) | \trigger{IndefTrigger)} \textbf{PerN}
-
-
-
-\ili{French}: ((DefArt Adj* \trigger{Trigger} (PP \textit{de = Aff})* (PP
-\textit{à}|\textit{en = Loc})?) | (DefArt \trigger{Trigger}* Adj* (PP \textit{de =
-Aff})* (PP \textit{à}|\textit{en = Loc})?) | \trigger{IndefTrigger}) \textbf{PerN}
-
-
-
-\ili{Greek}: ((DefArt Adj* \trigger{Trigger} (GenP \textit{= Aff})* (GenP\textit{ =
-Loc})?) | (DefArt \trigger{Trigger} (GenP = \textit{Aff} | \textit{Loc})* (PP
-σε \textit{= Loc})?) | \trigger{DefTrigger}) \textbf{PerN}
-
-
-
-\ili{Serbian}: (((PossPron | PossAdj) \trigger{Trigger}) | (DefAdj* \trigger{Trigger})
-| (\trigger{Trigger} DefAdj?)) (PP \textit{u}|\textit{za}| \textit{GenP = Aff})? (PP
-\textit{u}|\textit{za}|\textit{iz GenP = Loc})?) \textbf{PerN} DefAdj*
-
-\begin{table}
+ 
+\begin{table}[b]
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
 
@@ -741,8 +735,28 @@ Loc})?) | (DefArt \trigger{Trigger} (GenP = \textit{Aff} | \textit{Loc})* (PP
 \caption{Syntactic pattern B – an example translated in the five languages.}
 \end{table}
 
+  
+ 
+
+\item[\ili{French}:] ((DefArt Adj* ~~~\trigger{Trigger} (PP \textit{de = Aff})* ~~(PP
+\textit{à}|\textit{en = Loc})?) | (DefArt \trigger{Trigger}* Adj* (PP \textit{de =
+Aff})* (PP \textit{à}|\textit{en = Loc})?) | \trigger{IndefTrigger}) \textbf{PerN}
+
+ 
+
+\item[\ili{Greek}:] ((DefArt Adj* \trigger{Trigger} (GenP \textit{= Aff})* (GenP\textit{ =
+Loc})?) | (DefArt \trigger{Trigger} (GenP = \textit{Aff} | \textit{Loc})* (PP
+σε \textit{= Loc})?) | \trigger{DefTrigger}) \textbf{PerN}
+
+ 
+
+\item[\ili{Serbian}:] (((PossPron | PossAdj) ~~\trigger{Trigger}) | (DefAdj* ~~\trigger{Trigger})
+| (\trigger{Trigger} DefAdj?)) (PP \textit{u}|\textit{za}| \textit{GenP = Aff})? (PP
+\textit{u}|\textit{za}|\textit{iz GenP = Loc})?) \textbf{PerN} DefAdj*
+\end{description}
 
 
+\clearpage 
 
 \subsection{Syntactic pattern C (single- or, rarely, multiword personal name)}
 
@@ -768,43 +782,47 @@ phrase headed by the trigger is definite. Examples: \ili{French}: \textit{la
 }\textit{\trigger{beau-frère}} \textit{de Paris,} \textbf{\textit{Jean}}
 ‘his \trigger{brother-in-law} from Paris, \textbf{John}’.
 
-\ili{English}: (((DefArt | GenDet | PossPron) Adj* \trigger{Trigger} (PP \textit{from
+
+\begin{description}
+
+\item[\ili{English}:] (((DefArt | GenDet | PossPron) ~~Adj*~~ \trigger{Trigger} (PP \textit{from
 = Loc})?) | (DefArt Adj* \trigger{Trigger} (PP \textit{of =
 Poss}\footnote{The possessor phrase is shown only for the kinship terms.})? (PP
 \textit{from = Loc})?)) \textbf{PerN}
 
 
 
-\ili{Bulgarian}: (((DefAdj (PossCL)?) | DefPossPron) Adj* \trigger{Trigger} (PP
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)?) | DefPossPron) Adj* \trigger{Trigger} (PP
 \textit{ot = Loc})?) | ((\trigger{DefTigger} (PossCL)?) (PP \textit{ot =
 Loc})?) | (DefAdj Adj* \trigger{Trigger} (PP \textit{na = Poss})?) |
 (\trigger{DefTrigger} (PP \textit{na = Poss})?))  \textbf{PerN}
 
+ 
 
-
-\ili{French}: (DefArt | PossPron) Adj* \trigger{Trigger} ((PP \textit{de = } \textbf{PerN}) |
+\item[\ili{French}:] (DefArt | PossPron) Adj* \trigger{Trigger} ((PP \textit{de = } \textbf{PerN}) |
 (PP \textit{de = Loc})?)  \textbf{PerN}
 
+ 
 
-
-\ili{Greek}: (DefArt Adj* \trigger{Trigger} ((GenP =  \textbf{PerN}) | (GenP =
+\item[\ili{Greek}:] (DefArt Adj* \trigger{Trigger} ((GenP =  \textbf{PerN}) | (GenP =
 \textit{Poss}))? (PP από DefArt \textit{= Loc})?) DefArt  \textbf{PerN}
 
+ 
 
-
-\ili{Serbian}: ( \textbf{PerN}* \trigger{Trigger}* (DefAdj* | (GenP =  \textbf{PerN}))? (PP \textit{iz
+\item[\ili{Serbian}:] (\textbf{PerN}* \trigger{Trigger}* (DefAdj* | (GenP =  \textbf{PerN}))? (PP \textit{iz
 = Loc})?)  \textbf{PerN} | (PossPron? DefAdj* \trigger{Trigger}* (PP \textit{iz =
 Loc})?)  \textbf{PerN}
+\end{description}
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
 
-\mdseries\itshape \ili{English} & \mdseries\itshape his beautiful \trigger{sister-in-law} from Athens, \textbf{Maria}\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape negovata krasiva \trigger{snaha} ot Atina, \textbf{Maria}\\
-\mdseries\itshape \ili{French} & \mdseries\itshape sa jolie \trigger{belle-soeur} d’Athènes, \textbf{Maria}\\
-\mdseries \itshape \ili{Greek} & \mdseries  η όμορφη \trigger{κουνιάδα} του από την Αθήνα, η \textbf{Μαρία}\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape njegova lepa \trigger{snaja} iz Atine, \textbf{Marija}\\
+\ili{English} & his beautiful \trigger{sister-in-law} from Athens, \textbf{Maria}\\
+\ili{Bulgarian} & negovata krasiva \trigger{snaha} ot Atina, \textbf{Maria}\\
+\ili{French} & sa jolie \trigger{belle-soeur} d’Athènes, \textbf{Maria}\\
+ \ili{Greek} & \mdseries  η όμορφη \trigger{κουνιάδα} του από την Αθήνα, η \textbf{Μαρία}\\
+\ili{Serbian} & njegova lepa \trigger{snaja} iz Atine, \textbf{Marija}\\
 \lspbottomrule
 \end{tabularx}
 
@@ -837,34 +855,36 @@ obligatory); otherwise, it is definite. Examples: \ili{Bulgarian}:
 \textbf{Charles De Menou D'Aulnay}’.
 
 
+\begin{description}
 
-\ili{English}: (DefArt Adj* \trigger{Trigger} (PP \textit{of}|\textit{from = Loc})?
-\textbf{PerN}) | (DefArt Adj* \trigger{Trigger} \textbf{PerN} (PP
+\item[\ili{English}:] (DefArt Adj* ~~\trigger{Trigger} (PP \textit{of}|\textit{from = Loc})?
+\textbf{PerN}) | (DefArt Adj* ~~~\trigger{Trigger} \textbf{PerN} (PP
 \textit{of}|\textit{from = Loc})?) | (\trigger{Trigger} \textbf{PerN }(PP
 \textit{of}|\textit{from = Loc})?)
 
+ 
 
-
-\ili{Bulgarian}: (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP
 \textit{na}|\textit{ot = Loc})?) | (DefAdj Adj* \trigger{Trigger} (PP
 \textit{na}|\textit{ot = Loc})?) | (\trigger{DefTrigger} (PP \textit{na}|\textit{ot} \textit{ =
 Loc})?) | \trigger{IndefTrigger}) \textbf{PerN}
 
+ 
 
-
-\ili{French}: (DefArt Adj* \trigger{Тrigger} (PP \textit{de = Loc})? \textbf{PerN})
+\item[\ili{French}:] (DefArt Adj* \trigger{Тrigger} (PP \textit{de = Loc})? \textbf{PerN})
 | (\trigger{Trigger} Adj* \textbf{PerN }(PP \textit{de = Loc})?)
 
+ 
 
-
-\ili{Greek}: (DefArt Adj* \trigger{Trigger} (GenP \textit{= Loc})? \textbf{PerN}) |
+\item[\ili{Greek}:] (DefArt Adj* \trigger{Trigger} (GenP \textit{= Loc})? \textbf{PerN}) |
 (DefArt \trigger{Trigger} \textbf{PerN }(GenP \textit{= Loc})? )
 
+ 
 
-
-\ili{Serbian}: (PossPron? DefAdj* \trigger{Trigger} ((PP \textit{iz}|\textit{u}|\textit{sa =
+\item[\ili{Serbian}:] (PossPron? DefAdj* \trigger{Trigger} ((PP \textit{iz}|\textit{u}|\textit{sa =
 Loc})? DefAdj? (N)?) \textbf{PerN }PossAdj? | \textbf{PerN }PossAdj?
 (PP \textit{iz}|\textit{u}|\textit{sa = Loc})?)
+\end{description}
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
@@ -881,6 +901,7 @@ Loc})? DefAdj? (N)?) \textbf{PerN }PossAdj? | \textbf{PerN }PossAdj?
 \caption{Syntactic pattern D – an example translated in the five languages.}
 \end{table}
 
+  
 \subsection{Syntactic pattern E (family name or multiword personal name)}
 
 Characteristics shared by the five languages: i) The external trigger
@@ -893,24 +914,27 @@ modifiers and/or complements are allowed. Example: \ili{French}:
 \textbf{Dupont}’; iii) If the trigger is indefinite, an article is not
 permissible (except for \ili{Greek} where the article is obligatory).
 Example: \ili{English}: *\textit{(the) }\textit{\trigger{Dr.}}
-\textbf{\textit{Livingstone}}; iv) \isi{personal names} can be extended with
+\textbf{\textit{Livingstone}}; iv) personal names can be extended with
 one or more (rarely more than two) proper names: a nickname, a patronym
 and/or a family name that form a complex name (MWE). Example: \ili{Bulgarian}:
 \textit{\trigger{gospodin}} \textbf{\textit{Ivan Ivanov}}
 ‘\trigger{Mister} \textbf{Ivan Ivanov}’.
 
 
+\begin{description}
 
-\ili{English}: \ili{Bulgarian}: \ili{French}: \trigger{IndefTrigger} \textbf{PerN}
+\item[\ili{English}:] \ili{Bulgarian}: \ili{French}: \trigger{IndefTrigger} \textbf{PerN}
 
+ 
 
+\item[\ili{Greek}:] DefArt \trigger{Trigger} \textbf{PerN}
 
-\ili{Greek}: DefArt \trigger{Trigger} \textbf{PerN}
+ 
 
-
-
-\ili{Serbian}: (\trigger{Trigger} \textbf{PerN) }\trigger{|} \textbf{(PerN
+\item[\ili{Serbian}:] (\trigger{Trigger} \textbf{PerN) }\trigger{|} \textbf{(PerN
 }\trigger{Trigger})
+
+\end{description}
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
@@ -927,6 +951,7 @@ and/or a family name that form a complex name (MWE). Example: \ili{Bulgarian}:
 \caption{Syntactic pattern E – an example translated in the five languages.}
 \end{table}
 
+\largerpage
 \subsection{Syntactic pattern F (single- or multiword location name)}
 
 Characteristics shared by the five languages: i) The trigger appears
@@ -942,54 +967,55 @@ the trigger is definite. Examples: \ili{English}: \textit{the beautiful
 \textbf{\textit{Plovdiv}}; \ili{French}: \textit{la belle }\textit{\trigger{ville}}
 \textit{des mille fontaines,} \textbf{\textit{Aix-en-Provence }}‘the
 beautiful \trigger{city} of thousand \ fountains,
-\textbf{Aix-en-Provence}’; iii) \is{location names} Location names can be MWEs. Examples:
+\textbf{Aix-en-Provence}’; iii) \is{name!location names} Location names can be MWEs. Examples:
 \ili{Bulgarian}: \textit{\trigger{Hram-pametnik}} \textit{Sveti}
 \textbf{\textit{Aleksandăr Nevski}} ‘\trigger{Cathedral} Saint
 \textbf{Alexander Nevski}’; \ili{Serbian}: \textit{\trigger{nadošli}}
 \textbf{\textit{Beli Timok}} ‘\trigger{rising} \textbf{Beli Timok}’.
 
 
+\begin{description} 
 
-\ili{English}: (((DefArt | GenDet | PossPron) Adj* \trigger{Trigger} (PP
+\item[\ili{English}:] (((DefArt | GenDet | PossPron) Adj* \trigger{Trigger} (PP
 \textit{of = Spec})? (PP \textit{in = Loc})?) | (DefArt
 \trigger{Trigger}\textbf{ }(PP \textit{of = Spec})?) |
 \trigger{IndefTrigger}) \textbf{LocN}
+ 
 
-
-
-\ili{Bulgarian}: (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP \textit{na
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)? | DefPossPron) Adj* \trigger{Trigger} (PP \textit{na
 = Spec})? (PP \textit{v}|\textit{na}|\textit{pri = Loc})?) | (\trigger{DefTrigger} (PP
-\textit{na = Spec})? (PP \textit{v}|\textit{na}|\textit{pri = Loc})?) |
+\textit{na = Spec})? ~~~~~(PP \textit{v}|\textit{na}|\textit{pri = Loc})?) ~~|
 \trigger{IndefTrigger}) \textbf{LocN}
+ 
+ 
 
-
-
-\ili{French}: (((DefArt | PossPron) Adj* \trigger{Trigger} (PP \textit{de = Spec})?
-(PP \textit{de = Loc})?) |
+\item[\ili{French}:] (((DefArt | PossPron) Adj* \trigger{Trigger} (PP \textit{de = Spec})?
+(PP \textit{de = Loc})?) | \linebreak 
 (DefArt\trigger{ Trigger} Adj* (PP
 \textit{de = Spec})?)) \textbf{LocN}
 
+ 
 
-
-\ili{Greek}: (((DefArt | PossPron) Adj* \trigger{Trigger} (GenP = \textit{Spec})?
-(PP σε \textit{= Loc})?) | (DefArt \trigger{Trigger} (GenP)?))
+\item[\ili{Greek}:] (((DefArt | PossPron) Adj* \trigger{Trigger} (GenP = \textit{Spec})?
+(PP σε \textit{= Loc})?) | \linebreak (DefArt \trigger{Trigger} (GenP)?))
 \textbf{LocN}
 
+ 
 
-
-\ili{Serbian}: ((PossPron | PossAdj)? DefAdj* \trigger{Trigger} (PP
+\item[\ili{Serbian}:] ((PossPron | PossAdj)? DefAdj* \trigger{Trigger} (PP
 \textit{u}|\textit{na}|\textit{pri}|\textit{pod}|\textit{u blizini}| \textit{GenP} = \textit{Loc})?) \textbf{LocN}
+\end{description}
 
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
 
-\mdseries\itshape \ili{English} & \mdseries\itshape the most romantic \trigger{city} in the world, \textbf{Paris}\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape nay-romantičniyat \trigger{grad} v sveta, \textbf{Pariž}\\
-\mdseries\itshape \ili{French} & \mdseries\itshape la plus romantique \trigger{ville} dans le monde, \textbf{Paris}\\
-\mdseries\itshape \ili{Greek} & \mdseries η πιο ρομαντική \trigger{πόλη} του κόσμου, το \textbf{Παρίσι}\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape najromantičniji \trigger{grad} na svetu, \textbf{Pariz}\\
+\ili{English} & the most romantic \trigger{city} in the world, \textbf{Paris}\\
+\ili{Bulgarian} & nay-romantičniyat \trigger{grad} v sveta, \textbf{Pariž}\\
+\ili{French} & la plus romantique \trigger{ville} dans le monde, \textbf{Paris}\\
+\ili{Greek} & \mdseries η πιο ρομαντική \trigger{πόλη} του κόσμου, το \textbf{Παρίσι}\\
+\ili{Serbian} & najromantičniji \trigger{grad} na svetu, \textbf{Pariz}\\
 \lspbottomrule
 \end{tabularx}
 
@@ -1005,7 +1031,7 @@ part of the location name, thus the location name is always a MWE.
 Examples: \ili{Bulgarian}: \textit{našiyat hubav }\textit{\trigger{grad}}
 \textbf{\textit{Novi h}}\textbf{\textit{\trigger{an}}} ‘\textit{our-the
 beautiful }\textit{\trigger{city}} \textbf{\textit{Novi han}}’; \ili{Greek}:
-\textbf{ο Ινδικός}\textbf{\trigger{Ωκεανός}} ‘the
+\textbf{ο Ινδικός} \textbf{\trigger{Ωκεανός}} ‘the
 \textbf{Indian }\textbf{\trigger{Ocean}}’; ii) A location name with an
 internal trigger is fixed, the order of constituents cannot be changed
 and insertions are not allowed. Examples: \ili{Bulgarian}: \textit{našata
@@ -1029,45 +1055,48 @@ from the internal one. Example: \ili{English}: \textbf{\textit{\trigger{City}}}
 \textbf{\textit{of Colorado }}\textbf{\textit{\trigger{Springs}}}; vi)
 Heavy trigger phrases often occur as appositions. Example: \ili{Serbian}:
 \textbf{\textit{Novo Brdo}}\textit{, najveći rudarski
-}\textit{\trigger{grad}} \textit{u Srbiji i na celom Balkanskom
+}\textit{\trigger{grad}} \textit{u Srbiji i na celom Balkan- skom
 poluostrvu} ‘\textbf{New Hill}, biggest mining \trigger{town} in Serbia
 and on the entire Balkan Peninsula’.
 
 
+\begin{description}
 
-\ili{English}: ((DefArt | GenDet | PossPron) Adj* \textbf{MWLocN }(PP \textit{in =
+\item[\ili{English}:] ((DefArt | GenDet | PossPron) Adj* \textbf{MWLocN }(PP \textit{in =
 Loc})?) | (DefArt \textbf{MWLocN }(PP \textit{in = Loc})?) |
 \textbf{MWLocN}
 
+ 
 
-
-\ili{Bulgarian}: (((DefAdj (PossCL)?) | DefPossPron) Adj* \textbf{MWLocN} (PP \textit{v}|\textit{na}|\textit{pri = Loc})?) | (\textbf{DefMWLocN} (PP \textit{v}|\textit{na}|\textit{pri =
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)?) | DefPossPron) Adj* \textbf{MWLocN} (PP \textit{v}|\textit{na}|\textit{pri = Loc})?) | (\textbf{DefMWLocN} (PP \textit{v}|\textit{na}|\textit{pri =
 Loc})?) | \textbf{MWLocN}
 
+ 
 
-
-\ili{French}: ((DefArt | PossPron) Adj* \textbf{MWLocN} (PP \textit{de = Loc})?) |
+\item[\ili{French}:] ((DefArt | PossPron) Adj* \textbf{MWLocN} (PP \textit{de = Loc})?) |
 (\textbf{MWLocN} (PP \textit{de = Loc})?) | \textbf{MWLocN}
 
+ 
 
-
-\ili{Greek}: ((DefArt | PossPron) Adj* \textbf{MWLocN} (GenP\textit{ = Loc})?) |
+\item[\ili{Greek}:] ((DefArt | PossPron) Adj* \textbf{MWLocN} (GenP\textit{ = Loc})?) |
 (\textbf{DefMWLocN} (GenP \textit{= Loc})?) | \textbf{MWLocN}
 
+ 
 
-
-\ili{Serbian}: ((PossPron | PossAdj)? DefAdj* (PP \textit{u}|\textit{na}|\textit{pri}|\textit{pod}|\textit{u blizini }|
+\item[\ili{Serbian}:] ((PossPron | PossAdj)? DefAdj* (PP \textit{u}|\textit{na}|\textit{pri}|\textit{pod}|\textit{u blizini }|
 \textit{GenP = Loc})?) \textbf{MWLocN} | \textit{\ GenP = Loc})?) |
 \textbf{MWLocN}
+\end{description}
+
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
-\mdseries\itshape \ili{English} & \mdseries\itshape the vast \textbf{Great} \textbf{\trigger{Plains}} in the United States\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape neobyatnite \textbf{Golemi} \textbf{\trigger{ravnini}} v Săedinenite štati\\
-\mdseries\itshape \ili{French} & \mdseries\itshape les \textbf{Grandes} \textbf{\trigger{Plaines}} aux Etats-Unis\\
-\mdseries\itshape \ili{Greek} & \mdseries τα \textit{\textbf{Great}}  \textit{\textbf{\trigger{Plains}}} της Αμερικής\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape prostrane \textbf{Velike} \textbf{\trigger{ravnice}} u Sjedinjenim Državama\\
+\ili{English} & the vast \textbf{Great} \textbf{\trigger{Plains}} in the United States\\
+\ili{Bulgarian} & neobyatnite \textbf{Golemi} \textbf{\trigger{ravnini}} v Săedinenite štati\\
+\ili{French} & les \textbf{Grandes} \textbf{\trigger{Plaines}} aux Etats-Unis\\
+\ili{Greek} & \mdseries τα \textit{\textbf{Great}}  \textit{\textbf{\trigger{Plains}}} της Αμερικής\\
+\ili{Serbian} & prostrane \textbf{Velike} \textbf{\trigger{ravnice}} u Sjedinjenim Državama\\
 \lspbottomrule
 \end{tabularx}
 \caption{Syntactic pattern G – an example translated in all five languages.}
@@ -1112,49 +1141,51 @@ Dečo Denev}}’; \ili{Greek}: η μεταλλευτική
 “\textbf{Ivo Lola Ribar”}’.
 
 
+\begin{description}
 
-\ili{English}: (((DefArt | GenDet | PossPron) Adj* \trigger{Trigger}\textbf{ }(PP
+\item[\ili{English}:] (((DefArt | GenDet | PossPron) Adj* \trigger{Trigger}\textbf{ }(PP
 \textit{in}|\textit{at = DomSpec})? (PP \textit{in}\textit{at = Loc})?) | (DefArt Adj*
 \trigger{Trigger}\textbf{ }(PP \textit{in}\textit{at = DomSpec})? (PP
 \textit{in}|\textit{at = Loc})?) | \trigger{Trigger}) \textbf{OrgN}
 
+ 
 
-
-\ili{Bulgarian}: (((DefAdj (PossCL)?) | DefPossPron) Adj* \trigger{Trigger} (PP
-\textit{po}|\textit{na}|\textit{za = DomSpec})? (PP \textit{v}|\textit{na}|\textit{pri = Loc})?) |
-((\trigger{DefTrigger} (PossCL)?) (PP \textit{po}|\textit{na}|\textit{za = DomSpec})? (PP
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)?) | DefPossPron) Adj* \trigger{Trigger} (PP
+\textit{po}|\textit{na}|\textit{za = DomSpec})? ~~~~~(PP \textit{v}|\textit{na}|\textit{pri = Loc})?) |
+((\trigger{DefTrigger} (PossCL)?) (PP \textit{po}|\textit{na}|\textit{za =DomSpec})? (PP
 \textit{v}|\textit{na}|\textit{pri = Loc})?) | \trigger{Trigger}) \textbf{OrgN}
 
+ 
 
-
-\ili{French}: (((DefArt | PossPron) Adj* \trigger{Trigger} (PP \textit{de =
+\item[\ili{French}:] (((DefArt | PossPron) Adj* \trigger{Trigger} (PP \textit{de =
 DomSpec})?) | (DefArt Adj* \trigger{Trigger} (PP \textit{de = PersN})?) |
 (DefArt \trigger{Trigger})) (PP \textit{σε }DefArt \textit{=}
 \textbf{OrgN})
 
+ 
 
-
-\ili{Greek}: ((DefArt Adj* \trigger{Trigge}r (PossPron)? ((PP για = \textit{
+\item[\ili{Greek}:] ((DefArt Adj* \trigger{Trigge}r (PossPron)? ((PP για = \textit{
 DomSpec?}) | (\textit{Gen = DomSpec})?) | (DefArt Adj* \trigger{Trigger}
 (GenDet)?) | (DefArt \trigger{Trigger})) (PP \textit{σε} DefArt
 \textit{=} \textbf{OrgN})
 
 
-
-\ili{Serbian}: (PossPron? DefAdj* \trigger{Trigger} (PP \textit{za} | \textit{GenP =
+ 
+\item[\ili{Serbian}:] (PossPron? DefAdj* \trigger{Trigger} (PP \textit{za} | \textit{GenP =
 DomSpec})? (PP \textit{u}|\textit{pri}| \textit{GenP = Aff})? (PP \textit{iz}|\textit{u}| \textit{GenP} =
 \textit{Loc})? \textbf{OrgN)} | (\textbf{OrgN} \trigger{Trigger})
-
+\end{description}
+\clearpage
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
 
-\mdseries\itshape \ili{English} & \mdseries\itshape China's investment \trigger{bank}, \textbf{China International Capital Corporation
+\ili{English} & China's investment \trigger{bank}, \textbf{China International Capital Corporation
 Limited}\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape \textbf{kitayskata} investicionna \trigger{banka} \textbf{China International Capital Corporation Limited}\\
-\mdseries\itshape \ili{French} & \mdseries\itshape la \trigger{Banque} d’Investissements en Chine, \textbf{China International Capital Corporation Limited}\\
-\mdseries \itshape \ili{Greek} & η \trigger{Τράπεζα} Επενδύσεων της Κίνας, η \itshape \textbf{China International Capital Corporation Limited}\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape kineska investiciona \trigger{banka}, \textbf{Kineska međunarodna kapitalna korporacija}\\
+\ili{Bulgarian} & \textbf{kitayskata} investicionna \trigger{banka} \textbf{China International Capital Corporation Limited}\\
+\ili{French} & la \trigger{Banque} d’Investissements en Chine, \textbf{China International Capital Corporation Limited}\\
+ \ili{Greek} & η \trigger{Τράπεζα} Επενδύσεων της Κίνας, η \itshape \textbf{China International Capital Corporation Limited}\\
+\ili{Serbian} & kineska investiciona \trigger{banka}, \textbf{Kineska međunarodna kapitalna korporacija}\\
 \lspbottomrule
 \end{tabularx}
 
@@ -1162,7 +1193,7 @@ Limited}\\
 \end{table}
 
 
-
+ 
 \subsection{Syntactic pattern I (multiword organization name)}
 
 Characteristics shared by the five languages: i) The trigger is an
@@ -1202,43 +1233,45 @@ Bulgaria}’ ; \textit{\trigger{Asociaciya}}
 Bălgariya” }}‘\trigger{Association} \textbf{\trigger{Union}} \textbf{of
 traders-the in Bulgaria}’.
 
+\newpage 
+\begin{description}
 
-
-\ili{English}: (DefArt | PossPron) Adj* \textbf{MWOrgN }(PP \textit{at}|\textit{in = Loc})?)
+\item[\ili{English}:] (DefArt | PossPron) Adj* \textbf{MWOrgN }(PP \textit{at}|\textit{in = Loc})?)
 | (\textbf{DefMWOrgN }(PP \textit{at}|\textit{in = Loc})?) | \textbf{MWOrgN}
 
+ 
 
-
-\ili{Bulgarian}: (((DefAdj (PossCL)?) | DefPossPron) Adj* \textbf{MWOrgN} (PP
+\item[\ili{Bulgarian}:] (((DefAdj (PossCL)?) | DefPossPron) Adj* \textbf{MWOrgN} (PP
 \textit{v}|\textit{na}|\textit{pri = Loc})?) | (\textbf{DefMWOrgN} (PP \textit{v}|\textit{na}|\textit{pri =
 Loc})?) | \textbf{MWOrgN}
 
+ 
 
+\item[\ili{French}:] (DefArt | PossPron) Adj* \textbf{MWOrgN} (PP \textit{à} \textit{de = Loc})?
 
-\ili{French}: (DefArt | PossPron) Adj* \textbf{MWOrgN} (PP \textit{à} \textit{de = Loc})?
+ 
 
-
-
-\ili{Greek}: ((DefArt | PossPron) Adj* \textbf{MWOrgN} (PP σε \textit{= Loc})?) |
+\item[\ili{Greek}:] ((DefArt | PossPron) Adj* \textbf{MWOrgN} (PP σε \textit{= Loc})?) |
 (DefArt \textbf{MWOrgN} (GenP = \textit{Loc})?) | \textbf{MWOrgN}
 
+ 
 
-
-\ili{Serbian}: (PossPron? DefAdj* \textbf{MWOrgN} (GenP = \textit{Poss})? (PP \textit{iz}|\textit{u}| \textit{GenP} = \textit{Loc})?) | \textbf{MWOrgN}
+\item[\ili{Serbian}:] (PossPron? DefAdj* \textbf{MWOrgN} (GenP = \textit{Poss})? (PP \textit{iz}|\textit{u}| \textit{GenP} = \textit{Loc})?) | \textbf{MWOrgN}
+\end{description}
 
 \begin{table}
 \begin{tabularx}{\textwidth}{lX}
 \lsptoprule
 
-\mdseries\itshape \ili{English} & \mdseries\itshape \textbf{World} 
+\ili{English} & \textbf{World} 
 \textbf{\trigger{Association}} \textbf{for Small and Medium Enterprises}\\
-\mdseries\itshape \ili{Bulgarian} & \mdseries\itshape \textbf{Svetovna} 
+\ili{Bulgarian} & \textbf{Svetovna} 
 \textbf{\trigger{asociaciya}} \textbf{za malki i sredni predpriyatiya}\\
-\mdseries\itshape \ili{French} & \mdseries\itshape \textbf{\trigger{Association}} 
+\ili{French} & \textbf{\trigger{Association}} 
 \textbf{Mondiale des Petites et Moyennes Entreprises}\\
-\mdseries \itshape \ili{Greek} & \textbf{Διεθνής} 
+ \ili{Greek} & \textbf{Διεθνής} 
 \textbf{\trigger{Σύνδεσμος}} \textbf{Μικρομεσαίων Επιχειρήσεων}\\
-\mdseries\itshape \ili{Serbian} & \mdseries\itshape \textbf{Svetsko}
+\ili{Serbian} & \textbf{Svetsko}
 \textbf{\trigger{udruženje}} \textbf{malih i srednjih preduzeća}\\
 \lspbottomrule
 \end{tabularx}
@@ -1253,7 +1286,7 @@ Loc})?) | \textbf{MWOrgN}
 \section{Comparison of the five languages}
 
 At the semantic level, languages do not differ (significantly). The
-\isi{semantic patterns} of proper names define the common semantics,
+semantic patterns of proper names define the common semantics,
 regardless of the language in which it is realized: semantic patterns
 are language-neutral. Languages differ in lexical and phrasal
 categories, constituency, word order permutations and alterations. The
@@ -1277,15 +1310,15 @@ languages. More than one language-specific syntactic pattern may be
 linked to one language-neutral semantic frame; in such a case,
 syntactic patterns are synonymous to the extent that they represent a
 common semantic structure. Through this type of representation, we
-offer an interlingual mapping of the syntactic structures of \isi{named
-entities} in the five languages. Some of the most distinctive
+offer an interlingual mapping of the syntactic structures of named
+entities in the five languages. Some of the most distinctive
 grammatical characteristics of NEs in \ili{English}, \ili{Bulgarian}, \ili{French}, \ili{Greek}
 and \ili{Serbian} with respect to the single and multiword morphology and
 syntax will be outlined below.
 
 \subsection{Grammatical categories of dependent constituents} %7.1. /
 
-The syntactic patterns of \ili{English} proper {\isi{name triggers} involve
+The syntactic patterns of \ili{English} proper name triggers involve
 combinations of adjectival modifiers in pre-nominal position, one or
 several (they can be preceded by a definite article) (‘\textit{the
 great }\textit{\trigger{poet}} \textbf{\textit{Burns}}’); possessive
@@ -1301,12 +1334,12 @@ genitive determiner and a prepositional phrase, e.g., \textit{the Grieg
 Grieg.}
 
 
-
-In \ili{Bulgarian}, the syntactic patterns for proper {\isi{name triggers} exhibit
+  
+In \ili{Bulgarian}, the syntactic patterns for proper {name triggers exhibit
 the following combinations: adjectival modifiers in pre-nominal
-position (\textit{noviyat }\textit{\trigger{predseda-}} \textit{\trigger{tel}} \textbf{\textit{Petrov}} `new-the \trigger{chair}\textbf{ Petrov}');
+position (\textit{noviyat }\textit{\trigger{pred-}} \textit{\trigger{sedatel}} \textbf{\textit{Petrov}} `new-the \trigger{chair}\textbf{ Petrov}');
 possessive pronoun modifiers in pre-nominal position alternating with a
-possessive pronoun clitic in post-nominal position (\textit{moyata
+possessive pronoun \isi{clitic} in post-nominal position (\textit{moyata
 }\textbf{\textit{sestra}} \textbf{Ana} `my-the \trigger{sister}\textbf{
 Ana}' vs. \textit{\trigger{sestra}}\textit{ mi }\textbf{\textit{Ana}}
 '\trigger{sister} my.PossCL \textbf{Ana}'); prepositional complements in
@@ -1348,7 +1381,7 @@ phrase headed by the trigger is also definite: η όμορφη
 \textbf{Edessa}’. A location name can be put in the genitive case:
 η όμορφη \trigger{πόλη} του
 \textbf{Παρισιού} ‘the beautiful \trigger{city} of
-\textbf{Paris}’. In that case, the use of the possessive pronoun clitic
+\textbf{Paris}’. In that case, the use of the possessive pronoun \isi{clitic}
 is not possible: *η όμορφή μας \trigger{πόλη}
 του \textbf{Παρισιού} ‘the beautiful our.PossCL
 \trigger{city} of \textbf{Paris}’.
@@ -1410,7 +1443,7 @@ beautiful \trigger{city}, \textbf{Paris}’; \ili{Serbian}: \textit{njeno rodno
 
 
 
-With \isi{personal names} in \ili{English}, the definite article is obligatory when
+With personal names in \ili{English}, the definite article is obligatory when
 it is modified by an adjective and/or a PP complement: \textit{the
 great }\textit{\trigger{poet}} \textbf{\textit{Burns, }}\textit{the
 Scottish }\textit{\trigger{poet}}\textit{ }\textbf{\textit{Burns;}}
@@ -1450,15 +1483,17 @@ izvesna }\textbf{\textit{Stevice Miletića}} ‘from certain
 \textbf{Stevica Miletić}’.
 
 
-\subsection{Distribution of clitics in \ili{Bulgarian} and \ili{Greek}} %7.3. /
+\subsection{Distribution of clitics in {Bulgarian} and {Greek}} %7.3. /
 
-The possessive pronoun clitics in \ili{Bulgarian} are right-adjacent to the
+\is{clitic|(}
+
+The possessive pronoun   clitics in \ili{Bulgarian} are right-adjacent to the
 definite article, e.g., in the second position in the noun phrase
 (\textit{noviyat ni }\textit{\trigger{ministăr}} \textbf{\textit{Valentin
 Dimitrov}} ‘new-the our.PossCL \trigger{minister} \textbf{Valentin
 Dimitrov}’ vs. \textit{\trigger{ministărăt}} \textit{ni na finansite
 }\textbf{\textit{Valentin Dimitrov}} ‘\trigger{minister-the} our.PossCL
-of finance-the \textbf{Valentin Dimitrov}’). The possessive pronoun
+of finance-the \textbf{Valen-} \textbf{tin Dimitrov}’). The possessive pronoun
 clitic in \ili{Bulgarian} is also right-adjacent to an indefinite kinship
 term if used without an adjectival modifier as in
 \textit{\trigger{mayka}} \textit{mi} \textbf{\textit{Maria}}
@@ -1475,7 +1510,7 @@ by a possessive pronoun clitic) or after the whole NP, as in:
 }\textbf{\textit{Ivanov}}\textit{ li} `new-the
 \trigger{d}\trigger{ir}\trigger{ector} \textbf{Ivanov} li.QuCL'). The
 above-stated rules for the definite article, possessive pronoun clitic
-and interrogative particle hold for the \isi{multiword names} too, with the
+and interrogative particle hold for the multiword names too, with the
 leftmost adjective being part of the proper name itself
 (\textbf{\textit{Bălgarskata narodna }}\textbf{\textit{\trigger{banka}}}
 ‘\textbf{\ili{Bulgarian}-the National }\textbf{\trigger{Bank}}’).
@@ -1498,6 +1533,8 @@ as in \textit{\trigger{komšija}} \textit{mi }\textbf{\textit{Asan}}
 these constructions are rarely used, being considered rather obsolete
 and non-standard and are therefore not included in the patterns.
 
+\is{clitic|)}
+
 \subsection{Expression of semantic and grammatical dependencies} %7.4. /
 
 Prepositions are used to express semantic and grammatical dependencies,
@@ -1514,7 +1551,7 @@ adjectives.
 
 
 In \ili{French}, \ili{Greek} and \ili{Serbian}, word order permutations are common for
-\isi{personal names}, as the first name and surname(s) can change places: \ili{French}:
+personal names, as the first name and surname(s) can change places: \ili{French}:
 \textbf{\textit{Nicolas Sarkozy}} vs. \textbf{\textit{Sarkozy
 Nicolas;}} \ili{Greek}: \textbf{Γεώργιος Κοκκινόπουλος}
 ‘\textbf{Georgios Kokkinopoulos}’ vs. \textbf{Κοκκινόπουλος
@@ -1574,7 +1611,7 @@ one triggers in a preferred order of appearance: \ili{English}:
 }} `general-the \trigger{director} \trigger{prof.} \textbf{Smith}';\textit{
 }\ili{French}: \textit{\trigger{Directeur}} \textit{général }\textit{\trigger{Prof.}}
 \textbf{\textit{Smith }}`\trigger{Director} General \trigger{Prof.}
-\textbf{Smith}'; \ili{Greek}: ο Γενικός \trigger{Διευθυντής Καθηγητής}} \textbf{Σμιθ} `the General
+\textbf{Smith}'; \ili{Greek}: ο Γενικός \trigger{Διευθυντής Καθηγητής} \textbf{Σμιθ} `the General
 \trigger{Director} \trigger{Professor} \textbf{Smith}'; \ili{Serbian}:
 \textit{Generalni }\textit{\trigger{direktor}} \textit{\trigger{prof.}}
 \textbf{\textit{Smit }}`General \trigger{director} \trigger{prof.}
@@ -1612,7 +1649,7 @@ Athens’. In this case, the two structures may convey a different
 meaning. The alternation is not possible for all proper names, e.g.,
 \textbf{Αλέξης Τσίπρας},
 \trigger{Πρωθυπουργός} της Ελλάδας ‘\textbf{Alexis
-Tsipras}, \trigger{Prime} \trigger{Minister} of the Greece’,
+Tsi-} \textbf{pras}, \trigger{Prime} \trigger{Minister} of the Greece’,
 *\textbf{Αλέξης Τσίπρας},
 \trigger{Πρωθυπουργός} στην Ελλάδα ‘\textbf{Alexis
 Tsipras}, \trigger{Prime Minister} in the Greece’. A location proper name
@@ -1627,7 +1664,7 @@ vs. \textit{Grčka }\textit{\trigger{ambasada}}\textit{ ‘}\ili{Greek}
 \trigger{Embassy}\textit{’} (while in \ili{French}, the adjective follows the
 trigger:\textit{ le }\textit{\trigger{président}}\textit{ français
 }\textbf{\textit{François Mitterrand}} ‘the \trigger{president}
-of-\ili{French}.Adj \textbf{Francois Mitterrand}’).
+of-\ili{French}.Adj \textbf{François Mitterrand}’).
 
 In \ili{French}, we may have an alternation of the preposition \textit{de}
 ‘of’ with the preposition \textit{à} ‘at’, e.g., \textbf{\textit{Martin
@@ -1643,7 +1680,7 @@ Lausanne'.
 
 
 In \ili{Serbian}, syntactic alternations are permissible, to some extent, with
-\isi{organization names}: a complement in the genitive case instead of a PP complement
+organization names: a complement in the genitive case instead of a PP complement
 (\textbf{\textit{\trigger{Ministarstvo}}} \textbf{\textit{rada i socijalne politike}} `\trigger{Ministry} of Labor and
 Social Policy’ instead of a \textbf{\textit{\trigger{Ministarstvo}}}
 \textbf{\textit{za rad i socijalnu politiku}}
@@ -1653,9 +1690,16 @@ The features of the triggers in the five languages are summarized in Table \ref{
 
 \begin{table}
 %\begin{tabularx}{llllll}
-\begin{tabularx}{\textwidth}{Xccccc}
+\begin{tabularx}{\textwidth}{p{7.3cm}@{~}p{5mm}p{5mm}p{5mm}p{5mm}p{5mm}}
 \lsptoprule
-Features that concern the trigger &  \ili{English} &  \ili{Bulgarian} &  \ili{French} &  \ili{Greek} &  \ili{Serbian}\\
+Features that concern the trigger
+& 
+\rotatehead[1.5cm]{{English}} &
+\rotatehead{{Bulgarian}} &  
+\rotatehead{{French}} &  
+\rotatehead{{Greek}} &  
+\rotatehead{{Serbian}}\\
+\midrule 
 adjective in pre-position &  + &  + &  + &  + &  +\\
 adjective in post-position &  {}- &  {}- &  + &  {}- &  +\\
 PP in post-position &  + &  + &  + &  + &  +\\
@@ -1664,7 +1708,7 @@ genitive phrase in pre-position &  {}- &  {}- &  {}- &  + &  {}-\\
 genitive determiner in pre-position &  + &  {}- &  {}- &  {}- &  {}-\\
 definite article &  + &  {}- &  + &  + &  {}-\\
 definite morpheme &  {}- &  + &  {}- &  {}- &  +\\
-obligatory definiteness with modifier Adj / PP in a sentence &  + &  + &  + &  + &  +\\
+obligatory definiteness with modifier Adj/PP in a sentence &  + &  + &  + &  + &  +\\
 possessive pronoun clitic &  {}- &  + &  {}- &  + &  {}-\\
 dependencies expressed by prepositions &  + &  + &  + &  + &  +\\
 dependencies expressed by cases &  {}- &  {}- &  {}- &  + &  +\\
@@ -1673,7 +1717,10 @@ genitive determiner and PP alternation &  + &  {}- &  {}- &  {}- &  {}-\\
 genitive and PP alternation &  {}- &  {}- &  {}- &  + &  +\\
 poss. pronoun and possessive clitic alternation &  {}- &  + &  {}- &  {}- &  {}-\\
 noun modifier and PP alternation &  + &  + &  {}- &  + &  +\\
-Features that concern the whole NE &  \ili{English} &  \ili{Bulgarian} &  \ili{French} &  \ili{Greek} &  \ili{Serbian}\\
+\\
+Features that concern the whole NE \\
+\midrule
+% \ili{English} &  \ili{Bulgarian} &  \ili{French} &  \ili{Greek} &  \ili{Serbian}\\
 pre-position of the trigger &  + &  + &  + &  + &  +\\
 apposition &  + &  + &  + &  + &  +\\
 interrogative clitic &  {}- &  + &  {}- &  {}- &  {}-\\
@@ -1687,7 +1734,7 @@ interrogative clitic &  {}- &  + &  {}- &  {}- &  {}-\\
 \section{Conclusion}
 
 The semantic classification and the syntactic patterns of single and
-\isi{multiword names} in \ili{Bulgarian}, \ili{English}, \ili{French}, \ili{Greek}, and \ili{Serbian}, may
+multiword names in \ili{Bulgarian}, \ili{English}, \ili{French}, \ili{Greek}, and \ili{Serbian}, may
 provide reliable data for rule-based Named Entity Recognition (NER).
 
 
@@ -1749,49 +1796,49 @@ summarization and machine translation. Last but not least, the
 presented approach contributes to comparative language studies and may
 be further extended to other word classes that show relatively regular
 morphological properties and syntactic dependencies.
-
-\newpage
-
+ 
 \section*{Abbreviations}
+\largerpage
+ 
+\begin{tabularx}{.5\textwidth}{lQ}
+\textsc{adj} & adjective \\
+\textsc{adv} & adverb\\
+\textsc{aff} & affiliation  \\
+\textsc{defart} & definite article\\
+\textsc{defadj} & definite adjective\\
+\textsc{defposspron} & definite possessive pronoun \\
+\textsc{deftrigger} & definite trigger \\
+(\textsc{dom)spec} & (domain) specification \\
+\textsc{gendet} & genitive determiner \\
+\\
+\end{tabularx}
+\begin{tabularx}{.49\textwidth}{lQ}
+ \textsc{genp}  &   (noun) phrase in genitive \\
+\textsc{indeftrigger} & indefinite trigger \\
+\textsc{ins} & instrumental \\
+\textsc{lit.} &  literal translation \\
+\textsc{loc}  & location \\
+\textsc{mwe}  & multiword expression \\
+\textsc{mwlocn}  & multiword location name  \\
+\textsc{mworgn}  & multiword organization name \\
+\end{tabularx}
 
-
-\begin{table}
-\begin{tabular}{ll}
-\lsptoprule
-Full form  & Abbreviation \\
-\midrule
-Adjective & Adj\\
-Adverb & Adv\\
-Affiliation & Aff\\
-Definite article & DefArt\\
-Definite adjective & DefAdj\\
-Definite possessive pronoun & DefPossPron\\
-Definite trigger & DefTrigger\\
-(Domain) specification & (Dom)Spec\\
-Genitive determiner & GenDet\\
-Indefinite trigger & IndefTrigger\\
-Interrogative clitic & QuCL\\
-Instrumental & Ins\\
-Literal translation & Lit.\\
-Location & Loc\\
-Multiword expression & MWE\\
-Multiword location name & MWLocN\\
-Multiword organization name & MWOrgN\\
-Named entity & NE\\
-Named entity recognition & NER \\
-(Noun) Phrase in genitive & GenP\\
-Personal name & PerN\\
-Possessive adjective & PossAdj\\
-(Possessive) pronoun clitic & (Poss)CL\\
-Possessive pronoun & PossPron\\
-Prepositional phrase & PP\\
-\lspbottomrule
-\end{tabular}
-\caption{Abbreviations.}
-\end{table}
-
+\noindent
+\begin{tabularx}{.47\textwidth}{ll}
+\textsc{ne}  & named entity \\
+\textsc{qucl} & interrogative clitic \\
+\textsc{ner}  &  named entity recognition  \\
+ \textsc{pern}  & personal name \\
+\end{tabularx}
+\begin{tabularx}{.52\textwidth}{ll}
+ \textsc{possadj}  & possessive adjective \\
+(\textsc{poss)cl}  & (possessive) pronoun clitic \\
+\textsc{posspron}  & possessive pronoun \\
+ \textsc{pp}  & prepositional phrase \\
+\end{tabularx} 
 %\section*{References}
 
+\sloppy
 \printbibliography[heading=subbibliography,notkeyword=this]
 %\nocite{*}
 

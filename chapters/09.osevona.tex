@@ -1,20 +1,12 @@
 \documentclass[output=paper]{langsci/langscibook}
+\ChapterDOI{10.5281/zenodo.1182603}
 \author{Petya Osenova\affiliation{Linguistic Modelling Department, IICT-BAS}%
 \lastand Kiril Simov\affiliation{Linguistic Modelling Department, IICT-BAS}}
-\title{Modeling Multiword Expressions in a parallel Bulgarian-English newsmedia corpus}\shorttitlerunninghead{Modeling Multiword Expressions in a parallel Bulgarian-English corpus}
+\title{Modelling multiword expressions in a parallel Bulgarian-English newsmedia corpus}\shorttitlerunninghead{Modelling multiword expressions in a parallel Bulgarian-English corpus}
 
-\abstract{The paper focuses on the modeling of multiword expressions (MWE)
-in Bulgarian--English parallel news corpora (SETimes; CSLI dataset and
-PennTreebank dataset). Observations were made on alignments in which at
-least one multiword expression was used per language. The multiword
-expressions were classified with respect to the PARSEME lexicon based (WG1)
-and Treebank-based (WG2) classifications. The non-MWE counterparts of MWEs
-are also considered. Our approach is data-driven because the data of this
-study was retrieved from parallel corpora and not from bilingual
-dictionaries. The survey shows that the predominant translation relation
-between Bulgarian and English is MWE-to-word, and that this relation does
-not exclude other translation options. To formalize our observations, a
-catenae-based modeling of the parallel pairs is proposed.}
+\abstract{The paper focuses on the modelling of multiword expressions (MWE)
+in Bulgarian-English parallel news corpora (SETimes; CSLI dataset and
+PennTreebank dataset). Observations were made on alignments in which at least one multiword expression was used per language. The multiword expressions were classified with respect to the PARSEME lexicon-based (WG1) and treebank-based (WG4) classifications. The non-MWE counterparts of MWEs are also considered. Our approach is data-driven because the data of this study was retrieved from parallel corpora and not from bilingual dictionaries. The survey shows that the predominant translation relation between Bulgarian and English is {\em MWE-to-word}, and that this relation does not exclude other translation options. To formalize our observations, a catenae-based modelling of the parallel pairs is proposed.}
 
 \maketitle
 
@@ -22,28 +14,27 @@ catenae-based modeling of the parallel pairs is proposed.}
 
 \section{Introduction}
 
-This work proposes a catenae-based modeling of aligned pairs in parallel \linebreak
-Bulgarian-English news corpora. A representation is  proposed, that  handles bilingual pairs
+This work proposes a catenae-based modelling of aligned pairs in parallel \linebreak
+Bulgarian-English news corpora. A representation is  suggested that  handles bilingual pairs
 comprising at least one MWE. Our main aim is to offer a representation that
 deals equally well with cross-language symmetries and asymmetries.
 
-MWEs in each language were annotated independently from the alignments in
+In each language, MWEs were annotated independently from the alignments in
 the corpus. Then, using the alignments, we examined how MWEs were translated
 between the two languages. The following general alignment types of examples
-are considered: MWE-to-MWE; MWE-to-Word; MWE-to-phrases. This general
-typology is not exhaustive since, in most of the cases, another translation
+are considered: MWE-to-MWE; MWE-to-word; MWE-to-phrases. This general
+typology is not exhaustive since, and in most of the cases, another translation
 option could have been used. Thus, it is interesting to observe the lexical
 choices actually made in the parallel data.
 
 In our work we refer to the classifications of MWEs developed within \linebreak
 PARSEME
-(PARSing and Multi-word Expressions)\footnote{PARSEME is an
-interdisciplinary scientific network devoted to the role of multi-word
-expressions in parsing ---  IC1207 COST Action.
-\url{http://typo.uni-konstanz.de/parseme/}} in Working Groups 1 and 4 ---
+(PARSing and Multiword Expressions)\footnote{PARSEME is an
+interdisciplinary scientific network devoted to the role of multiword
+expressions in parsing --  IC1207 COST Action.} in Working Groups 1 and 4 --
 {WG1: Lexicon-Grammar Interface} and {WG4: Annotating MWEs in Treebanks}.
 The first one focuses on the linguistic properties of MWEs (structure,
-reflexes to alternations such as passivisation, etc) and is more detailed,
+reflexes to alternations such as passivisation, etc.) and is more detailed,
 while the second one is treebank-related and thus focuses on a different set
 of MWE features such as the structural correspondences among MWEs across
 languages and the distributions observed in corpora.
@@ -52,56 +43,57 @@ The results from the empirical study highlight at least the following
 issues: (1) realization options of different MWE types in two languages with
 different morphological complexity and word order; (2) a data-driven
 typology of alignment possibilities among various types of MWEs; (3)
-modeling the bilingual data with a catenae-based approach.
+modelling the bilingual data with a catenae-based approach.
 
 The paper is structured as follows: \sectref{RelatedWork} outlines the related
 work; \sectref{Catenae} introduces catenae in a more formal way and also
-describes the main operations over them;  \sectref{Sec:BCatenae} presents
+describes the main operations that can be applied on them;  \sectref{Sec:BCatenae} presents
 bilingual catenae;  \sectref{TheData} describes the parallel data and its
-classification;  \sectref{Sec:Conclusions} concludes the paper.
+classification; and  \sectref{Sec:Conclusions} concludes the paper.
 
 
 
 
-\section{Related Work}
+\section{Related work}
 \label{RelatedWork}
 
 This section comprises two parts: a discussion on MWE classification and a
 presentation of catenae. Concerning the former, there is extensive
-literature as regards the study of MWEs in a language and across languages,
-theoretical issues on MWE modelling, etc. Here only some of them are
-mentioned. Concerning the latter, to our best knowledge, this is the first
+literature regarding the study of MWEs within a language and across languages,
+theoretical issues on MWE modelling, etc. Here only some of them will be
+mentioned. To the best of our knowledge, this is the first
 attempt to use catenae for modelling bilingual or multilingual MWE
 correspondences.
 
-\subsection{MWE Classifications}
+\subsection{MWE classifications}
 
-There is no widely accepted \isi{classification} of MWEs \citep{Kordoni2012}. For
+\is{taxonomy|(}
+There is no widely accepted classification of MWEs \citep{Kordoni2012}. For
 the task of automatic recognition of MWEs in Bulgarian \cite{Stoyanova}
-adopts the classification of \cite{baldwin2003} that could be characterized
+adopts the classification of \cite{baldwin2003}. This classification  could be characterized
 as a semantically oriented division, since the MWEs are classified as
 non-decomposable by meaning, idiosyncratically decomposable and simple
 decomposable.
 
 In \citet{Sag:2002} another classification is proposed. The MWEs are divided
 into lexicalized phrases and institutionalized phrases. Here we do not
-consider institutionalized phrases (being semantically and syntactically
+consider institutionalized phrases (semantically and syntactically
 compositional, but statistically idiosyncratic) as a distinct group.
-Lexicalised phrases are further subdivided into fixed-expressions,
-semi-fixed expressions and syntactically-flexible expressions. Fixed
+Lexicalised phrases are further subdivided into fixed expressions,
+semi-fixed expressions and syntactically flexible expressions. Fixed
 expressions are said to be fully lexicalized and undergoing neither
 morphosyntactic variation nor internal modification. Semi-fixed expressions
 have a fixed word order, but “undergo some degree of lexical variation,
 e.g. in the form of inflection, variation in reflexive form, and determiner
-selection” \citet[4]{Sag:2002} (non-decomposable idioms, proper names).
-Syntactically-flexible expressions allow for some variation in their word
+selection,” \citet[4]{Sag:2002} including non-decomposable idioms and proper names.
+Syntactically flexible expressions allow for some variation in their word
 order (light verb constructions, decomposable idioms).
 
 On the multilinguality front, there are various approaches to different
 MWE-related problems. For example, in \citet{RCZ14.331} the multilingual
 annotation of light verb constructions is discussed for English, Spanish,
 German and Hungarian. The specific annotation properties of these elements
-in each language are described. Another popular task is the construction of
+ are described for each language. Another popular task is the construction of
 bi- or multilingual MWE lexicons on the base of parallel or comparable
 corpora. In \citet{Hyeong-WonSeo} a context-oriented method is proposed for
 French and Korean.
@@ -121,8 +113,8 @@ word:
 \end{enumerate}
 
 Some of these groups are further subdivided into subtypes: {\em Nominal
-MWEs} include named entities (NEs), nominal compounds as well as other
-nominal MWEs; {\em Verbal MWEs} include: phrasal verbs, light verb
+MWEs} including named entities (NEs), nominal compounds as well as other
+nominal MWEs and {\em verbal MWEs} including phrasal verbs, light verb
 constructions, VP idioms and other verb MWEs. Thus, the WG4 classification
 is syntax-based.
 
@@ -132,15 +124,19 @@ respect to flexibility, the WG1 approach differs from \citet{Sag:2002} in
 providing a coarser division between semi-flexible and flexible MWEs. With
 respect to idiomaticity, the classification is based on
 \citet{Baldwin2010}. It handles five types: lexical, syntactic, semantic,
-pragmatic and statistical idiomaticity. Our work deals with syntactic and
+pragmatic and statistical idiomaticity. Our work deals with the syntactic and
 semantic idiomaticity in a bilingual context.
+
+\is{taxonomy|)}
 
 \subsection{Catena}
 
-The notion of catena\is{catenae} `chain' was introduced in \citet[284]{OGrady:98} as a
+\is{catena|(}
+
+The notion of catena ``chain" was introduced in \citet[284]{OGrady:98} as a
 mechanism for representing the syntactic structure of idioms. He shows that
-for this task there is need for a definition of syntactic patterns that do
-not coincide with constituents. A variant of this definition was offered by \citet{Osborne2006}:
+for this task there is need for a definition of syntactic patterns
+not coinciding with constituents. A variant of this definition was offered by \citet{Osborne2006}:
 \begin{quotation}
 The words A, B, and C (order irrelevant)
 form a chain if and only if A immediately dominates B and C, or if and only
@@ -152,7 +148,7 @@ dependency representations. Catenae have been used successfully for the
 modelling of problematic language phenomena. \citet{Gross:2010:PACLIC2010}
 presents the morphological and syntactic problems that have led to the
 introduction of the subconstituent catena level. Constituency-based analysis
-has to deal with non-constituent structures in ellipsis, idioms, verb
+has to deal with non-constituent structures in ellipsis, idioms, and verb
 complexes.
 
 
@@ -164,8 +160,8 @@ catena as a mechanism for semantic encoding which overcomes the problems of
 long-distance paths and elliptical sentences. Also,
 \citet{SANGUINETTI14.674} present a catena-related approach for syntactic
 alignments in multilingual treebanks. In translation research, catenae are
-best known as "treelets" \citep{journals/mt/QuirkM06}. We employ catenae,
-that have already been used in NLP applications, to model the interface between the
+best known as ``treelets" \citep{journals/mt/QuirkM06}. We employ catenae,
+which have already been used in NLP applications, to model the interface between the
 treebank and the lexicon.
 
 A first attempt to formalise MWE information with catenae is discussed in
@@ -173,23 +169,23 @@ A first attempt to formalise MWE information with catenae is discussed in
 notions of our proposal.
 
 
-\section{Definition of Catena; Operations on Catenae}
+\section{Definition of catena. Operations on catenae}
 \label{Catenae}
 
 
-We follow the definition of catena\is{catenae} provided by \cite{OGrady:98} and
+We follow the definition of catena provided by \cite{OGrady:98} and
 \citet{Gross:2010:PACLIC2010}: a \textsc{catena} is a word or a combination of
 words directly connected with dominance relations. In fact, in the domain of
 dependency trees, this definition is equivalent to a subtree definition.
-Figure~\ref{fig:CatenaExamples} shows a complete dependency tree and some of
+\figref{fig:CatenaExamples} shows a complete dependency tree and some of
 its catenae. Notice that the complete tree is also a catena. Individual
 words are catenae, too. With ``root$_C$'' we mark the root of the catena
 that might be identical with the root of the complete tree, but it also
-might be different as are the cases of \textit{John} and \textit{an apple} in
-Figure~\ref{fig:CatenaExamples}.
+might be different as in the case of \textit{John} and \textit{an apple} in
+\figref{fig:CatenaExamples}.
 
 
-\begin{figure}[h]
+\begin{figure}
   \centering
 \begin{dependency}[theme = simple]
    \begin{deptext}[column sep=1em]
@@ -199,7 +195,7 @@ Figure~\ref{fig:CatenaExamples}.
       \depedge[thick]{2}{1}{{\normalsize subj}}
       \depedge[thick, label style={below}]{2}{3}{{\normalsize cc}}
       \depedge[thick]{2}{4}{{\normalsize conj}}
-      \depedge[thick]{2}{6}{{\normalsize iobj}}
+      \depedge[thick]{2}{6}{{\normalsize dobj}}
       \depedge[thick]{6}{5}{{\normalsize det}}
    \end{dependency}
 
@@ -241,8 +237,12 @@ non-decorated in the catena and allow for different mappings to dependency
 trees. When the catenae are not mapped on dependency trees, they are considered part of
 the lexicon or the grammar of a given language.
 
-We call the mapping of a catena onto a given dependency tree the \textsc{
-realization of the catena in the tree}. We consider the realization of the
+\is{catena|)}
+
+We call the mapping of a catena onto a given dependency tree \is{Dependency Grammar!dependency tree} the 
+%\textsc{realization of the catena in the tree}. 
+\emph{realization of the catena in the tree}. 
+We consider the realization of the
 catena as a fully specified subtree including all the nodes and arc labels.
 Each realization of a catena has to agree with its labeling outside of the
 dependency tree. For example, the catena for \textit{(to) spill the beans} will
@@ -251,7 +251,7 @@ beans} and \textit{he spills the beans}. Thus, the catena in the lexicon will be
 underspecified with respect to the grammatical features and word forms for
 the corresponding lexical items.
 
-\begin{figure}[h]
+\begin{figure}[t]
 %
 Lexical catena:
 %
@@ -263,14 +263,14 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=0.8em]
          Vpi \& Pp \& Nc \\
       -- \&  |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}си\end{otherlanguage*} \&
+\cyrbulg{си} \&
 |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}очите\end{otherlanguage*} \\
+\cyrbulg{очите} \\
   |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}си\end{otherlanguage*}
+\cyrbulg{затварям} \&
+|[cooltext=red]| \cyrbulg{си}
 \&  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}око\end{otherlanguage*} \\
+\cyrbulg{око} \\
   |[cooltext=green]| shut \&  |[cooltext=green]| one's \&
 |[cooltext=green]| eyes \\
    \end{deptext}
@@ -292,18 +292,18 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=0.75em]
          Nc \& Pp \& Vpi \& R \& Nc \\
   |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}Очите\end{otherlanguage*} \&
-|[cooltext=blue]|  \begin{otherlanguage*}{bulgarian}си\end{otherlanguage*}
-\&  \begin{otherlanguage*}{bulgarian}затваряха\end{otherlanguage*}
-\& \begin{otherlanguage*}{bulgarian}пред\end{otherlanguage*} \&
-\begin{otherlanguage*}{bulgarian}фактите\end{otherlanguage*} \\
+\cyrbulg{Очите} \&
+|[cooltext=blue]|  \cyrbulg{си}
+\&  \cyrbulg{затваряха}
+\& \cyrbulg{пред} \&
+\cyrbulg{фактите} \\
   |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}око\end{otherlanguage*} \&
-|[cooltext=red]|  \begin{otherlanguage*}{bulgarian}си\end{otherlanguage*}
+\cyrbulg{око} \&
+|[cooltext=red]|  \cyrbulg{си}
 \&  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-\begin{otherlanguage*}{bulgarian}пред\end{otherlanguage*} \&
-\begin{otherlanguage*}{bulgarian}факт\end{otherlanguage*} \\
+\cyrbulg{затварям} \&
+\cyrbulg{пред} \&
+\cyrbulg{факт} \\
   |[cooltext=green]| eyes \&  |[cooltext=green]| one's \&
 |[cooltext=green]| shut \& |[cooltext=pink]| at \& |[cooltext=pink]| facts
 \\
@@ -327,16 +327,16 @@ Realization 2:
 bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=0.75em]
          Np \& Pp \& Vpi \& Nc \\
-      \begin{otherlanguage*}{bulgarian}Иван\end{otherlanguage*} \&
-|[cooltext=blue]| \begin{otherlanguage*}{bulgarian}си\end{otherlanguage*}
-\& \begin{otherlanguage*}{bulgarian}затваряше\end{otherlanguage*}
+      \cyrbulg{Иван} \&
+|[cooltext=blue]| \cyrbulg{си}
+\& \cyrbulg{затваряше}
 \& |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}очите\end{otherlanguage*} \\
-      \begin{otherlanguage*}{bulgarian}Иван\end{otherlanguage*} \&
-|[cooltext=red]|\begin{otherlanguage*}{bulgarian}си\end{otherlanguage*} \&
+\cyrbulg{очите} \\
+      \cyrbulg{Иван} \&
+|[cooltext=red]|\cyrbulg{си} \&
 |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}око\end{otherlanguage*}
+\cyrbulg{затварям} \&
+|[cooltext=red]| \cyrbulg{око}
 \\
   |[cooltext=pink]| Ivan \&  |[cooltext=green]| one's \&  |[cooltext=green]|
 shut \& |[cooltext=green]| eyes\\
@@ -355,36 +355,20 @@ dobj}}
 
 \end{figure}
 
+\newpage 
+In this paper, the underspecified catena is called a 
+%\textsc{lexicon catena (LC)}  
+\emph{lexicon catena} (LC)  
+and it is stored in the lexical entries.
+\figref{fig:CatenaRealization} shows a lexical catena for the idiom 
+ \textit{\cyrbulg{затваря-м си оч-и-те}} (zatvarya-m si ochite) close-\textsc{prs.1sg} \textsc{refl} eye-\textsc{pl-def} shut one's eyes,\footnote{Examples contain the Bulgarian string in Cyrilic, its latin transcription placed in brackets and the gloss. A literal translation may follow in the form of an English text while translations are always enclosed in inverted commas (`').}  and two of its realizations. Catenae in the lexicon do not
+specify any particular word order.\footnote{Formalisation of the word order
+within the catena remains an open question for future work.} The word order of the catena realization reflects the rules of the grammar, therefore, the realisation of the same catena in different dependency trees could materialise with different word orders.
 
-In this paper, the underspecified catena is called a \textsc{ lexicon catena (LC)}
- and it is stored in the lexical entries.
-Figure~\ref{fig:CatenaRealization} shows a lexical catena for the idiom 
-\begin{otherlanguage*}{bulgarian}затваря-м си
-оч-и-те\end{otherlanguage*}, close-\textsc{PRS.1SG} \textsc{REFL} eye-\textsc{PL-DEF}, lit.
-`shut one's eyes' and two of its realizations. Catenae in the lexicon do not
-specify any particular word order\footnote{Formalisation of the word order
-within the catena remains an open question for future work.}. The word order
-of the catena realization reflects the rules of the grammar, therefore, the
-realisation of the same catena in different dependency trees could
-materialise with different word orders.
-
-The upper part of the image in Figure~\ref{fig:CatenaRealization} represents
-the lexicon catena for the idiom. It determines the fixed elements of the
-catena: arcs and their labels and nodes and their labels. More precisely, the
-following information is included: extended part of speech (PoS)\footnote{The
-extended parts of speech are defined as prefixes of the tags in the
-BulTreeBank tagset: \url{http://www.bultreebank.org/TechRep/BTB-TR03.pdf}}, word
-forms, and lemmas\footnote{In some examples we give the important
-information only, thus, some of these rows are missing. In some examples new
-rows are used to introduce additional information.}. The translations of the
-word form are presented, too. A dash (--) under a node indicates that the
-corresponding element is not defined for the given node. In Figure 2, the dash
-represents the fact that the word form for the verb node is
-underspecified, therefore the idiom can be marked with a variety of tense,
-person etc values.
+The upper part of the image in \figref{fig:CatenaRealization} represents the lexicon catena for the idiom. It determines the fixed elements of the catena: arcs and their labels as well as nodes and their labels. More precisely, the following information is included: extended part of speech (PoS),\footnote{The extended parts of speech are defined as prefixes of the tags in the BulTreeBank tagset: \url{http://www.bultreebank.org/TechRep/BTB-TR03.pdf}} word forms, and lemmas.\footnote{In some examples we give the important information only, thus, some of these rows are missing. In some examples new rows are used to introduce additional information.} The translations of the word form are presented, too. A dash (--) under a node indicates that the corresponding element is not defined for the given node. In \figref{fig:CatenaRealization}, the dash represents the fact that the word form for the verb node is underspecified, therefore the idiom can be marked with a variety of tense, person and other values.
 
 In the two realizations, the fixed elements of the catena are represented as
-in the lexicon catena. Thus, the lemmas are the same and the word forms, the
+in the \is{catena!lexicon catena} lexicon catena. Thus, the lemmas are the same as the word forms, the
 parts-of-speech and the grammatical features for the direct object and for
 the clitic are also the same. The realizations are different from the lexicon
 catenae with respect to the word forms and the grammatical features of the
@@ -394,8 +378,27 @@ order in the two realizations is different. Thus, the underspecified catenae
 representation allows for various levels of morphosyntactic and semantic
 flexibility within the multiword expressions.
 
-\begin{figure}[h]
-  \centering
+
+The catena representation of the lexical items explicitly denotes their
+properties that constrain their interaction. We proceed to show how we model
+the selectional restriction of a given lexical unit with respect to a catena
+in a sentence. The main operation for modelling the interactions among the
+catenae is called \is{catena!composition} \textsc{composition}. For example, let us assume that the
+verb \textit{to read} requires that its subject denotes a human and that its object
+denotes an information object. In \figref{fig:Compisition} we present how
+the catena for \textit{I read} is combined with the catena \textit{a book} in order to
+form the catena \textit{I read a book}. The figure represents the level of word
+forms and the level of semantics (specified only for the node, on which the
+composition is performed). The catena for \textit{I read \ldots} specifies that the
+unknown direct object has the semantics of an {\em Information Object}
+(InfObj). The catena for \textit{a book} represents the fact that the book is an
+Information Object. Thus the two catenae are composed on the two nodes
+marked as InfObj. The result is represented at the lower part of \figref{fig:Compisition}. We have
+defined the composition operation for catenae that agree with each other on
+one node; the operation can be defined on more agreeing nodes.
+
+\begin{figure}[t]
+   
 \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
@@ -437,120 +440,25 @@ bottom color=white, rounded corners = 2pt]
   \label{fig:Compisition}
 \end{figure}
 
-The catena representation of the lexical items explicitly denotes their
-properties that constrain their interaction. We proceed to show how we model
-the selectional restriction of a given lexical unit with respect to a catena
-in a sentence. The main operation for modeling the interactions among the
-catenae is called \textsc{composition}\is{catenae, composition}. For example, let us assume that the
-verb \textit{to read} requires that its subject denotes a human and that its object
-denotes an information object. In Figure~\ref{fig:Compisition} we present how
-the catena for \textit{I read} is combined with the catena \textit{a book} in order to
-form the catena \textit{I read a book}. The figure represents the level of word
-forms and the level of semantics (specified only for the node, on which the
-composition is performed). The catena for \textit{I read \ldots} specifies that the
-unknown direct object has the semantics of an {\em Information Object}
-(InfObj). The catena for \textit{a book} represents the fact that the book is an
-Information Object. Thus the two catenae are composed on the two nodes
-marked as InfObj. The result is represented at the lower part of Figure 3. We have
-defined the composition operation for catenae that agree with each other on
-one node; the operation can be defined on more agreeing nodes.
-
-In Figure~\ref{fig:LexEntryByagamFT} the structure of the lexical entry for
-the verb \begin{otherlanguage*}{bulgarian}бяга-м\end{otherlanguage*}, run-\textsc{PRS.SG}, `run' is presented in the sense `run away from facts'. The
-verb selects an indirect object in the form of a prepositional phrase
-introduced with the preposition
-\begin{otherlanguage*}{bulgarian}от\end{otherlanguage*} `from'. In
-Figure~\ref{fig:ZatvaryamSi} we give the catena for the synonymous MWE
-\begin{otherlanguage*}{bulgarian}затварям си
-очите\end{otherlanguage*}, close.\textsc{PRS.1SG} \textsc{REFL} \textsc{eye.PL}, `I close my
-eyes'.
+ 
+In \figref{fig:LexEntryByagamFT} the structure of the lexical entry for the verb  \textit{\cyrbulg{бяга-м}}  (byaga-m) run-\textsc{prs.sg} `run'  is presented in the sense `run away from facts'. The verb selects an indirect object in the form of a prepositional phrase introduced with the preposition \lnexlat{\cyrbulg{от}}{ot}{from}. In \figref{fig:ZatvaryamSi} we give the catena for the synonymous MWE \textit{\cyrbulg{затварям си очите}} (zatvaryam si ochite) close.\textsc{prs.1sg} \textsc{refl} eye\textsc{.pl} `I close my eyes'.
 
 
-The lexical entry of a MWE uses the format: a \textbf{ lexicon-catena}, \textbf{
-semantics} and \textbf{ valency}\footnote{The corresponding fields in the
-lexical entry (rows in the tables below) are marked as: LC, SM, Fr (for
-valency frames).}. Lexicon-catenae for the MWEs are stored in their
-canonical form. The semantics part of a lexical entry is represented with a
-logical formula comprising elementary predicates. The role of possible
-modifiers has to be specified in the lexicon-catena, if modification of the
-MWE is possible, for instance when structures with modifiers of
-the noun can be attested in the data. For example, the MWE \begin{otherlanguage*}{bulgarian}затварям си
-очите\end{otherlanguage*}, close.\textsc{PRS.1SG} \textsc{REFL} \textsc{eye.PL.DEF},  that is
-synonymous to the verb
-\begin{otherlanguage*}{bulgarian}бягам\end{otherlanguage*},
-run.\textsc{PRS.1SG}, is presented in Figure~\ref{fig:ZatvaryamSi}\footnote{The
-grammatical features are: `poss' for possessive pronoun, `plur' for plural
-number and `def' for definite noun.}. The valency level is built as follows:
-The root of the valency catena is marked with the identifier of the node in
-the lexical catena for which the particular valency representation is
-applicable. In Figure~\ref{fig:ZatvaryamSi} the valency representation is
-applicable to the root node CNo1 of the lexical catena. The two catenae are
-composed on this node. The composition is applied to the semantics of the
-lexical catena and of the valency catena.  Notice that the nodes No1 and No2
-are different from the nodes CNo1 and CNo2.
+The lexical entry of a MWE uses the format: a \textbf{ lexicon-catena}, \textbf{semantics} and \textbf{ valency}.\footnote{The corresponding fields in the lexical entry (rows in the tables below) are marked as: LC, SM, Fr (for valency frames).} Lexicon-catenae for the MWEs are stored in their canonical form. The semantics part of a lexical entry is represented with a logical formula comprising elementary predicates. The role of possible modifiers has to be specified in the lexicon-catena, if modification of the MWE is possible, for instance when structures with modifiers of the noun can be attested in the data. For example, the MWE \textit{\cyrbulg{затварям си очите}} (zatvaryam si ochite) close.\textsc{prs.1sg} \textsc{refl} eye\textsc{.pl.def}, which is synonymous to the verb \textit{\cyrbulg{бягам}} (byagam) run.\textsc{prs.1sg}, is presented in \figref{fig:ZatvaryamSi}.\footnote{The grammatical features are: `poss' for possessive pronoun, `plur' for plural number and `def' for definite noun.} The valency level is built as follows: the root of the valency catena is marked with the identifier of the node in the lexical catena for which the particular valency representation is applicable. In \figref{fig:ZatvaryamSi} the valency representation is applicable to the root node CNo1 of the lexical catena. The two catenae are composed on this node. The composition is applied to the semantics of the lexical catena and of the valency catena.  Note that the nodes No1 and No2 are different from the nodes CNo1 and CNo2.
 
-We use catenae to represent both single words and MWEs because single words
-are also catenae by definition.
+%\largerpage
 
-
-We can specify all the grammatical features of a lexical item using the
-formal definition of catena given above. The semantics defined in the
-lexical entry can be attached to each node in the lexicon-catena. In
-Figure~\ref{fig:LexEntryByagamFT} there is just one node of the
-lexicon-catena. In this document, we present only the set of elementary
-predicates rather than providing their full semantic structures because we
-focus on the principles of the representation \footnote{For  a full semantic
-representation we employ Minimal Recursion Semantics, introduced by
-\cite{copestake2005mrs}.}. In Fig.~\ref{fig:LexEntryByagamFT} the verb
-introduces three elementary predicates: {\em run-away-from}($e$, $x_0$,
-$x_1$), {\em fact}($x_1$), [1]($x_1$). The predicate {\em
-run-away-from}($e$, $x_0$, $x_1$) represents the event and its main
-participants: $x_0$, $x_1$. The predicate {\em fact}($x_1$) is part of the
-meaning of the verb in the sense that the agent represented by $x_0$ will
-run away from some fact. The underspecified predicate [1]($x_1$) has to be
-compatible with the predicate {\em fact}($x_1$). This predicate is used for
-incorporating the meaning of the indirect object \textit{at something} in the frame
-\textit{shut one's eyes at something}. The valency frame is given as a set of
-valency elements defined as a catena with a semantic description. The catena
-describes the basic structure of the valency element including the necessary
-lexical information, grammatical features, and the syntactic relation to the
-main lexical item. The semantic description determines the main semantic
-contribution of the frame element and is incorporated in the semantics of
-the whole lexical item with structural sharing. In
-Figure~\ref{fig:LexEntryByagamFT} there is only one frame element. It is
-introduced with the preposition
-\begin{otherlanguage*}{bulgarian}от\end{otherlanguage*} `from'. The
-semantics originates in the dependent noun, that has to be compatible with
-the predicate {\em fact}($x$) and in the underspecified predicate
-[1]($x_1$), that may introduce a specific predicate. Via the structure
-sharing index [1] this specific predicate is copied on the semantics of the
-main lexical item.
-
-
-The lexical entry in Figure 5 is similar to the one shown in
-Figure~\ref{fig:LexEntryByagamFT}. The main differences are: the
-lexicon-catena represents a MWE and not a single word. The semantics is the
-same, because the verb and the MWE are synonyms. The valency frame contains
-two alternative elements for indirect object introduced by two different
-prepositions. The conclusion that the two descriptions are alternatives
-follows from the fact that the verb has only an indirect object slot free. If
-there was a direct object slot free as well then the valency set would
-contain elements for it as well; however, in the MWE presented, the direct
-object slot is occupied by a fixed element.
-
-In a nutshell, catenae are an appropriate mechanism for representation of
-MWEs because they adequately encode the grammatical flexibility of some
-elements within the MWEs and also allow for the informative representation
-of single words.
 
 
 \twocolumn
 
 \verb+   +
 
-\begin{figure}[h]
+\verb+   +
+
+\begin{figure}
 \centering
-\begin{tabular}{|p{0.6cm}|p{4.4cm}|}
+\begin{tabular}{|p{0.5cm}|p{4.4cm}|}
 \hline
 LC &  \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
@@ -560,15 +468,14 @@ bottom color=white, rounded corners = 2pt]
          Vpi \\
          -- \\
       |[cooltext=blue]| -- \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}бягам\end{otherlanguage*} \\
+  |[cooltext=red]| \cyrbulg{бягам} \\
   |[cooltext=green]| run \\
   CNo1 \\
    \end{deptext}
       \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
 
    \end{dependency}   \\ \hline
-SM & CNo1: $\{$
+SM & CNo1:$\{$
 
 run-away-from($e$,$x_0$,$x_1$),
 
@@ -580,15 +487,9 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=1em]
          Vpi \& R \& N \\
          -- \& -- \& -- \\
-      |[cooltext=blue]| -- \& |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}от\end{otherlanguage*} \&
-|[cooltext=blue]| -- \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}бягам\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}от\end{otherlanguage*}
-\& |[cooltext=red]| -- \\
-  |[cooltext=green]| run \& |[cooltext=green]| from \& |[cooltext=green]| --
-\\
+      |[cooltext=blue]| -- \& |[cooltext=blue]| \cyrbulg{от} \& |[cooltext=blue]| -- \\
+  |[cooltext=red]| \cyrbulg{бягам} \& |[cooltext=red]| \cyrbulg{от} \& |[cooltext=red]| -- \\
+  |[cooltext=green]| run \& |[cooltext=green]| from \& |[cooltext=green]| -- \\
          CNo1 \& No1 \& No2 \\
    \end{deptext}
       \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
@@ -598,9 +499,9 @@ bottom color=white, rounded corners = 2pt]
 
   &
 \textbf{ Semantics (SM):}
-No2:
 
-\{ fact($x$), [1] ($x$) \} \\ \hline
+
+No2:$\{$ fact($x$), [1] ($x$) $\}$ \\ \hline
 
 \end{tabular}
 
@@ -608,97 +509,74 @@ No2:
   \label{fig:LexEntryByagamFT}
 \end{figure}
 
-\verb+   +
+\verb+  +
 
-\begin{figure}[h]
+\verb+  +
+
+\begin{figure}
 \centering
-\begin{tabular}{|p{0.6cm}|p{4.8cm}|}
+\begin{tabular}{|p{0.5cm}|p{4.7cm}|}
 \hline
 LC &  \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
-   \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
-bottom color=white, rounded corners = 2pt]
-   \begin{deptext}[column sep=1em]
+   \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60, bottom color=white, rounded corners = 2pt]
+   \begin{deptext}[column sep=0.5em]
          Vpi \& Pp \& Nc \\
          -- \& poss \& plur|def \\
-      -- \&  |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}си\end{otherlanguage*} \&
-|[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}очите\end{otherlanguage*} \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}си\end{otherlanguage*}
-\&  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}око\end{otherlanguage*} \\
-  |[cooltext=green]| shut \&  |[cooltext=green]| one's \&
-|[cooltext=green]| eyes \\
+|[cooltext=blue]| -- \&  |[cooltext=blue]| \cyrbulg{си} \& |[cooltext=blue]| \cyrbulg{очите} \\
+|[cooltext=red]| \cyrbulg{затварям} \& |[cooltext=red]| \cyrbulg{си} \&  |[cooltext=red]| \cyrbulg{око} \\
+|[cooltext=green]| shut \&  |[cooltext=green]| one's \& |[cooltext=green]| eyes \\
          CNo1 \& CNo2 \& CNo3 \\
-   \end{deptext}
-      \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
-      \depedge[edge style={wasp}, label style={wasp}, label
-style={below}]{1}{2}{{\normalsize clitic}}
-      \depedge[edge style={wasp}, label style={wasp}]{1}{3}{{\normalsize
-dobj}}
+\end{deptext}
+   \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
+   \depedge[edge style={wasp}, label style={wasp}, label style={below}]{1}{2}{{\normalsize clitic}}
+   \depedge[edge style={wasp}, label style={wasp}]{1}{3}{{\normalsize dobj}}
 \end{dependency}   \\ \hline
-SM & CNo1: $\{$
+SM & CNo1:$\{$
 
 run-away-from($e$,$x_0$,$x_1$),
 
 fact($x_1$), [1]($x_1$) $\}$   \\ \hline
 Fr & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
-   \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
-bottom color=white, rounded corners = 2pt]
-   \begin{deptext}[column sep=1em]
+   \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60, bottom color=white, rounded corners = 2pt]
+   \begin{deptext}[column sep=0.5em]
          Vpi \& R \& N \\
          -- \& -- \& -- \\
-      |[cooltext=blue]| -- \& |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}пред\end{otherlanguage*} \&
-|[cooltext=blue]| -- \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-|[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}пред\end{otherlanguage*} \&
-|[cooltext=red]| -- \\
-  |[cooltext=green]| shut \&  |[cooltext=green]| at \&
- |[cooltext=green]| -- \\
+      |[cooltext=blue]| -- \& |[cooltext=blue]| \cyrbulg{пред} \& |[cooltext=blue]| -- \\
+  |[cooltext=red]| \cyrbulg{затварям} \& |[cooltext=red]| \cyrbulg{пред} \& |[cooltext=red]| -- \\
+  |[cooltext=green]| shut \&  |[cooltext=green]| at \&  |[cooltext=green]| -- \\
          CNo1 \& No1 \& No2 \\
    \end{deptext}
       \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
       \depedge[thick]{1}{2}{{\normalsize iobj}}
       \depedge[thick]{2}{3}{{\normalsize pobj}}
-   \end{dependency}
-
+   \end{dependency}\\
+ &
 \textbf{ Semantics (SM):}
 
-No2:  \{ fact($x$), [1] ($x$) \} \\ \hline
+No2:$\{$ fact($x$), [1] ($x$) $\}$ \\ \hline
 
 Fr & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
 bottom color=white, rounded corners = 2pt]
-   \begin{deptext}[column sep=1em]
+   \begin{deptext}[column sep=0.5em]
          Vpi \& R \& N \\
          -- \& -- \& -- \\
-      |[cooltext=blue]| -- \& |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}за\end{otherlanguage*} \&
-|[cooltext=blue]| -- \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}затварям\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}за\end{otherlanguage*}
-\& |[cooltext=red]| -- \\
-  |[cooltext=green]| shut \&  |[cooltext=green]| for \&
-|[cooltext=green]| -- \\
+      |[cooltext=blue]| -- \& |[cooltext=blue]| \cyrbulg{за} \& |[cooltext=blue]| -- \\
+  |[cooltext=red]| \cyrbulg{затварям} \& |[cooltext=red]| \cyrbulg{за} \& |[cooltext=red]| -- \\
+  |[cooltext=green]| shut \&  |[cooltext=green]| for \& |[cooltext=green]| -- \\
          CNo1 \& No1 \& No2 \\
    \end{deptext}
       \deproot[thick, edge unit distance=2ex]{1}{{\normalsize root$_C$}}
       \depedge[thick]{1}{2}{{\normalsize iobj}}
       \depedge[thick]{2}{3}{{\normalsize pobj}}
-   \end{dependency}
-
+   \end{dependency}\\
+ &
 \textbf{ Semantics (SM):}
 
-No2:  \{ fact($x$), [1] ($x$) \} \\ \hline
+No2:$\{$ fact($x$), [1] ($x$) $\}$ \\ \hline
 
 \end{tabular}
   \caption{Lexical entry for {\em I close my eyes}.}
@@ -709,6 +587,22 @@ No2:  \{ fact($x$), [1] ($x$) \} \\ \hline
 \onecolumn
 
 
+We use catenae to represent both single words and MWEs because single words are also catenae by definition.
+
+We can specify all the grammatical features of a lexical item using the formal definition of catena given above. The semantics defined in the lexical entry can be attached to each node in the lexicon-catena. In \figref{fig:LexEntryByagamFT} there is just one node of the lexicon-catena. 
+In this paper, we present only the set of elementary predicates rather than providing their full semantic structures because we focus on the principles of the representation.\footnote{For a full semantic representation we employ \textit{Minimal Recursion Semantics}, introduced by \cite{copestake2005mrs}.} 
+In \figref{fig:LexEntryByagamFT} the verb introduces three elementary predicates: {\em run-away-from}($e$, $x_0$, $x_1$), {\em fact}($x_1$), [1]($x_1$). The predicate {\em run-away-from}($e$, $x_0$, $x_1$) represents the event and its main participants: $x_0$, $x_1$. The predicate {\em fact}($x_1$) is part of the meaning of the verb in the sense that the agent represented by $x_0$ will run away from some (unpleasant) situation. The underspecified predicate [1]($x_1$) has to be compatible with the predicate {\em fact}($x_1$). 
+This predicate is used for incorporating the meaning of the indirect object \textit{at something} in the frame \textit{shut one's eyes at something}. 
+The valency frame is given as a set of valency elements defined as a catena with a semantic description. The catena describes the basic structure of the valency element including the necessary lexical information, grammatical features, and the syntactic relation to the main lexical item. The semantic description determines the main semantic contribution of the frame element and is incorporated in the semantics of the whole lexical item with structural sharing. 
+In \figref{fig:LexEntryByagamFT} there is only one frame element. It is introduced with the preposition \lnexlat{\cyrbulg{от}}{ot}{from}. The semantics originates in the dependent noun that has to be compatible with the predicate {\em fact}($x$) and in the underspecified predicate [1]($x_1$), that may introduce a specific predicate. Via the structure sharing index [1], this specific predicate is copied on the semantics of the main lexical item.
+
+
+The lexical entry in \figref{fig:ZatvaryamSi} is similar to the one shown in \figref{fig:LexEntryByagamFT}. The main differences are: the lexicon-catena represents a MWE and not a single word. The semantics is the same, because the verb and the MWE are synonyms. The valency frame contains two alternative elements for indirect object introduced by two different prepositions. The conclusion that the two descriptions are alternatives follows from the fact that the verb has only a free indirect object slot. If a direct object slot was free as well then the valency set would contain elements to fill also this slot; however, in the MWE presented, the direct object slot is occupied by a fixed element.
+
+\largerpage
+In a nutshell, catenae are an appropriate mechanism for the representation of MWEs because they adequately encode the grammatical flexibility of some elements within the MWEs and also allow for the informative representation of single words.
+
+
 In the rest of the paper we extend the above lexicon model in order to
 handle correspondences among translation pairs with at least one MWE as a member.
 
@@ -716,60 +610,31 @@ handle correspondences among translation pairs with at least one MWE as a member
 
 \section{Bilingual catena modelling}
 \label{Sec:BCatenae}
-\is{catenae, bilingual modelling}
+\is{modelling!bilingual}
 
 In this section we show the treatment of the following bilingual types of
 pairs in Bulgarian and English: MWE-to-MWE and MWE-to-word. Our survey is
 corpus-driven and we have chosen to discuss the most frequent pairs in our
 data (see next section for data statistics).
 
-\textbf{ MWE-to-MWE}
+\subsection{ MWE-to-MWE}
 
 Let us consider the example:
 
-\textbf{ Example RD\footnote{We use a special notation after each example: RD,
+\ea
+\textsc{Example RD:}\footnote{We use a special notation after each example: RD,
 IG and CH for ensuring the correct connection with the corresponding
 pictures in Figures
-6, 7 and 8.}:} `reach a decision' 
-\begin{otherlanguage*}{bulgarian}взема
-решение\end{otherlanguage*}, take.\textsc{PRS.1SG} decision.
+\ref{fig:takedec}, \ref{fig:ingeneral}, and \ref{fig:CH}.} 
+\textit{\cyrbulg{взема решение}} (vzema reshenie) take.\textsc{prs.1sg} decision `reach a decision'.
+\z
+
+The two MWEs are flexible in several ways. First, the verb \textit{reach} (and the corresponding one in Bulgarian \lnexlat{\cyrbulg{взема}}{vzema}{take, get}) allow for morphological variation, including tense, person, etc. The noun \textit{decision} allows for pre- and post-modifiers as in: {\em we reached an important decision} or {\em they will reach a decision about us tomorrow}. The Bulgarian MWE presents the same behavior. \figref{fig:takedec} shows the lexical entry for the parallel MWEs that are modeled as catenae. In the lexical entries we can see the catenae for both MWEs. In the next row, the semantics of the parallel MWEs is represented with a set of elementary predicates coupled with a coindexation strategy between the semantics of the MWE and its frame semantics.
+
+In \figref{fig:takedec}, the indices [1] and [2] represent the unknown semantics of the modifying nouns. If no modification phrases exist, these predicates are assumed to express the most general one, namely {\em everything(x)}. Thus, the set $\{$take-\linebreak decision($e$,$x_0$,$x_1$), decision($x_1$,$x_2$), [1]($x_1$), problem($x_2$), [2]($x_2$)$\}$ represents the \linebreak meaning of the  MWE\footnote{The examples present light verb constructions that are translational equivalents between Bulgarian and English.}: event ``take-decision'' $e$ with two participants $x_1$ and $x_2$. The participant $x_0$ is the agent who takes the decision. The participant $x_1$ is the main argument of the predicate for the relational noun \textit{decision} that, being a two-argument predicate, introduces a third participant in the event, namely the problem that the decision is about, denoted with the variable $x_2$. If along with the lexicon catena the frame catena is also realized in the sentence, then the new predicates introduced by the corresponding nouns are added to the semantics of the new bigger catena. This mechanism of representing bilingual lexicon entries is suitable for the processing of the bilingual information including the shared representation of the semantics and correspondences between the grammatical features of the parallel realisations of the catenae in the different languages.
 
 
-The two MWEs are flexible in several ways. First, the verb \textit{reach} (and
-the corresponding one in Bulgarian взема `take, get' allow for
-morphological variation -  tense, person, etc. The noun \textit{decision} allows
-for pre- and post-modifiers as in: {\em we reached an important decision} or
-{\em they will reach a decision about us tomorrow}. The Bulgarian MWE
-presents the same behavior. Figure~\ref{fig:takedec} shows the lexical entry
-for the parallel MWEs that are modeled as catenae. In the lexical entries we
-can see the catenae for both MWEs. In the next row, the semantics of the
-parallel MWEs is represented with a set of elementary predicates coupled
-with a coindexation strategy between the semantics of the MWE and its
-frames' semantics.
-
-In Figure~\ref{fig:takedec}, the indices [1] and [2] represent the unknown
-semantics of the modifying nouns. If no modification phrases exist, these
-predicates are assumed to express the most general one, namely {\em
-everything(x)}. Thus, the set $\{$take-\linebreak decision($e$,$x_0$,$x_1$),
-decision($x_1$,$x_2$), [1]($x_1$), problem($x_2$), [2]($x_2$) $\}$
-represents the \linebreak meaning of the  MWE\footnote{The examples present light verb
-constructions that are translational equivalents bewteen Bulgarian and
-English}: event ``take-decision'' $e$ with two participants $x_1$ and
-$x_2$. The participant $x_0$ is the agent who takes the decision. The
-participant $x_1$ is the main argument of the predicate for the relational
-noun \textit{decision} that, being a two-argument predicate, introduces a third
-participant in the event, namely the problem that the decision is about,
-denoted with the variable $x_2$. If along with the lexicon catena the frame
-catena is also realized in the sentence, then the new predicates introduced
-by the corresponding nouns are added to the semantics of the new bigger
-catena. This mechanism of representing bilingual lexicon entries is
-suitable for the processing of the bilingual information including the
-shared representation of the semantics and correspondences between the
-grammatical features of the parallel realisations of the catenae in the
-different languages.
-
-
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 {\small
 \begin{tabular}{|p{0.5cm}|p{5.2cm}|p{5.2cm}|}
@@ -801,12 +666,8 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=1em]
          Vpi  \& Nc \\
          -- \&  sg|indef \\
-   |[cooltext=blue]|   -- \&   |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}решение\end{otherlanguage*} \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}взема\end{otherlanguage*} \&
-|[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}решение\end{otherlanguage*} \\
+   |[cooltext=blue]|   -- \&   |[cooltext=blue]| \cyrbulg{решение} \\
+  |[cooltext=red]| \cyrbulg{взема} \& |[cooltext=red]| \cyrbulg{решение} \\
   |[cooltext=green]| take \&  |[cooltext=green]| decision \\
          CNo1 \& CNo2 \\
    \end{deptext}
@@ -814,15 +675,11 @@ bottom color=white, rounded corners = 2pt]
       \depedge[edge style={wasp}, label style={wasp}]{1}{2}{{\normalsize
 dobj}}
 \end{dependency}   \\ \hline
-SM & CNo1: $\{$
-%
-take-decision($e$,$x_0$,$x_1$),
+SM & CNo1:$\{$take-decision($e$,$x_0$,$x_1$),
 
 decision($x_1$,$x_2$), [1]($x_1$),
 
-problem($x_2$), [2]($x_2$) $\}$ & CNo1: $\{$
-%
-take-decision($e$,$x_0$,$x_1$),
+problem($x_2$), [2]($x_2$) $\}$ & CNo1: $\{$take-decision($e$,$x_0$,$x_1$),
 
 decision($x_1$,$x_2$), [1]($x_1$),
 
@@ -844,8 +701,7 @@ bottom color=white, rounded corners = 2pt]
 \end{dependency}
 
 \textbf{ SM:}
-%
-No1:  \{ [1] ($x$) \} &
+No1:\{ [1] ($x$) \} &
 \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
@@ -853,10 +709,8 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=1em]
          A \& Nc \\
          indef \& sg|indef \\
-    |[cooltext=blue]|   -- \&  |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}решение\end{otherlanguage*} \\
-  |[cooltext=red]| -- \&  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}решение\end{otherlanguage*} \\
+    |[cooltext=blue]|   -- \&  |[cooltext=blue]| \cyrbulg{решение} \\
+  |[cooltext=red]| -- \&  |[cooltext=red]| \cyrbulg{решение} \\
   |[cooltext=green]| -- \& |[cooltext=green]| decision \\
          No1 \& CNo3 \\
    \end{deptext}
@@ -866,7 +720,7 @@ bottom color=white, rounded corners = 2pt]
 
 \textbf{ SM:}
 %
-No1:  \{ [1] ($x$) \} \\ \hline
+No1:\{ [1] ($x$) \} \\ \hline
 Fr & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
@@ -877,7 +731,7 @@ bottom color=white, rounded corners = 2pt]
     |[cooltext=blue]|  decision \& |[cooltext=blue]|  about \&
 |[cooltext=blue]|  --  \\
   |[cooltext=red]| decision \& |[cooltext=red]| about \&
-cooltext=red]|   -- \\
+|[cooltext=red]|   -- \\
  |[cooltext=green]| decision \&  |[cooltext=green]| about \&
 |[cooltext=green]| --  \\
          CNo1 \& No1 \& No2 \\
@@ -889,21 +743,19 @@ cooltext=red]|   -- \\
 
 \textbf{ SM:}
 %
-No1:  \{ problem($x$), [2]($x$) \} & \begin{dependency}[theme = simple]
+No1:\{ problem($x$), [2]($x$) \} & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
 bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=1em]
          Nc \& R \& Nc \\
          -- \& -- \& -- \\
-    |[cooltext=blue]|  -- \& |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}за\end{otherlanguage*} \&
+    |[cooltext=blue]|  -- \& |[cooltext=blue]| \cyrbulg{за} \&
 |[cooltext=blue]|  --  \\
-  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}решение\end{otherlanguage*} \&
-|[cooltext=red]| \begin{otherlanguage*}{bulgarian}за\end{otherlanguage*}
+  |[cooltext=red]| \cyrbulg{решение} \&
+|[cooltext=red]|  \cyrbulg{за}
 \& |[cooltext=red]|   -- \\
- |[cooltext=green]| решение \&  |[cooltext=green]| за \&
+ |[cooltext=green]| decision \&  |[cooltext=green]| about \&
 |[cooltext=green]| --  \\
          CNo1 \& No1 \& No2 \\
    \end{deptext}
@@ -914,22 +766,29 @@ bottom color=white, rounded corners = 2pt]
 
 \textbf{ SM:}
 %
-No2:  \{ problem($x$), [2]($x$) \} \\ \hline
+No2:\{ problem($x$), [2]($x$) \} \\ \hline
 \end{tabular}
 }
 \caption{Parallel Lexical Entries for the parallel MWEs: \textbf{ example RD}. }
   \label{fig:takedec}
 \end{figure}
 
-
+%\newpage 
 In some cases the lexical entry of the parallel MWEs might be quite simple,
 as in the following example:
 
-\textbf{ Example IG:} `in general',  \begin{otherlanguage*}{bulgarian}като
-цяло\end{otherlanguage*}, as whole.
+\ea
+\textsc{Example IG:}   \textit{\cyrbulg{като цяло}} (kato tsyalo) as whole `in general'.
+\z
 
 
-\begin{figure}[h]
+In \figref{fig:ingeneral} the adverbials share the same semantics. They do
+not have frames and they allow for no modification. Only the PoS assigned to
+their elements may be different.
+
+
+
+\begin{figure}
 \centering
 
 \begin{tabular}{|p{0.6cm}|p{4.8cm}|p{4.8cm}|}
@@ -957,14 +816,12 @@ bottom color=white, rounded corners = 2pt]
    \begin{deptext}[column sep=1em]
          R  \& Dm \\
          -- \&  -- \\
-      |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}като\end{otherlanguage*} \&
-|[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}цяло\end{otherlanguage*} \\
+      |[cooltext=blue]| \cyrbulg{като} \&
+|[cooltext=blue]| \cyrbulg{цяло} \\
   |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}като\end{otherlanguage*} \&
+\cyrbulg{като} \&
 |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}цяло\end{otherlanguage*} \\
+\cyrbulg{цяло} \\
   |[cooltext=green]| as \&  |[cooltext=green]| whole \\
          CNo1 \& CNo2 \\
    \end{deptext}
@@ -972,8 +829,8 @@ bottom color=white, rounded corners = 2pt]
       \depedge[edge style={wasp}, label style={wasp}]{1}{2}{{\normalsize
 pobj}}
 \end{dependency}  \\ \hline
-SM & CNo1: $\{$ generally($e$,$e_1$) $\}$
-& CNo1: $\{$ generally($e$,$e_1$) $\}$
+SM & CNo1:$\{$ generally($e$,$e_1$) $\}$
+& CNo1:$\{$ generally($e$,$e_1$) $\}$
   \\ \hline
 Fr & & \\ \hline
 \end{tabular}
@@ -981,43 +838,33 @@ Fr & & \\ \hline
   \label{fig:ingeneral}
 \end{figure}
 
-In Figure~\ref{fig:ingeneral} the adverbials share the same semantics. They do
-not have frames and they allow for no modification. Only the PoS assigned to
-their elements may be different.
 
-
-
-\textbf{ MWE-to-word}
+\subsection{MWE-to-word}
 
 Concerning the relation MWE-to-word irrespectively of the language
 direction,
 two main cases can be observed. The first one relates to functional PoS,
 such as the English preposition \textit{after} and the Bulgarian complementiser
-\begin{otherlanguage*}{bulgarian}след като\end{otherlanguage*},
-after when that are translational equivalents and have identical semantics
-but differ in PoS and some selectional properties.
+\textit{\cyrbulg{след като}} (sled kato) after when, that are translational equivalents and have identical semantics but differ in PoS and some selectional properties.
 
 A challenging problem occurs when non-functional counterparts are
 considered. For example, the term
-\textbf{ Example CH:} the English term \textit{chemicals} translates into the Bulgarian MWE
-\begin{otherlanguage*}{bulgarian}химическ-и
-продукт-и\end{otherlanguage*}, chemical-\textsc{PL} product-\textsc{PL}.
 
+\ea
+\textsc{Example CH:} the English term \textit{chemicals} translates into the Bulgarian MWE \textit{\cyrbulg{химическ-и продукт-и}}  (himichesk-i produkt-i) chemical-\textsc{PL} product-\textsc{PL} `chemical products'.
+\z
 
 Both expressions might be modified by adjectives, PPs or clauses:
-\textit{dangerous chemicals}, \textit{chemicals from airplanes}, and \textit{chemicals that
-are used by the pharmaceutical industry}. We find similar examples in
-Bulgarian like \begin{otherlanguage*}{bulgarian}отровни химически
-продукти\end{otherlanguage*}, poisonous.\textsc{PL} chemical.\textsc{PL} product.\textsc{PL}.
+\textit{{\bf dangerous} chemicals}, {\em chemicals {\bf from airplanes}}, and {\em chemicals {\bf that are used by the pharmaceutical industry}}. We find similar examples in Bulgarian like \textit{\cyrbulg{отровни химически продукти}}  (otrovni himicheski produkti) poisonous.\textsc{PL} chemical.\textsc{PL} product.\textsc{PL} `poisonous chemical products'.
 
-In Figure~\ref{fig:CH} a part of the parallel lexical entry for this example
+In \figref{fig:CH} a part of the parallel lexical entry for this example
 is presented. It can be seen that in the English part of the lexical entry
 there is a catena for a single word while in the Bulgarian part there is a
 catena for a noun phrase of type adjectival modifier - head noun. The catena
 for the Bulgarian MWE is underspecified for the word form and the
-grammatical features because the whole phrase might be definite:
-\begin{otherlanguage*}{bulgarian}химическите
-продукти\end{otherlanguage*},`the chemicals'. The English
+grammatical features because the whole phrase might be definite: \lnexlat{\cyrbulg{химически{\bf те} продукти}} 
+{himicheski{\bf te}
+produkti}{{\bf the} chemicals}. The English
 and the Bulgarian entries are specified for the same semantics. In the frame
 part of the lexical entries all possible modifications have to be defined
 (in the example just one of them is given, namely left modification with
@@ -1025,17 +872,17 @@ adjectives; however, modification with PPs has been encountered in the data,
 etc.). The important point here is that the lexicon catenae for the two
 languages have to contain appropriate correspondences of the frames in order
 to be proper translations of each other. The correspondences of the
-frames have to be established on semantic grounds -  the corresponding
+frames have to be established on semantic grounds -- the corresponding
 frames in the English and the Bulgarian part have to define the same
 semantic contributions to the lexical catenae.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 {\small
 %\bgroup
 %\def\arraystretch{2}%  1 is the default, change whatever you need
 %\def\tabularxcolumn#1{m{#1}}
-\begin{tabular}{ | p{0.5cm}| p{5.5cm}| p{5.5cm}|}
+\begin{tabular}{ | p{0.5cm}| p{5.3cm}| p{5.3cm}|}
 \hline
 LC & \begin{dependency}[theme = simple, x = 20mm, y = 10mm]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
@@ -1058,11 +905,11 @@ bottom color=white, rounded corners = 2pt]
          A  \& Nc \\
          -- \&  pl|indef \\
    |[cooltext=blue]|   -- \&   |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}продукти\end{otherlanguage*} \\
+\cyrbulg{продукти} \\
   |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}химически\end{otherlanguage*} \&
+\cyrbulg{химически} \&
 |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}продукт\end{otherlanguage*} \\
+\cyrbulg{продукт} \\
   |[cooltext=green]| chemical \&  |[cooltext=green]| products \\
          CNo1 \& CNo2 \\
    \end{deptext}
@@ -1070,8 +917,8 @@ bottom color=white, rounded corners = 2pt]
       \depedge[edge style={wasp}, label style={wasp}]{2}{1}{{\normalsize
 mod}}
 \end{dependency}  \\ \hline
-SM & CNo1: $\{$ chemical-product($x_0$), [1]($x$) $\}$
-& CNo2: $\{$ chemical-product($x_0$), [1]($x$) $\}$
+SM & CNo1:$\{$chemical-product($x_0$), [1]($x$)$\}$
+& CNo2:$\{$chemical-product($x_0$), [1]($x$)$\}$
   \\ \hline
 Fr & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
@@ -1089,7 +936,7 @@ bottom color=white, rounded corners = 2pt]
       \depedge[thick]{2}{1}{{\normalsize mod}}
 \end{dependency}
 
-\textbf{ SM:} No1:  $\{$ [1]($x$) $\}$  & \begin{dependency}[theme = simple]
+\textbf{ SM:} No1:$\{$ [1]($x$) $\}$  & \begin{dependency}[theme = simple]
    \tikzstyle{wasp}=[draw=red, text = red, thick, solid]
    \tikzstyle{cooltext}=[draw=#1!60!black, thick, shade, top color=#1!60,
 bottom color=white, rounded corners = 2pt]
@@ -1097,9 +944,9 @@ bottom color=white, rounded corners = 2pt]
          A \& Nc \\
          -- \& pl|indef \\
     |[cooltext=blue]|   -- \&  |[cooltext=blue]|
-\begin{otherlanguage*}{bulgarian}продукти\end{otherlanguage*} \\
+\cyrbulg{продукти} \\
   |[cooltext=red]| -- \&  |[cooltext=red]|
-\begin{otherlanguage*}{bulgarian}продукт\end{otherlanguage*} \\
+\cyrbulg{продукт} \\
   |[cooltext=green]| -- \& |[cooltext=green]| products \\
          No1 \& CNo2 \\
    \end{deptext}
@@ -1107,7 +954,7 @@ bottom color=white, rounded corners = 2pt]
       \depedge[thick]{2}{1}{{\normalsize mod}}
 \end{dependency}
 
-\textbf{ SM:} No1:  $\{$ [1]($x$) $\}$ \\ \hline
+\textbf{ SM:} No1:$\{$ [1]($x$) $\}$ \\ \hline
 Fr  & \ldots
 
 \textbf{ SM:} \ldots & \ldots
@@ -1120,27 +967,25 @@ Fr  & \ldots
   \label{fig:CH}
 \end{figure}
 
-The frame catena in Figure~\ref{fig:CH} marks the fact that the lexical catena
-can be modified by an adjectival modifier. The realization of such a modifier is additional to the realization of the adjectival modifier 
-\begin{otherlanguage*}{bulgarian}химическ-и\end{otherlanguage*}, chemical-\textsc{PL}
-that is a fixed part of the MWE. In the frame catena we mark only the nominal head of the MWE.
+The frame catena in \figref{fig:CH} marks the fact that the lexical catena
+can be modified by an adjectival modifier. The realization of such a modifier is additional to the realization of the adjectival modifier \textit{\cyrbulg{химическ-и}} (himichesk-i) chemical-\textsc{PL} that is a fixed part of the MWE. In the frame catena we mark only the nominal head of the MWE.
 
 Note that we do not aim at an exhaustive analysis of all the bilingual
-pairs. Our aim is to present a mechanism which would deal with both -
-symmetric (MWE-to-MWE) and asymmetric (MWE-to-Word) relations in
+pairs. Our aim is to present a mechanism which would deal with both\textemdash symmetric (MWE-to-MWE) and asymmetric (MWE-to-word) relations in
 translations. Our hypothesis is that the correspondences between the two
 languages in the lexicon have to be governed by the semantics of the lexical
 catenae and the semantic contribution of the possible frames. A consequence
-of this hypothesis is that in the lexicon we have to allow for correspondences
+of this hypothesis is that, in the lexicon, we have to allow for correspondences
 not only between MWEs, but also between MWEs and words, and between
 words/MWEs in one of the languages and compositional phrases in the other.
-
+ 
+%\newpage   
 \section{Classification of the parallel data}
 \label{TheData}
 
 
 In this section we provide a classification of parallel pairs that consist
-of two MWEs or a MWE and a word. For each class of correspondences the
+of two MWEs or an MWE and a word. For each class of correspondences the
 minimum information to be included in the lexical entries has been
 specified.
 The parallel Bulgarian-English newsmedia corpus consists of two parts: SETimes plus CSLI
@@ -1153,23 +998,23 @@ alignments did not mark the MWEs. For that reason, additional annotation was
 performed for detecting the alignments with MWEs in at least one of the two
 languages.
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{p{3.0cm}p{3.0cm}}
+\begin{table} 
+\begin{tabularx}{\textwidth}{QS}
 \lsptoprule
 %\hline
 & \textbf{Occurrences}\\
 \midrule
 MWE-to-MWE & 126 \\%\hline
-MWE-to-Word & 370 \\%\hline
-MWE-to-Phrase & 14 \\\hline
+MWE-to-word & 370 \\%\hline
+MWE-to-phrase & 14 \\\hline
 %\hline
 % &  & \hline
-Total & 370 \\%\hline
+Total & 510 \\%\hline
 % &  & \hline
 \lspbottomrule
-\end{tabular}
+\end{tabularx}
  \caption{General Classification.}
+ \label{tab:GenClass}
 \end{table}
 
 
@@ -1179,12 +1024,11 @@ MWE-to-word; MWE-to-MWE and MWE-to-compositional phrase in both language directi
 
 
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{p{3.0cm}p{3.0cm}}
+\begin{table} 
+\begin{tabularx}{\textwidth}{QS}
 \lsptoprule
 %\hline
-& \textbf{MWE-to-Word }\\
+& \textbf{MWE-to-word }\\
 \midrule
 Bulgarian MWE & 220 \\
 English MWE & 150 \\\hline
@@ -1193,42 +1037,38 @@ English MWE & 150 \\\hline
 Total & 370 \\%\hline
 % &  & \hline
 \lspbottomrule
-\end{tabular}
+\end{tabularx}
  \caption{MWE-to-Word classification.}
+ \label{tab:MWEWClass}
 \end{table}
 
 
-As shown in Table 1, 510 occurrences of MWEs were detected within these
-data. Of them, 370 MWEs are of type MWE-to-Word (for example the English
-\textit{within} is translated as \begin{otherlanguage*}{bulgarian}в
-рамките на\end{otherlanguage*}, in frame.\textsc{PL} of, within the
-framework of; 126 MWEs are of type MWE-to-MWE (for example the English
-\textit{with respect to} is translated as \begin{otherlanguage*}{bulgarian}що
-се отнася до\end{otherlanguage*}, as far as relate.\textsc{PRS.3SG} to,
+As shown in Table~\ref{tab:GenClass}, 510 occurrences of MWEs were detected within these
+data. 370 MWEs of these occurrences are of type MWE-to-word (for example the English
+\textit{within} is translated as \textit{\cyrbulg{в рамките на}} (v ramkite na) in frame.\textsc{PL} of); 126 MWEs are of type MWE-to-MWE (for example the English
+\textit{with respect to} is translated as \textit{\cyrbulg{що се отнася до}} (shto se otnasya do) as far as relate.\textsc{prs.3sg} to),
 and 14 MWEs are of type MWE-to-phrase (for example, the English
 \textit{take-it-or-leave it} is translated as
-\begin{otherlanguage*}{bulgarian}приемаш или се
-отказваш\end{otherlanguage*}, accept.\textsc{PRS.2SG} or refuse.\textsc{PRS.2SG} ).
+\textit{\cyrbulg{приемаш или се отказваш}} (priemash ili se otkazvash) accept.\textsc{prs.2sg} or refuse.\textsc{prs.2sg}).
 
-Table 2 shows the distribution of MWEs in the largest set, namely the set of
-the type MWE-to-Word: 220 Bulgarian and 150 English MWEs were detected.
+Table~\ref{tab:MWEWClass} shows the distribution of MWEs in the largest set, namely the set of the type MWE-to-word: 220 Bulgarian and 150 English MWEs were detected.
 
 %\section{Bilingual Classifications of Multiword Expressions}
 %\label{PARSEMEClassifications}
 
-Two types of classification are applied. First,  
-the aligned pairs are classified into three groups: MWE-to-MWE, MWE-to-Word and
-MWE-to-Phrase (see Table 1 and Table 2). This classification offers a coarse picture of the bilingual
+Two types of classification are applied. First,   
+the aligned pairs are classified into three groups: MWE-to-MWE, MWE-to-word and
+MWE-to-phrase (see Tables~\ref{tab:GenClass} and~\ref{tab:MWEWClass}). This classification offers a coarse picture of the bilingual
 situation. Then, the classification methods developed in PARSEME WG1 and WG4 are applied. These classifications draw on the structural and
 the semantic features of MWEs.
 
 When mapped to the PARSEME WG1/WG4 typologies, both languages showed very similar MWE properties. Thus, the most frequent MWE types in both languages
-are: {\em Verbal MWEs}; {\em Noun MWEs}; {\em Other categories of MWEs}.
+are: {\em verbal MWEs}; {\em noun MWEs}; {\em other categories of MWEs}.
 The language specific features are evident in the subtypes. Thus, 
-phrasal verbs and reflexive (formally or semantically) se-verbs seem to
+phrasal verbs and reflexive (formally or semantically) \textit{\cyrbulg{се}}-verbs seem to
 be the most frequently used verb MWEs in the English and Bulgarian data
 respectively. Both languages feature light verb constructions and VP idioms.
-Lastly, compounds are the most frequent type of noun MWEs in English and adjective-noun phrases in Bulgarian. 
+Lastly, compounds are the most frequent type of noun MWEs in English while adjective-noun phrases are in Bulgarian. 
 
 To present a slightly more detailed analysis of the correspondence type
 MWE-to-MWE, we use the WG1 classification (predominantly the syntactic and
@@ -1241,15 +1081,15 @@ Within the set of the {\em MWE-to-MWE pairs}, correspondences are grouped to str
 
 \subsection{ Straightforward mappings}
 
-This class includes: Verb MWEs (light verb constructions, VP idioms); Other
+The class of straightforward mappings includes: verb MWEs (light verb constructions, VP idioms) and other
 categories (adverbs, prepositions), etc.
 
 
-In this group of \isi{translational equivalents}, two main classes of Bulgarian- \linebreak English MWE pairs are identified:  pairs with cross-lingual
-variance that has to be considered in the lexicons, and MWEs with
-no cross-lingual variance that is trivially handled in the lexicon. In the first case the grammatical behaviour of the MWE elements in both languages has to
-be taken into account, such as the possibility of inflection for number, or of accepting modifiers. In the second case the MWE elements hardly undergo inflection 
-or modification, so the translational equivalents are registered in the lexicon without further elaboration on the behaviour of their elements.
+In this group of \isi{translation equivalent}, two main classes of Bul\-garian--Eng\-lish MWE pairs are identified:  pairs with cross-lingual
+variance that have to be considered in the lexicons, and MWEs with
+no cross-lingual variance that are trivially handled in the lexicon. In the first case, the grammatical behavior of the MWE elements in both languages has to
+be taken into account, such as the possibility of inflection for number, or of accepting modifiers. In the second case, the MWE elements hardly undergo inflection 
+or modification, so the translational equivalents are registered in the lexicon without further elaboration on the behavior of their elements.
  
 The first case includes verb and noun MWEs and the second one complex PoS and
 non-inflecting MWEs. 
@@ -1260,135 +1100,96 @@ Examples for the first group are given below:
 \item Light verbs in one language often correspond to similar constructions
 in the other. For instance,
 
-\verb+ + `reach a decision', \begin{otherlanguage*}{bulgarian}взем-а
-решение\end{otherlanguage*}, take-\textsc{PRS.1SG} decision\\ where V NP
-in English translates to V NP in Bulgarian
+\osenovaitem `reach a decision'  \textit{\cyrbulg{взем-а решение}}  (vzem-a reshenie) take-\textsc{prs.3sg} decision\\ where V NP
+in English translates to V NP in Bulgarian,
 
-\verb+ + `take effect',  \begin{otherlanguage*}{bulgarian}влез-е в
-сила\end{otherlanguage*}, enter-\textsc{PRS.3SG} in power 
+\osenovaitem `take effect'  \textit{\cyrbulg{влез-е в сила}}  (vlez-e v sila)  enter-\textsc{prs.3sg} in power, 
 
-\verb+ + `take control', \begin{otherlanguage*}{bulgarian}влез-е във
-владение\end{otherlanguage*}, enter-\textsc{PRS.3SG}  in possession\\
+\osenovaitem `take control' \textit{\cyrbulg{влез-е във владение}} (vlez-e vav vladenie) enter-\textsc{prs.3sg}  in possession\\
 where V NP translates to V PP.
 
 In this group the MWEs are assigned identical semantics, but they might
 differ in the elements and in valence selection.
 
-\item Noun MWEs of the type A N that are translational equivalents,
-often are literal translations of each other:
+\item Noun MWEs of the type A N that are translational equivalents, often are literal translations of each other:
 
-\verb+ + `tough line', \begin{otherlanguage*}{bulgarian}твърда
-позиция\end{otherlanguage*}, tough position
+\osenovaitem `tough line' \textit{\cyrbulg{твърда позиция}}  (tvarda pozitsiya) tough position,
 
-\verb+ +`free market', \begin{otherlanguage*}{bulgarian}свободни-я
-пазар\end{otherlanguage*}, free-\textsc{DEF} market
+\osenovaitem `free market' \textit{\cyrbulg{свободни-я пазар}}  (svobodni-ya pazar) free-\textsc{def} market,
 
-\verb+ + `real estate',
-\begin{otherlanguage*}{bulgarian}недвижимо-то
-имущество\end{otherlanguage*}, nonmoving-\textsc{DEF} estate'
+\osenovaitem `real estate' \textit{\cyrbulg{недвижимо-то имущество}}  (nedvizhimo-to imushtestvo) nonmoving-\textsc{def} property.
 
-The MWEs in this group share the same semantics and the same modification
-mechanisms.
+The MWEs in this group share the same semantics and the same modification mechanisms.
 
-\item The structure V NP tends to characterise both the members in pairs consisting of verb
-MWE translational equivalents:
+\item The structure V NP tends to characterise both members in pairs consisting of verb MWE translational equivalents:
 
-\verb+ + `is drawing fire',
-\begin{otherlanguage*}{bulgarian}привлич-а
-критик-и-те\end{otherlanguage*}, attract-\textsc{PRS.3SG} critic-\textsc{PL-DEF}.
+\osenovaitem `is drawing fire' \textit{\cyrbulg{привлич-а критик-и-те}} (privlich-a kritik-i-te) attract-\textsc{prs.3sg} critic.\textsc{pl-def},
 
-\verb+ + `haven't got a clue', \begin{otherlanguage*}{bulgarian}нямат
-представа\end{otherlanguage*}, not.have.\textsc{PRS.3PL} idea
+\osenovaitem `haven't got a clue'  \textit{\cyrbulg{няма-т представа}}  (nyama-t predstava) not.have.\textsc{prs.\\3pl} idea.
 
-The MWEs in this group are assigned the same semantics, but vary in
-their elements and in valence selection.
+The MWEs in this group are assigned the same semantics, but vary in their elements and valence selection.
 \end{itemize}
 
 Examples for the second group are given below:
 
 \begin{itemize}
-\item Multi-word adverbial constructions:
+\item Multiword adverbial constructions:
 
-\verb+ + `on the other hand', \begin{otherlanguage*}{bulgarian}от
-друга страна\end{otherlanguage*}, from other side
+\osenovaitem `on the other hand' \textit{\cyrbulg{от друга страна}}  (ot druga strana) from other side,
 
-\verb+ + `of course',  \begin{otherlanguage*}{bulgarian}разбир-а
-се\end{otherlanguage*}, understand-\textsc{PRS.3PL} \textsc{REFL}
+\osenovaitem `of course'  \textit{\cyrbulg{разбир-а се}} (razbir-a se) understand-\textsc{prs.3sg} \textsc{refl},
 
-\verb+ + `more and more', \begin{otherlanguage*}{bulgarian}все
-повече и повече\end{otherlanguage*}, even more and more
+\osenovaitem `more and more'  \textit{\cyrbulg{все повече и повече}} (vse poveche i poveche) even more and more,
 
-\verb+ + `in particular',\begin{otherlanguage*}{bulgarian}в
-частност\end{otherlanguage*}, in detail\\
-Here, however, the prepositional complement varies in the PoS across the two languages. For example, in the last translational equivalent the English
-prepositional complement  is the adjective \textit{particular}, while in Bulgarian it is the  noun \begin{otherlanguage*}{bulgarian}в
-частност\end{otherlanguage*}.
+\osenovaitem `in particular'  \textit{\cyrbulg{в частност}}  (v chastnost) in detail.\\
+Here, however, the prepositional complement varies in the PoS across the two languages. For example, in the last translational equivalent the English prepositional complement is the adjective \textit{particular}, while in Bulgarian it is the  noun \textit{\cyrbulg{частност}} (chastnost).
 
-The MWEs in this group are assigned the same semantics, but may vary in the
-elements. However, this difference is not taken into consideration, because
+The MWEs in this group are assigned the same semantics, but may vary in the elements. However, this difference is not taken into consideration, because
 the elements hardly inflect and do not
-allow for the insertion of additional elements.
+allow for insertion of additional elements.
 
-\item Complex prepositions in English tend to have structurally similar
-counterparts in Bulgarian. For instance,
+\item Complex prepositions in English tend to have structurally similar counterparts in Bulgarian. For instance,
 
-\verb+ + `with respect to', \begin{otherlanguage*}{bulgarian}що се
-отнас-я до\end{otherlanguage*}, as far as relates-\textsc{PRS.3SG} to
+\osenovaitem `with respect to' \textit{\cyrbulg{по отношение на}} (po otnoshenie na) at relation to.
 
 The MWEs in this group are assigned the same semantics, but since, presumably, they are assigned the same PoS and do not inflect, the element variance is not relevant.
 
 \item Conjunctions composed of multiple words:
 
-\verb+ + `as well as',  \begin{otherlanguage*}{bulgarian}кактои\end{otherlanguage*}, as and
+\osenovaitem `as well as'  \textit{\cyrbulg{както и}}  (kakto i)  as and.
 \end{itemize}
 %\item
-
-Like the complex preposition group, this group also contains MWEs that are
-assigned the same semantics and the same PoS; these MWEs do not inflect,
-therefore the element variance is not relevant.
-
+ 
+Like the complex preposition group, this group also contains MWEs that are assigned the same semantics and the same PoS; these MWEs do not inflect, therefore the element variance is not relevant.
+ 
 %\end{itemize}
 
-\subsection{ Cross-language specific types}
+\subsection{Cross-language specific types}
 
-Here we include English phrasal verbs having Bulgarian reflexive se-verbs as translational equivalents and English nominal compounds having Bulgarian \linebreak Other NP
-MWEs, mainly Adjective-Noun or Noun-Preposition-Noun, as translational
-equivalents.
-In this group, translational equivalents are assigned the same semantics,
-but they may present systematic structural differences due to language
-specific constructions. The elements in the MWEs always differ across
-languages.
+Here we include English phrasal verbs having Bulgarian reflexive \textit{\cyrbulg{се}}-verbs, as translational equivalents and English nominal compounds having Bulgarian  other NP MWEs, mainly adjective-noun or noun-preposition-noun, as translational equivalents.
+In this group, translational equivalents are assigned the same semantics, but they may present systematic structural differences due to language specific constructions. The elements in the MWEs always differ across languages.
 
 \begin{itemize}
 
-\item English phrasal verbs often correspond to Bulgarian se-verbs:
+\item English phrasal verbs often correspond to Bulgarian \textit{\cyrbulg{се}}-verbs:
 
-\verb+ + `give up', \begin{otherlanguage*}{bulgarian}се
-откаж-е\end{otherlanguage*}, \textsc{REFL} decline-\textsc{PRS.3SG}
+\osenovaitem `give up' \textit{\cyrbulg{се откаж-е}}  (se otkazh-e) \textsc{refl} decline-\textsc{prs.3sg},
 
-\verb+ + `move back', \begin{otherlanguage*}{bulgarian}се
-върн-ат\end{otherlanguage*}, \textsc{REFL} return-\textsc{PRS.3PL}
+\osenovaitem `move back' \textit{\cyrbulg{се върна-т}} (se varna-t)  \textsc{refl} return-\textsc{prs.3sg}.
 
-Bulgarian and English MWEs in this group may different in valency and in the
-way meaning is constructed. Thus, Bulgarian uses the lexical aspect and the
-reflexive се `se' to construct MWE meanings, while English uses the verb in
-combination with the phrasal affix.
+Bulgarian and English MWEs in this group may differ in valency and in the way meaning is constructed. Thus, Bulgarian uses the lexical aspect and the reflexive \textit{\cyrbulg{се}}  (se) to construct MWE meanings, while English uses the verb in combination with the phrasal affix.
 
-\item English N N compounds  can map to A N compounds in Bulgarian:
+\item English N N compounds can map to A N compounds in Bulgarian:
 
-\verb+ + `face amount', \begin{otherlanguage*}{bulgarian}номинална
-стойност\end{otherlanguage*}, nominal value
+\osenovaitem `face amount' \textit{\cyrbulg{номинална стойност}}  (nominalna stoynost) nominal value.
 
 The MWEs in this group differ in the PoS of the modifier of the head noun:
 with Bulgarian A N MWEs the head noun is modified by an adjective and with
-English N N MWEs  by a noun.
+English N N MWEs by a noun.
 
-\item English N N can also be translated as N PP in Bulgarian. The first
-N in the English MWEs and the PP in the Bulgarian MWEs make the same
-semantic contribution:
+\item English N N can also be translated as N PP in Bulgarian. The first N in the English MWEs and the PP in the Bulgarian MWEs make the same semantic contribution:
 
-\verb+ + `law enforcement', \begin{otherlanguage*}{bulgarian}сил-и-те
-на ред-а\end{otherlanguage*}, force-\textsc{PL-DEF} of order-\textsc{SG.DEF}
+\osenovaitem `law enforcement' \textit{\cyrbulg{сил-и-те на ред-а}} (sil-i-te na red-a) force-\textsc{pl-def} of order-\textsc{sg.def}.
 
 The MWEs in this group differ in the PoS of the modifier of the head noun:
 with Bulgarian N NP MWEs the head noun is modified by a PP and with English
@@ -1398,9 +1199,8 @@ N N MWEs by a noun.
 coordinated constructions in Bulgarian; however, the PoS of the coordinated
 constituents differs across the two languages:
 
-\verb+ + `pros and cons', \begin{otherlanguage*}{bulgarian}доводи за
-и против\end{otherlanguage*}, argument.\textsc{PL} for and against\\(N and N
-/ N P and P)
+\osenovaitem `pros and cons'  \textit{\cyrbulg{доводи за и против}}  (dovodi za i protiv) argument.\textsc{pl} for and against\\(N and N
+/ N p and p).
 
 The MWEs in this group differ in the head obligatoriness. In Bulgarian the
 head noun is present, while in English a head noun is only inferred.
@@ -1408,30 +1208,22 @@ head noun is present, while in English a head noun is only inferred.
 \item An English idiomatic clausal construction (V NP PP) can be translated
 with a light verb construction in Bulgarian:
 
-\verb+ + `putting pen to paper',
-\begin{otherlanguage*}{bulgarian}предприел
-действие\end{otherlanguage*}, take.\textsc{PTSP.3SG} action
+\osenovaitem  `putting pen to paper'  \textit{\cyrbulg{предприел действие}}  (predpriel deystvie)  take.\textsc{ptsp.3sg} action.
 
-The MWEs in this group differ with respect to modification and selectional
-properties. The English MWE does not seem to admit any modifiers, while its
-Bulgarian translational equivalent allows for them (for example,
-\begin{otherlanguage*}{bulgarian}предприел важно
-действие\end{otherlanguage*}, taken\textsc{PTSP.3SG}, important action
+The MWEs in this group differ with respect to modification and selectional properties. The English MWE does not seem to admit any modifiers, while its
+Bulgarian translational equivalent allows for them (for example, \textit{\cyrbulg{предприел {\bf важно} действие}}  (predpriel vazhno deystvie)  taken.\textsc{ptsp.3sg} {\bf important} action.
 
 \item English V AP can be translated in Bulgarian with minimal
 changes into V AdvP:
-
-\verb+ + `broke even', \begin{otherlanguage*}{bulgarian}са излезли
-начисто\end{otherlanguage*}, are come.out.\textsc{PRST.3SG} clean
+ 
+\osenovaitem  `broke even' \textit{\cyrbulg{са излезли начисто}}  (sa izlezli nachisto)  are come.out.\textsc{prst.3sg} clean.
 
 The  English adjective \textit{even}  translates into the Bulgarian adverb
-начисто `clean’.
+\lnexlat{\cyrbulg{начисто}}{nachisto}{clean}.
 
 \item English V PP  can be translated as V NP in Bulgarian:
 
-\verb+ + `will be priced of a job', \begin{otherlanguage*}{bulgarian}ще
-загубят работата си\end{otherlanguage*}, will
-lose.\textsc{PRS.3PL} job \textsc{DEF}
+\osenovaitem  `will be priced of a job' \textit{\cyrbulg{ще загубя-т работа-та си}} (shte zagubya-t rabota-ta si) will lose-\textsc{prs.3sg} job \textsc{def}.
 
 It is interesting to observe that an English passive construction  can be
 translated with a Bulgarian active construction. In such cases the
@@ -1441,9 +1233,7 @@ participants.
 
 %\end{itemize}
 
-Our work on the Bulgarian-English lexicon aims to provide representations
-for all these types of correspondence: the representations will be bilingual
-catena-based lexical entries.
+Our work on the Bulgarian-English lexicon aims to provide representations for all these types of correspondence: the representations will be bilingual catena-based lexical entries.
 
 
 \section{Conclusions}
@@ -1474,29 +1264,26 @@ subclassifications in a cross-lingual aspect.
 This research has received support by the EC's FP7 (FP7/2007-2013) under
 grant agreement number 610516: ``QTLeap: Quality Translation by Deep
 Language Engineering Approaches'' and by European COST Action IC1207:
-``PARSEME: PARSing and Multi-word Expressions. Towards linguistic precision
+``PARSEME: PARSing and Multiword Expressions. Towards linguistic precision
 and computational efficiency in natural language processing.''
 
 
+
 \section*{Abbreviations}
-
-\begin{table}
-\begin{tabular}{ll}
-\lsptoprule
-Full form  & Abbreviation \\
-\midrule
-definite noun & def \\
-Lexicon Catena & LC \\
-part of speech & PoS \\
-plural number & plur \\
-possessive pronoun & poss \\
-semantics & SM \\
-valency frames & Fr \\
-\lspbottomrule
-\end{tabular}
-\caption{Abbreviations.}
-\end{table}
-
+ 
+\begin{tabularx}{.45\textwidth}{lQ}
+ def & definite noun  \\
+\textsc{lc} & lexicon catena  \\
+\textsc{p}o\textsc{s} & part of speech \\
+plur & plural number  \\
+\end{tabularx}
+\begin{tabularx}{.45\textwidth}{lQ}
+poss & possessive pronoun  \\
+\textsc{sm} & semantics\\
+\textsc{f}r & valency frames  \\
+\\
+\end{tabularx} 
+% \todo{check abbr for smallcaps}
 
 {\sloppy
 \printbibliography[heading=subbibliography,notkeyword=this]

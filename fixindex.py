@@ -14,8 +14,7 @@ for k in INITD:
      
 transtable = str.maketrans(orig, trans)
 
-  
-p = re.compile(r"\\indexentry \{(.*)\|(\(?hyperpage|\)|infn)")
+p = re.compile(r"\\indexentry \{(.*?)@")
 
     
 def process(s): 
@@ -24,17 +23,16 @@ def process(s):
   m = p.match(s) 
   o = ''
   try:
-    o = m.groups(1)[0]
+    o = m.groups(1)[0] 
   except AttributeError:
     print(repr(s))
-  t = o.translate(transtable)
-  
+  t = o.translate(transtable) 
   for r in REPLACEMENTS:
     t = t.replace(r[0],r[1])
   if t == o:
     return s
-  else:
-    return s.replace(o,"%s@%s"%(t,o))
+  else:  
+    return s.replace("%s@"%o,"%s@"%t)
   
   
 
