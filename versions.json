@@ -4,5 +4,12 @@
     "title": "Multiword expressions: Insights from a multi-lingual perspective",
     "authors": [{"name": "Manfred Sailer"},{"name": "Stella Markantonatou"}],
     "publishedAt": "2017-10-18T00:00:33.000Z"
+  },{
+    "versiontype": "first_edition",
+    "title": "Multiword expressions: Insights from a multi-lingual perspective",
+    "authors": [{"name": "Manfred Sailer"},{"name": "Stella Markantonatou"}],
+    "publishedAt": "2018-05-18T00:00:33.000Z",
+    "license": "CC-BY-4.0",
+    "doi": "10.5281/zenodo.1182583"
   }]
 }
